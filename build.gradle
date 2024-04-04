@@ -88,6 +88,9 @@ dependencies {
 	modImplementation("net.glasslauncher:HowManyItems-Fabric-Unofficial:${project.howmanyitems_version}") {
 		transitive false
 	}
+	modImplementation("com.github.DanyGames2014:spawneggs:${project.spawneggs_version}") {
+		transitive false
+	}
 }
 
 processResources {
