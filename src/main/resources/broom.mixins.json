@@ -4,6 +4,13 @@
   "package": "me.huedev.broom.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "common.AxeItemMixin",
+    "common.CobwebBlockMixin",
+    "common.DeadBushBlockMixin",
+    "common.HoeItemMixin",
+    "common.PickaxeItemMixin",
+    "common.ShovelItemMixin",
+    "common.TallPlantBlockMixin"
   ],
   "server": [
   ],

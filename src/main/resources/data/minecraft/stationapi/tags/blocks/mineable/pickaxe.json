@@ -1,0 +1,17 @@
+{
+  "values": [
+    "minecraft:dispenser",
+    "minecraft:bricks",
+    "minecraft:powered_rail",
+    "minecraft:detector_rail",
+    "minecraft:rail",
+    "minecraft:furnace",
+    "minecraft:furnace_lit",
+    "minecraft:cobblestone_stairs",
+    "minecraft:iron_door",
+    "minecraft:redstone_ore",
+    "minecraft:redstone_ore_lit",
+    "minecraft:stone_button",
+    "minecraft:spawner"
+  ]
+}
