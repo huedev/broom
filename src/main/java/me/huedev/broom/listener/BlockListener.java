@@ -3,6 +3,7 @@ package me.huedev.broom.listener;
 import me.huedev.broom.block.BroomBlocks;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
+import net.modificationstation.stationapi.api.event.block.FireBurnableRegisterEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 
 public class BlockListener {
@@ -69,5 +70,16 @@ public class BlockListener {
         event.registry.getEntry(Block.LOCKED_CHEST).value().setTranslationKey("locked_chest");
 
         BroomBlocks.init();
+    }
+
+    @EventListener
+    private void registerBurnableBlocks(FireBurnableRegisterEvent event) {
+        event.addBurnable(BroomBlocks.OAK_LOG.id, 5, 5);
+        event.addBurnable(BroomBlocks.SPRUCE_LOG.id, 5, 5);
+        event.addBurnable(BroomBlocks.BIRCH_LOG.id, 5, 5);
+
+        event.addBurnable(BroomBlocks.OAK_LEAVES.id, 30, 60);
+        event.addBurnable(BroomBlocks.SPRUCE_LEAVES.id, 30, 60);
+        event.addBurnable(BroomBlocks.BIRCH_LEAVES.id, 30, 60);
     }
 }

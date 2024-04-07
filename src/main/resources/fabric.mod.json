@@ -20,9 +20,11 @@
   "entrypoints": {
     "stationapi:event_bus": [
       "me.huedev.broom.listener.BlockListener",
-      "me.huedev.broom.listener.ItemListener"
+      "me.huedev.broom.listener.ItemListener",
+      "me.huedev.broom.listener.RecipeListener"
     ],
     "stationapi:event_bus_client": [
+      "me.huedev.broom.listener.BlockColorListener"
     ],
     "stationapi:event_bus_server": [
     ],
