@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Broom",
-  "description": "Sweeps away the dust and cobwebs on b1.7.3, fixing bugs and tweaking existing features for a fresh experience.",
+  "description": "Sweeps away the dust on b1.7.3, fixing bugs and tweaking existing features for a fresh experience.",
   "authors": [
     "huedev"
   ],
@@ -19,10 +19,15 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
+      "me.huedev.broom.listener.BlockListener",
+      "me.huedev.broom.listener.ItemListener"
     ],
     "stationapi:event_bus_client": [
     ],
     "stationapi:event_bus_server": [
+    ],
+    "gcapi": [
+      "me.huedev.broom.Broom"
     ]
   },
   "mixins": [

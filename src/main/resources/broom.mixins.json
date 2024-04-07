@@ -5,12 +5,21 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "common.AxeItemMixin",
+    "common.BirchTreeFeatureMixin",
     "common.CobwebBlockMixin",
     "common.DeadBushBlockMixin",
+    "common.DyeItemMixin",
     "common.HoeItemMixin",
+    "common.LargeOakTreeFeatureMixin",
+    "common.OakTreeFeatureMixin",
     "common.PickaxeItemMixin",
+    "common.PineTreeFeatureMixin",
     "common.ShovelItemMixin",
-    "common.TallPlantBlockMixin"
+    "common.SlabBlockItemMixin",
+    "common.SlabBlockMixin",
+    "common.SpruceTreeFeatureMixin",
+    "common.TallPlantBlockMixin",
+    "common.WoolBlockItemMixin"
   ],
   "server": [
   ],
