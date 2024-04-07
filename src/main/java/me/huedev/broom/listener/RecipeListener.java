@@ -1,7 +1,6 @@
 package me.huedev.broom.listener;
 
-import me.huedev.broom.Broom;
-import me.huedev.broom.block.BroomBlocks;
+import me.huedev.broom.item.BroomItemTags;
 import me.huedev.broom.util.CraftingHelper;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
@@ -19,10 +18,8 @@ public class RecipeListener {
 
         switch (type != null ? type : RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED) {
             case CRAFTING_SHAPED -> {
-                // Craft separated logs into planks
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.PLANKS.asItem(), 4, 0), "X", 'X', new ItemStack(BroomBlocks.OAK_LOG.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.PLANKS.asItem(), 4, 0), "X", 'X', new ItemStack(BroomBlocks.SPRUCE_LOG.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.PLANKS.asItem(), 4, 0), "X", 'X', new ItemStack(BroomBlocks.BIRCH_LOG.asItem(), 1));
+                // Craft all logs into planks
+                CraftingRegistry.addShapedRecipe(new ItemStack(Block.PLANKS.asItem(), 4, 0), "X", 'X', BroomItemTags.LOGS);
 
                 // Slab crafting recipes give 6 Slabs
                 CraftingHelper.removeRecipe(Block.SLAB.asItem());
@@ -58,10 +55,8 @@ public class RecipeListener {
             }
 
             case SMELTING -> {
-                // Allow smelting separated logs into charcoal
-                SmeltingRegistry.addSmeltingRecipe(BroomBlocks.OAK_LOG.id, new ItemStack(Item.COAL, 1, 1));
-                SmeltingRegistry.addSmeltingRecipe(BroomBlocks.SPRUCE_LOG.id, new ItemStack(Item.COAL, 1, 1));
-                SmeltingRegistry.addSmeltingRecipe(BroomBlocks.BIRCH_LOG.id, new ItemStack(Item.COAL, 1, 1));
+                // Allow smelting separated all logs into charcoal
+                SmeltingRegistry.addSmeltingRecipe(BroomItemTags.LOGS, new ItemStack(Item.COAL, 1, 1));
 
                 // Allow smelting all ore blocks
                 SmeltingRegistry.addSmeltingRecipe(Block.COAL_ORE.id, new ItemStack(Item.COAL, 1, 0));
