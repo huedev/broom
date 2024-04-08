@@ -13,12 +13,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * @author paulevs
+ * @author paulevsGitch
  */
 public class BroomLogBlock extends TemplateBlock {
-    public BroomLogBlock(Identifier identifier) {
-        super(identifier, Material.WOOD);
-        setTranslationKey(identifier.toString());
+    public BroomLogBlock(Identifier id) {
+        super(id, Material.WOOD);
+        setTranslationKey(id.toString());
         setHardness(LOG.getHardness());
         setSoundGroup(WOOD_SOUND_GROUP);
         setDefaultState(getDefaultState().with(BroomBlockProperties.AXIS, Axis.Y));

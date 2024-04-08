@@ -19,6 +19,7 @@ import net.modificationstation.stationapi.api.block.States;
 import net.modificationstation.stationapi.api.item.ItemPlacementContext;
 import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.template.block.BlockTemplate;
+import net.modificationstation.stationapi.api.template.block.TemplateTranslucentBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.util.math.Direction;
 import net.modificationstation.stationapi.api.world.BlockStateView;
@@ -29,9 +30,9 @@ import java.util.Random;
 import java.util.function.Function;
 
 /**
- * @author paulevs
+ * @author paulevsGitch
  */
-public class BroomLeavesBlock extends class_307 implements BlockTemplate {
+public class BroomLeavesBlock extends TemplateTranslucentBlock {
     private static final Function<BlockState, BlockState> ACTIVATOR = state -> state.with(BroomBlockProperties.ACTIVE, true);
     private static final Function<BlockState, Boolean> LEAVES_FILTER = state -> state.isIn(BroomBlockTags.LEAVES);
     private static final Function<BlockState, Boolean> LOG_FILTER = state -> state.isIn(BroomBlockTags.LOGS);
@@ -70,13 +71,8 @@ public class BroomLeavesBlock extends class_307 implements BlockTemplate {
     }
 
     @Override
-    public void neighborUpdate(World world, int x, int y, int z, int blockId) {
-        checkLeaves(world, x, y, z, true);
-    }
-
-    @Override
     public void onTick(World world, int x, int y, int z, Random random) {
-        checkLeaves(world, x, y, z, false);
+        checkLeaves(world, x, y, z, true);
     }
 
     @Override
@@ -129,16 +125,5 @@ public class BroomLeavesBlock extends class_307 implements BlockTemplate {
         dropStacks(world, x, y, z, 0);
         world.setBlockState(x, y, z, States.AIR.get());
         world.method_246(x, y, z);
-
-        for (byte i = 0; i < 6; i++) {
-            Direction side = Direction.byId(i);
-            int px = x + side.getOffsetX();
-            int py = y + side.getOffsetY();
-            int pz = z + side.getOffsetZ();
-            state = world.getBlockState(px, py, pz);
-            if (state.getBlock() instanceof BroomLeavesBlock) {
-                world.method_216(px, py, pz, state.getBlock().id, 10 + world.field_214.nextInt(20));
-            }
-        }
     }
 }

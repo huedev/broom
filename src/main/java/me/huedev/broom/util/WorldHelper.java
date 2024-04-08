@@ -7,7 +7,7 @@ import net.modificationstation.stationapi.impl.world.chunk.FlattenedChunk;
 
 public class WorldHelper {
     /**
-     * @author paulevs
+     * @author paulevsGitch
      */
     public static void setBlockSilent(World world, int x, int y, int z, BlockState state) {
         FlattenedChunk chunk = (FlattenedChunk) world.method_214(x >> 4, z >> 4);

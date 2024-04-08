@@ -13,6 +13,9 @@ import net.modificationstation.stationapi.api.util.Identifier;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author paulevsGitch
+ */
 public class VanillaLeavesWrapper extends BroomLeavesBlock {
     private final int meta;
 
@@ -51,6 +54,6 @@ public class VanillaLeavesWrapper extends BroomLeavesBlock {
     public List<ItemStack> getDropList(World world, int x, int y, int z, BlockState state, int meta) {
         int count = LEAVES.getDroppedItemCount(world.field_214);
         if (count == 0) return Collections.emptyList();
-        return Collections.singletonList(new ItemStack(Block.SAPLING.id, count, this.meta));
+        return Collections.singletonList(new ItemStack(BroomBlocks.getSaplingByMeta(this.meta), count, 0));
     }
 }

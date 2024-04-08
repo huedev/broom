@@ -55,7 +55,7 @@ public class RecipeListener {
             }
 
             case SMELTING -> {
-                // Allow smelting separated all logs into charcoal
+                // Allow smelting all logs into charcoal
                 SmeltingRegistry.addSmeltingRecipe(BroomItemTags.LOGS, new ItemStack(Item.COAL, 1, 1));
 
                 // Allow smelting all ore blocks
@@ -82,6 +82,7 @@ public class RecipeListener {
                 FuelRegistry.addFuelItem(Item.WOODEN_DOOR, 200);
 
                 // 5 second fuel duration items (0.5 items)
+                FuelRegistry.addFuelTag(BroomItemTags.SAPLINGS, 100);
                 FuelRegistry.addFuelItem(Item.BOWL, 100);
                 FuelRegistry.addFuelItem(Block.WOOL.asItem(), 100);
             }

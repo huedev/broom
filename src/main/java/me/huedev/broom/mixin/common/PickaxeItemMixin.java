@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author paulevsGitch
+ */
 @Mixin(PickaxeItem.class)
 public class PickaxeItemMixin {
     @Shadow
     private static Block[] pickaxeEffectiveBlocks;
 
-    /**
-     * @author paulevs
-     */
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void broom_addEffectiveBlocks(CallbackInfo ci) {
         List<Block> blocks = new ArrayList<>(Arrays.asList(pickaxeEffectiveBlocks));

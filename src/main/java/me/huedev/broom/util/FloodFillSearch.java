@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * @author paulevs
+ * @author paulevsGitch
  */
 public class FloodFillSearch {
     private final List<IntList> buffers = new ArrayList<>();
