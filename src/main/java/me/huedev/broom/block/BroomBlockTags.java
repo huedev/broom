@@ -12,6 +12,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 public class BroomBlockTags {
     public static final TagKey<Block> LEAVES = getDefault("leaves");
     public static final TagKey<Block> LOGS = getDefault("logs");
+    public static final TagKey<Block> SAPLING_PLANTABLE_ON = get("sapling_plantable_on");
 
     private static TagKey<Block> get(String name) {
         return TagKey.of(BlockRegistry.KEY, Broom.id(name));

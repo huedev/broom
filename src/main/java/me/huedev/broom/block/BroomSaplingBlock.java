@@ -28,6 +28,15 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
     }
 
     @Override
+    public boolean canPlaceAt(World world, int x, int y, int z) {
+        return this.canPlantOn(world.getBlockState(x, y - 1, z));
+    }
+
+    protected boolean canPlantOn(BlockState state) {
+        return state.isIn(BroomBlockTags.SAPLING_PLANTABLE_ON);
+    }
+
+    @Override
     public void onTick(World world, int x, int y, int z, Random random) {
         if (!world.isRemote) {
             super.onTick(world, x, y, z, random);
