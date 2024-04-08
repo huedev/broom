@@ -8,6 +8,7 @@ import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.template.block.TemplatePlantBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
+import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Random;
 
@@ -37,9 +38,14 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
     }
 
     @Override
+    public void neighborUpdate(World world, int x, int y, int z, int id) {
+        this.breakIfInvalid(world, x, y, z);
+    }
+
+    @Override
     public void onTick(World world, int x, int y, int z, Random random) {
         if (!world.isRemote) {
-            super.onTick(world, x, y, z, random);
+            this.breakIfInvalid(world, x, y, z);
             if (world.method_255(x, y + 1, z) >= 9 && random.nextInt(30) == 0) {
                 BlockState state = world.getBlockState(x, y, z);
                 int stage = state.get(BroomBlockProperties.SAPLING_STAGE);
@@ -50,6 +56,19 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
                 }
             }
         }
+    }
+
+    @Unique
+    protected void breakIfInvalid(World world, int x, int y, int z) {
+        if (!this.canGrow(world, x, y, z)) {
+            this.dropStacks(world, x, y, z, world.getBlockMeta(x, y, z));
+            world.setBlock(x, y, z, 0);
+        }
+    }
+
+    @Override
+    public boolean canGrow(World world, int x, int y, int z) {
+        return (world.method_252(x, y, z) >= 8 || world.method_249(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package me.huedev.broom.mixin.common;
 
+import me.huedev.broom.block.BroomBlockTags;
 import me.huedev.broom.util.ToolHelper;
 import net.minecraft.block.DeadBushBlock;
 import net.minecraft.block.PlantBlock;
@@ -7,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.block.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,6 +24,34 @@ public class DeadBushBlockMixin extends PlantBlock {
 
     public DeadBushBlockMixin(int id, int textureId) {
         super(id, textureId);
+    }
+
+    @Override
+    public boolean canPlaceAt(World world, int x, int y, int z) {
+        return this.canPlantOn(world.getBlockState(x, y - 1, z));
+    }
+
+    @Unique
+    protected boolean canPlantOn(BlockState state) {
+        return state.isIn(BroomBlockTags.DEAD_BUSH_PLANTABLE_ON);
+    }
+
+    @Override
+    public void neighborUpdate(World world, int x, int y, int z, int id) {
+        this.breakIfInvalid(world, x, y, z);
+    }
+
+    @Unique
+    protected void breakIfInvalid(World world, int x, int y, int z) {
+        if (!this.canGrow(world, x, y, z)) {
+            this.dropStacks(world, x, y, z, world.getBlockMeta(x, y, z));
+            world.setBlock(x, y, z, 0);
+        }
+    }
+
+    @Override
+    public boolean canGrow(World world, int x, int y, int z) {
+        return (world.method_252(x, y, z) >= 8 || world.method_249(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
     }
 
     @Override
