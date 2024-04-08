@@ -1,5 +1,6 @@
 package me.huedev.broom.mixin.common;
 
+import me.huedev.broom.block.BroomBlockTags;
 import me.huedev.broom.block.BroomBlocks;
 import me.huedev.broom.util.WorldHelper;
 import net.minecraft.block.PlantBlock;
@@ -8,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +18,16 @@ import java.util.List;
 public class SaplingBlockMixin extends PlantBlock {
     public SaplingBlockMixin(int id, int textureId) {
         super(id, textureId);
+    }
+
+    @Override
+    public boolean canPlaceAt(World world, int x, int y, int z) {
+        return this.canPlantOn(world.getBlockState(x, y - 1, z));
+    }
+
+    @Unique
+    protected boolean canPlantOn(BlockState state) {
+        return state.isIn(BroomBlockTags.SAPLING_PLANTABLE_ON);
     }
 
     @Override
