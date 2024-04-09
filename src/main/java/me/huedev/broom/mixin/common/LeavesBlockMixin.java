@@ -31,7 +31,7 @@ public class LeavesBlockMixin extends class_307 {
 
     @Override
     public List<ItemStack> getDropList(World world, int x, int y, int z, BlockState state, int meta) {
-        int count = LEAVES.getDroppedItemCount(world.field_214);
+        int count = this.getDroppedItemCount(world.field_214);
         if (count == 0) return Collections.emptyList();
         return Collections.singletonList(new ItemStack(BroomBlocks.getSaplingByMeta(meta), count, 0));
     }

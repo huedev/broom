@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.modificationstation.stationapi.api.event.block.FireBurnableRegisterEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 
+@SuppressWarnings("unused")
 public class BlockListener {
     @EventListener
     private void registerBlocks(BlockRegistryEvent event) {

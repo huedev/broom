@@ -1,26 +1,45 @@
 package me.huedev.broom.mixin.common;
 
+import me.huedev.broom.block.BroomBlockTags;
+import me.huedev.broom.block.BroomBlocks;
 import me.huedev.broom.util.ToolHelper;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.block.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 @Mixin(TallPlantBlock.class)
-public class TallPlantBlockMixin extends PlantBlock {
+public abstract class TallPlantBlockMixin extends PlantBlock {
+    @Shadow public abstract int getDroppedItemId(int blockMeta, Random random);
+
     @Unique
     private boolean brokenByShears = false;
 
     public TallPlantBlockMixin(int id, int textureId) {
         super(id, textureId);
+    }
+
+    @Override
+    public boolean canPlaceAt(World world, int x, int y, int z) {
+        return this.canPlantOn(world.getBlockState(x, y - 1, z));
+    }
+
+    @Unique
+    protected boolean canPlantOn(BlockState state) {
+        return state.isIn(BroomBlockTags.DIRT);
     }
 
     @Override
@@ -36,12 +55,26 @@ public class TallPlantBlockMixin extends PlantBlock {
         }
     }
 
+    /*
     @Inject(at = @At("RETURN"), method = "getDroppedItemId", cancellable = true)
     public void broom_getDroppedItemId(int blockMeta, Random random, CallbackInfoReturnable<Integer> cir) {
         if (brokenByShears) {
             // TODO: Split Tall Grass and Ferns into separate blocks
             cir.setReturnValue(this.id);
             brokenByShears = false;
+        }
+    }
+    */
+
+    @Override
+    public List<ItemStack> getDropList(World world, int x, int y, int z, BlockState state, int meta) {
+        if (brokenByShears) {
+            return Collections.singletonList(new ItemStack(BroomBlocks.getGrassByMeta(meta)));
+        } else {
+            int id = this.getDroppedItemId(meta, world.field_214);
+            int count = this.getDroppedItemCount(world.field_214);
+            if (id == -1) return Collections.emptyList();
+            return Collections.singletonList(new ItemStack(id, count, 0));
         }
     }
 }

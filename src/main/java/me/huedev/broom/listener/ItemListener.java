@@ -4,6 +4,7 @@ import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 
+@SuppressWarnings("unused")
 public class ItemListener {
     @EventListener
     private void registerItems(ItemRegistryEvent event) {

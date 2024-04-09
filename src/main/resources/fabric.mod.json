@@ -24,7 +24,7 @@
       "me.huedev.broom.listener.RecipeListener"
     ],
     "stationapi:event_bus_client": [
-      "me.huedev.broom.listener.BlockColorListener"
+      "me.huedev.broom.listener.ColorListener"
     ],
     "stationapi:event_bus_server": [
     ],

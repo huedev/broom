@@ -27,7 +27,7 @@ public class SaplingBlockMixin extends PlantBlock {
 
     @Unique
     protected boolean canPlantOn(BlockState state) {
-        return state.isIn(BroomBlockTags.SAPLING_PLANTABLE_ON);
+        return state.isIn(BroomBlockTags.DIRT);
     }
 
     @Override

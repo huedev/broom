@@ -34,7 +34,7 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
     }
 
     protected boolean canPlantOn(BlockState state) {
-        return state.isIn(BroomBlockTags.SAPLING_PLANTABLE_ON);
+        return state.isIn(BroomBlockTags.DIRT);
     }
 
     @Override

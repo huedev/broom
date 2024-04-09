@@ -11,6 +11,7 @@ import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.recipe.FuelRegistry;
 import net.modificationstation.stationapi.api.recipe.SmeltingRegistry;
 
+@SuppressWarnings("unused")
 public class RecipeListener {
     @EventListener
     private void registerRecipes(RecipeRegisterEvent event) {
@@ -85,6 +86,7 @@ public class RecipeListener {
                 FuelRegistry.addFuelTag(BroomItemTags.SAPLINGS, 100);
                 FuelRegistry.addFuelItem(Item.BOWL, 100);
                 FuelRegistry.addFuelItem(Block.WOOL.asItem(), 100);
+                FuelRegistry.addFuelItem(Block.DEAD_BUSH.asItem(), 100);
             }
         }
     }

@@ -1,7 +1,9 @@
 package me.huedev.broom.block;
 
 import me.huedev.broom.Broom;
+import me.huedev.broom.gen.feature.BroomGrassPatchFeature;
 import net.minecraft.block.Block;
+import net.modificationstation.stationapi.api.bonemeal.BonemealAPI;
 
 public class BroomBlocks {
     public static Block OAK_LOG;
@@ -13,6 +15,8 @@ public class BroomBlocks {
     public static Block OAK_SAPLING;
     public static Block SPRUCE_SAPLING;
     public static Block BIRCH_SAPLING;
+    public static Block GRASS;
+    public static Block FERN;
 
     public static void init() {
         OAK_LOG = new BroomLogBlock(Broom.id("oak_log"));
@@ -24,6 +28,13 @@ public class BroomBlocks {
         OAK_SAPLING = new BroomSaplingBlock(Broom.id("oak_sapling"), Block.SAPLING.getTexture(0, 0));
         SPRUCE_SAPLING = new BroomSaplingBlock(Broom.id("spruce_sapling"), Block.SAPLING.getTexture(0, 1));
         BIRCH_SAPLING = new BroomSaplingBlock(Broom.id("birch_sapling"), Block.SAPLING.getTexture(0, 2));
+        GRASS = new BroomTallPlantBlock(Broom.id("grass"), Block.GRASS.getTexture(0, 1));
+        FERN = new BroomTallPlantBlock(Broom.id("fern"), Block.GRASS.getTexture(0, 2));
+
+        BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), new BroomGrassPatchFeature(), 10);
+        BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), BroomBlocks.FERN.getDefaultState(), 1);
+        BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), Block.DANDELION.getDefaultState(), 1);
+        BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), Block.ROSE.getDefaultState(), 1);
     }
 
     /**
@@ -54,5 +65,13 @@ public class BroomBlocks {
             case 2 -> BIRCH_SAPLING;
             default -> OAK_SAPLING;
         };
+    }
+
+    public static Block getGrassByMeta(int meta) {
+        if (meta == 2) {
+            return FERN;
+        } else {
+            return GRASS;
+        }
     }
 }

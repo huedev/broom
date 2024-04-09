@@ -6,9 +6,11 @@
   "mixins": [
     "common.AxeItemMixin",
     "common.BirchTreeFeatureMixin",
+    "common.BonemealAPIMixin",
     "common.CobwebBlockMixin",
     "common.DeadBushBlockMixin",
     "common.DyeItemMixin",
+    "common.GrassPatchFeatureMixin",
     "common.HoeItemMixin",
     "common.LargeOakTreeFeatureMixin",
     "common.LeavesBlockMixin",
