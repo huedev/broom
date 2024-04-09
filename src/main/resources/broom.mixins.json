@@ -4,6 +4,7 @@
   "package": "me.huedev.broom.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "client.ArsenicItemRendererMixin",
     "common.AxeItemMixin",
     "common.BirchTreeFeatureMixin",
     "common.BonemealAPIMixin",
@@ -11,6 +12,8 @@
     "common.CobwebBlockMixin",
     "common.DeadBushBlockMixin",
     "common.DyeItemMixin",
+    "common.FarmlandBlockMixin",
+    "common.FenceBlockMixin",
     "common.GrassPatchFeatureMixin",
     "common.HoeItemMixin",
     "common.LargeOakTreeFeatureMixin",
@@ -19,17 +22,23 @@
     "common.OakTreeFeatureMixin",
     "common.PickaxeItemMixin",
     "common.PineTreeFeatureMixin",
+    "common.PumpkinBlockMixin",
     "common.SaplingBlockMixin",
     "common.ShovelItemMixin",
     "common.SlabBlockItemMixin",
     "common.SlabBlockMixin",
     "common.SpruceTreeFeatureMixin",
     "common.TallPlantBlockMixin",
+    "common.TrapdoorBlockMixin",
     "common.WoolBlockItemMixin"
   ],
   "server": [
+    "server.class_70Mixin"
   ],
   "client": [
+    "client.InteractionManagerMixin",
+    "client.MultiplayerInteractionManagerMixin",
+    "client.SingleplayerInteractionManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

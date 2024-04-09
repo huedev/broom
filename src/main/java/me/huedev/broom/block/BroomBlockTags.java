@@ -10,6 +10,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
  * @author paulevsGitch
  */
 public class BroomBlockTags {
+    public static final TagKey<Block> REQUIRES_POWER = get("requires_power");
     public static final TagKey<Block> LEAVES = getDefault("leaves");
     public static final TagKey<Block> LOGS = getDefault("logs");
     public static final TagKey<Block> DIRT = get("dirt");

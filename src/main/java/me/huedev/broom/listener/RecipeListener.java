@@ -39,6 +39,10 @@ public class RecipeListener {
                 CraftingHelper.removeRecipe(Block.LADDER.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.LADDER.asItem(), 3), "X X", "XXX", "X X", 'X', new ItemStack(Item.STICK, 1));
 
+                // Trapdoor crafting recipe gives 6 Trapdoors
+                CraftingHelper.removeRecipe(Block.TRAPDOOR.asItem(), true);
+                CraftingRegistry.addShapedRecipe(new ItemStack(Block.TRAPDOOR.asItem(), 6), "XXX", "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
+
                 // Powered Rails crafting recipe gives 16 Powered Rails
                 CraftingHelper.removeRecipe(Block.POWERED_RAIL.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.POWERED_RAIL.asItem(), 16), "X X", "XYX", "XZX", 'X', new ItemStack(Item.GOLD_INGOT, 1), 'Y', new ItemStack(Item.STICK, 1), 'Z', new ItemStack(Item.REDSTONE, 1));
