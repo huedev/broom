@@ -55,17 +55,6 @@ public abstract class TallPlantBlockMixin extends PlantBlock {
         }
     }
 
-    /*
-    @Inject(at = @At("RETURN"), method = "getDroppedItemId", cancellable = true)
-    public void broom_getDroppedItemId(int blockMeta, Random random, CallbackInfoReturnable<Integer> cir) {
-        if (brokenByShears) {
-            // TODO: Split Tall Grass and Ferns into separate blocks
-            cir.setReturnValue(this.id);
-            brokenByShears = false;
-        }
-    }
-    */
-
     @Override
     public List<ItemStack> getDropList(World world, int x, int y, int z, BlockState state, int meta) {
         if (brokenByShears) {

@@ -7,6 +7,7 @@
     "common.AxeItemMixin",
     "common.BirchTreeFeatureMixin",
     "common.BonemealAPIMixin",
+    "common.ChestBlockMixin",
     "common.CobwebBlockMixin",
     "common.DeadBushBlockMixin",
     "common.DyeItemMixin",
