@@ -66,8 +66,8 @@ public class BlockListener {
         event.registry.getEntry(Block.NETHER_PORTAL).value().setTranslationKey("nether_portal");
         event.registry.getEntry(Block.JACK_O_LANTERN).value().setTranslationKey("jack_o_lantern");
         event.registry.getEntry(Block.SUGAR_CANE).value().setTranslationKey("sugar_cane");
-        event.registry.getEntry(Block.REPEATER).value().setTranslationKey("repeater");
-        event.registry.getEntry(Block.POWERED_REPEATER).value().setTranslationKey("repeater");
+        event.registry.getEntry(Block.REPEATER).value().setTranslationKey("repeater").setSoundGroup(Block.STONE_SOUND_GROUP);
+        event.registry.getEntry(Block.POWERED_REPEATER).value().setTranslationKey("repeater").setSoundGroup(Block.STONE_SOUND_GROUP);
         event.registry.getEntry(Block.LOCKED_CHEST).value().setTranslationKey("locked_chest");
 
         BroomBlocks.init();

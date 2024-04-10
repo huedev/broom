@@ -1,3 +1,16 @@
+gui.toMenu=Back to Title Screen
+
+performance.powersaver=Power Saver
+
+key.playerlist=List Players
+
+gameMenu.saveAndQuit=Save and Quit to Title
+gameMenu.disconnect=Disconnect
+gameMenu.backToGame=Back to Game
+gameMenu.options=Options...
+gameMenu.savingLevel=Saving Level...
+gameMenu.gameMenu=Game Menu
+
 tile.grass_block.name=Grass Block
 tile.cobblestone.name=Cobblestone
 tile.wooden_planks.name=Wooden Planks
