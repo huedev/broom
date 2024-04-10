@@ -12,6 +12,12 @@
     "minecraft:redstone_ore",
     "minecraft:redstone_ore_lit",
     "minecraft:stone_button",
-    "minecraft:spawner"
+    "minecraft:spawner",
+    "broom:stone_slab",
+    "broom:stone_double_slab",
+    "broom:sandstone_slab",
+    "broom:sandstone_double_slab",
+    "broom:cobblestone_slab",
+    "broom:cobblestone_double_slab"
   ]
 }

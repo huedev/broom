@@ -1,7 +1,7 @@
 package me.huedev.broom.mixin.common;
 
 import me.huedev.broom.block.BroomBlockProperties;
-import me.huedev.broom.block.BroomBlockProperties.ChestPart;
+import me.huedev.broom.block.BroomBlockProperties.ChestType;
 import me.huedev.broom.util.WorldHelper;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -38,7 +38,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(BroomBlockProperties.FACING, BroomBlockProperties.CHEST_PART);
+        builder.add(BroomBlockProperties.FACING, BroomBlockProperties.CHEST_TYPE);
     }
 
     @Override
@@ -50,7 +50,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
 
         BlockState chest = getDefaultState().with(BroomBlockProperties.FACING, facing);
         if (player != null && player.method_1373()) {
-            return chest.with(BroomBlockProperties.CHEST_PART, ChestPart.SINGLE);
+            return chest.with(BroomBlockProperties.CHEST_TYPE, ChestType.SINGLE);
         }
 
         Direction side = facing.rotateCounterclockwise(Direction.Axis.Y);
@@ -58,12 +58,12 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
         BlockState sideState = world.getBlockState(sidePos);
         if (
                 sideState.isOf(this) &&
-                        sideState.get(BroomBlockProperties.CHEST_PART) == ChestPart.SINGLE &&
+                        sideState.get(BroomBlockProperties.CHEST_TYPE) == ChestType.SINGLE &&
                         sideState.get(BroomBlockProperties.FACING) == facing
         ) {
-            sideState = sideState.with(BroomBlockProperties.CHEST_PART, ChestPart.LEFT);
+            sideState = sideState.with(BroomBlockProperties.CHEST_TYPE, ChestType.LEFT);
             WorldHelper.setBlockSilent(world, sidePos.getX(), sidePos.getY(), sidePos.getZ(), sideState);
-            return chest.with(BroomBlockProperties.CHEST_PART, ChestPart.RIGHT);
+            return chest.with(BroomBlockProperties.CHEST_TYPE, ChestType.RIGHT);
         }
 
         side = facing.rotateClockwise(Direction.Axis.Y);
@@ -71,31 +71,31 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
         sideState = world.getBlockState(sidePos);
         if (
                 sideState.isOf(this) &&
-                        sideState.get(BroomBlockProperties.CHEST_PART) == ChestPart.SINGLE &&
+                        sideState.get(BroomBlockProperties.CHEST_TYPE) == ChestType.SINGLE &&
                         sideState.get(BroomBlockProperties.FACING) == facing
         ) {
-            sideState = sideState.with(BroomBlockProperties.CHEST_PART, ChestPart.RIGHT);
+            sideState = sideState.with(BroomBlockProperties.CHEST_TYPE, ChestType.RIGHT);
             WorldHelper.setBlockSilent(world, sidePos.getX(), sidePos.getY(), sidePos.getZ(), sideState);
-            return chest.with(BroomBlockProperties.CHEST_PART, ChestPart.LEFT);
+            return chest.with(BroomBlockProperties.CHEST_TYPE, ChestType.LEFT);
         }
 
-        return chest.with(BroomBlockProperties.CHEST_PART, ChestPart.SINGLE);
+        return chest.with(BroomBlockProperties.CHEST_TYPE, ChestType.SINGLE);
     }
 
     @Override
     public void beforeBlockRemoved(World world, int x, int y, int z) {
         BlockState state = world.getBlockState(x, y, z);
         if (!state.isOf(this)) return;
-        ChestPart part = state.get(BroomBlockProperties.CHEST_PART);
-        if (part == ChestPart.SINGLE) return;
+        ChestType part = state.get(BroomBlockProperties.CHEST_TYPE);
+        if (part == ChestType.SINGLE) return;
         Direction facing = state.get(BroomBlockProperties.FACING);
-        Direction side = part == ChestPart.RIGHT ? facing.rotateCounterclockwise(Direction.Axis.Y) : facing.rotateClockwise(Direction.Axis.Y);
+        Direction side = part == ChestType.RIGHT ? facing.rotateCounterclockwise(Direction.Axis.Y) : facing.rotateClockwise(Direction.Axis.Y);
         x += side.getOffsetX();
         y += side.getOffsetY();
         z += side.getOffsetZ();
         state = world.getBlockState(x, y, z);
         if (state.isOf(this)) {
-            WorldHelper.setBlockSilent(world, x, y, z, state.with(BroomBlockProperties.CHEST_PART, ChestPart.SINGLE));
+            WorldHelper.setBlockSilent(world, x, y, z, state.with(BroomBlockProperties.CHEST_TYPE, ChestType.SINGLE));
         }
     }
 
@@ -115,14 +115,14 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
         Inventory inventory = (Inventory) world.method_1777(x, y, z);
         BlockState state = world.getBlockState(x, y, z);
 
-        ChestPart part = state.get(BroomBlockProperties.CHEST_PART);
-        if (part == ChestPart.SINGLE) {
+        ChestType part = state.get(BroomBlockProperties.CHEST_TYPE);
+        if (part == ChestType.SINGLE) {
             player.method_486(inventory);
             return;
         }
 
         Direction facing = state.get(BroomBlockProperties.FACING);
-        Direction side = part == ChestPart.RIGHT ? facing.rotateCounterclockwise(Direction.Axis.Y) : facing.rotateClockwise(Direction.Axis.Y);
+        Direction side = part == ChestType.RIGHT ? facing.rotateCounterclockwise(Direction.Axis.Y) : facing.rotateClockwise(Direction.Axis.Y);
         x += side.getOffsetX();
         y += side.getOffsetY();
         z += side.getOffsetZ();
@@ -154,7 +154,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
             info.setReturnValue(this.textureId);
             return;
         }
-        ChestPart part = state.get(BroomBlockProperties.CHEST_PART);
+        ChestType part = state.get(BroomBlockProperties.CHEST_TYPE);
         int offset = facing.getId() == side ? 0 : 1;
         switch (part) {
             case RIGHT -> offset = facing.getId() == side ? 31 : 16;

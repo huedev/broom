@@ -17,6 +17,14 @@ public class BroomBlocks {
     public static Block BIRCH_SAPLING;
     public static Block GRASS;
     public static Block FERN;
+    public static Block STONE_SLAB;
+    public static Block STONE_DOUBLE_SLAB;
+    public static Block SANDSTONE_SLAB;
+    public static Block SANDSTONE_DOUBLE_SLAB;
+    public static Block WOODEN_SLAB;
+    public static Block WOODEN_DOUBLE_SLAB;
+    public static Block COBBLESTONE_SLAB;
+    public static Block COBBLESTONE_DOUBLE_SLAB;
 
     public static void init() {
         OAK_LOG = new BroomLogBlock(Broom.id("oak_log"));
@@ -30,11 +38,32 @@ public class BroomBlocks {
         BIRCH_SAPLING = new BroomSaplingBlock(Broom.id("birch_sapling"), Block.SAPLING.getTexture(0, 2));
         GRASS = new BroomTallPlantBlock(Broom.id("grass"), Block.GRASS.getTexture(0, 1));
         FERN = new BroomTallPlantBlock(Broom.id("fern"), Block.GRASS.getTexture(0, 2));
+        STONE_SLAB = new BroomSlabBlock(Broom.id("stone_slab"), Block.STONE);
+        STONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("stone_double_slab"), Block.STONE);
+        SANDSTONE_SLAB = new BroomSlabBlock(Broom.id("sandstone_slab"), Block.SANDSTONE);
+        SANDSTONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("sandstone_double_slab"), Block.SANDSTONE);
+        WOODEN_SLAB = new BroomSlabBlock(Broom.id("wooden_slab"), Block.PLANKS);
+        WOODEN_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("wooden_double_slab"), Block.PLANKS);
+        COBBLESTONE_SLAB = new BroomSlabBlock(Broom.id("cobblestone_slab"), Block.COBBLESTONE);
+        COBBLESTONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("cobblestone_double_slab"), Block.COBBLESTONE);
+
+        connectSlabs(STONE_SLAB, STONE_DOUBLE_SLAB);
+        connectSlabs(SANDSTONE_SLAB, SANDSTONE_DOUBLE_SLAB);
+        connectSlabs(WOODEN_SLAB, WOODEN_DOUBLE_SLAB);
+        connectSlabs(COBBLESTONE_SLAB, COBBLESTONE_DOUBLE_SLAB);
 
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), new BroomGrassPatchFeature(), 10);
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), BroomBlocks.FERN.getDefaultState(), 1);
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), Block.DANDELION.getDefaultState(), 1);
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), Block.ROSE.getDefaultState(), 1);
+    }
+
+    /**
+     * @author paulevsGitch
+     */
+    private static void connectSlabs(Block slab, Block doubleSlab) {
+        ((BroomSlabBlock) slab).setDoubleSlabBlock(doubleSlab);
+        ((BroomDoubleSlabBlock) doubleSlab).setSlabBlock(slab);
     }
 
     /**
@@ -73,5 +102,29 @@ public class BroomBlocks {
         } else {
             return GRASS;
         }
+    }
+
+    /**
+     * @author paulevsGitch
+     */
+    public static Block getSlabByMeta(int meta) {
+        return switch (meta & 3) {
+            case 1 -> SANDSTONE_SLAB;
+            case 2 -> WOODEN_SLAB;
+            case 3 -> COBBLESTONE_SLAB;
+            default -> STONE_SLAB;
+        };
+    }
+
+    /**
+     * @author paulevsGitch
+     */
+    public static Block getDoubleSlabByMeta(int meta) {
+        return switch (meta & 3) {
+            case 1 -> SANDSTONE_DOUBLE_SLAB;
+            case 2 -> WOODEN_DOUBLE_SLAB;
+            case 3 -> COBBLESTONE_DOUBLE_SLAB;
+            default -> STONE_DOUBLE_SLAB;
+        };
     }
 }

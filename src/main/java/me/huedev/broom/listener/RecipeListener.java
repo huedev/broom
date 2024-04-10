@@ -1,5 +1,6 @@
 package me.huedev.broom.listener;
 
+import me.huedev.broom.block.BroomBlocks;
 import me.huedev.broom.item.BroomItemTags;
 import me.huedev.broom.util.CraftingHelper;
 import net.mine_diver.unsafeevents.listener.EventListener;
@@ -24,10 +25,10 @@ public class RecipeListener {
 
                 // Slab crafting recipes give 6 Slabs
                 CraftingHelper.removeRecipe(Block.SLAB.asItem());
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.SLAB.asItem(), 6, 0), "XXX", 'X', new ItemStack(Block.STONE.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.SLAB.asItem(), 6, 1), "XXX", 'X', new ItemStack(Block.SANDSTONE.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.SLAB.asItem(), 6, 2), "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.SLAB.asItem(), 6, 3), "XXX", 'X', new ItemStack(Block.COBBLESTONE.asItem(), 1));
+                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.STONE_SLAB.asItem(), 6, 0), "XXX", 'X', new ItemStack(Block.STONE.asItem(), 1));
+                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.SANDSTONE_SLAB.asItem(), 6, 1), "XXX", 'X', new ItemStack(Block.SANDSTONE.asItem(), 1));
+                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.WOODEN_SLAB.asItem(), 6, 2), "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
+                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.COBBLESTONE_SLAB.asItem(), 6, 3), "XXX", 'X', new ItemStack(Block.COBBLESTONE.asItem(), 1));
 
                 // Stairs crafting recipes give 8 Stairs
                 CraftingHelper.removeRecipe(Block.WOODEN_STAIRS.asItem(), true);
@@ -73,6 +74,7 @@ public class RecipeListener {
                 FuelRegistry.addFuelItem(Item.BOAT, 1200);
 
                 // 15 second fuel duration items (1.5 items)
+                FuelRegistry.addFuelItem(BroomBlocks.WOODEN_DOUBLE_SLAB.asItem(), 150);
                 FuelRegistry.addFuelItem(Item.BOW, 300);
                 FuelRegistry.addFuelItem(Item.FISHING_ROD, 300);
                 FuelRegistry.addFuelItem(Block.LADDER.asItem(), 300);
@@ -85,6 +87,9 @@ public class RecipeListener {
                 FuelRegistry.addFuelItem(Item.WOODEN_SWORD, 200);
                 FuelRegistry.addFuelItem(Item.SIGN, 200);
                 FuelRegistry.addFuelItem(Item.WOODEN_DOOR, 200);
+
+                // 7.5 second fuel duration items (0.75 items)
+                FuelRegistry.addFuelItem(BroomBlocks.WOODEN_SLAB.asItem(), 150);
 
                 // 5 second fuel duration items (0.5 items)
                 FuelRegistry.addFuelTag(BroomItemTags.SAPLINGS, 100);

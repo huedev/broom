@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=top": { "model": "broom:block/stone_slab_top" },
+    "half=bottom": { "model": "broom:block/stone_slab_bottom" }
+  }
+}
