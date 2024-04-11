@@ -1,5 +1,6 @@
 package me.huedev.broom.listener;
 
+import me.huedev.broom.item.BroomItems;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
@@ -82,5 +83,7 @@ public class ItemListener {
         event.registry.getEntry(Item.REPEATER).value().setTranslationKey("repeater");
         event.registry.getEntry(Item.RECORD_THIRTEEN).value().setTranslationKey("music_disc");
         event.registry.getEntry(Item.RECORD_CAT).value().setTranslationKey("music_disc");
+
+        BroomItems.init();
     }
 }

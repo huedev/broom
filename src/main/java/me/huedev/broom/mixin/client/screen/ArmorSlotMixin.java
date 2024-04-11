@@ -1,5 +1,7 @@
-package me.huedev.broom.mixin.client;
+package me.huedev.broom.mixin.client.screen;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.slot.Slot;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,6 +16,7 @@ public class ArmorSlotMixin extends Slot {
     }
 
     @Override
+    @Environment(EnvType.CLIENT)
     public int method_471() {
         return 7355608;
     }

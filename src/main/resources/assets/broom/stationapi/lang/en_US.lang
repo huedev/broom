@@ -27,3 +27,5 @@ tile.wooden_slab.name=Wooden Slab
 tile.wooden_double_slab.name=Wooden Double Slab
 tile.cobblestone_slab.name=Cobblestone Slab
 tile.cobblestone_double_slab.name=Cobblestone Double Slab
+
+item.music_disc.name=Music Disc
