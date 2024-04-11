@@ -4,12 +4,12 @@ performance.powersaver=Power Saver
 
 key.playerlist=List Players
 
-gameMenu.saveAndQuit=Save and Quit to Title
-gameMenu.disconnect=Disconnect
-gameMenu.backToGame=Back to Game
-gameMenu.options=Options...
-gameMenu.savingLevel=Saving Level...
-gameMenu.gameMenu=Game Menu
+game_menu.save_and_quit=Save and Quit to Title
+game_menu.disconnect=Disconnect
+game_menu.back_to_game=Back to Game
+game_menu.options=Options...
+game_menu.saving_level=Saving Level...
+game_menu.game_menu=Game Menu
 
 tile.grass_block.name=Grass Block
 tile.cobblestone.name=Cobblestone

@@ -1,4 +1,4 @@
-package me.huedev.broom.mixin.client;
+package me.huedev.broom.mixin.client.render;
 
 import net.modificationstation.stationapi.impl.client.arsenic.renderer.render.ArsenicItemRenderer;
 import org.spongepowered.asm.mixin.Mixin;

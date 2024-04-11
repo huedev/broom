@@ -1,4 +1,12 @@
-game_menu.save_and_quit.name=
+options.fov=FOV
+options.fov.default=Default
+options.fov.max=Quake Pro
+options.clouds=Clouds
+options.cloud_height=Cloud Height
+options.fps_limit=FPS Limit
+options.fps_limit.max=Unlimited
+
+key.dismount=Dismount
 
 tile.oak_log.name=Oak Log
 tile.spruce_log.name=Spruce Log

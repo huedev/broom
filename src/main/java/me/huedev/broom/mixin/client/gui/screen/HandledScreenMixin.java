@@ -1,4 +1,4 @@
-package me.huedev.broom.mixin.client;
+package me.huedev.broom.mixin.client.gui.screen;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;

@@ -1,4 +1,4 @@
-package me.huedev.broom.mixin.client;
+package me.huedev.broom.mixin.client.gui.hud;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.client.Minecraft;

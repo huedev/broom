@@ -1,4 +1,4 @@
-package me.huedev.broom.mixin.client;
+package me.huedev.broom.mixin.client.render;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.render.block.BlockRenderManager;

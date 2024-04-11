@@ -1,4 +1,4 @@
-package me.huedev.broom.mixin.client;
+package me.huedev.broom.mixin.client.item;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

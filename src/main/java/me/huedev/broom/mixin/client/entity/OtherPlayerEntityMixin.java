@@ -1,4 +1,4 @@
-package me.huedev.broom.mixin.client;
+package me.huedev.broom.mixin.client.entity;
 
 import net.minecraft.client.network.OtherPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;

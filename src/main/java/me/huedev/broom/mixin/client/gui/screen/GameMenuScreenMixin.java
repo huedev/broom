@@ -1,4 +1,4 @@
-package me.huedev.broom.mixin.client;
+package me.huedev.broom.mixin.client.gui.screen;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -14,31 +14,31 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class GameMenuScreenMixin extends Screen {
     @ModifyConstant(method = "init", constant = @Constant(stringValue = "Save and quit to title"))
     private String broom_localizeQuitButtonText(String value) {
-        return I18n.getTranslation("gameMenu.saveAndQuit");
+        return I18n.getTranslation("game_menu.save_and_quit");
     }
 
     @ModifyConstant(method = "init", constant = @Constant(stringValue = "Disconnect"))
     private String broom_localizeDisconnectButtonText(String value) {
-        return I18n.getTranslation("gameMenu.disconnect");
+        return I18n.getTranslation("game_menu.disconnect");
     }
 
     @ModifyConstant(method = "init", constant = @Constant(stringValue = "Back to game"))
     private String broom_localizeBackToGameButtonText(String value) {
-        return I18n.getTranslation("gameMenu.backToGame");
+        return I18n.getTranslation("game_menu.back_to_game");
     }
 
     @ModifyConstant(method = "init", constant = @Constant(stringValue = "Options..."))
     private String broom_localizeOptionsButtonText(String value) {
-        return I18n.getTranslation("gameMenu.options");
+        return I18n.getTranslation("game_menu.options");
     }
 
     @ModifyConstant(method = "render", constant = @Constant(stringValue = "Saving level.."))
     private String broom_localizeSavingLevelText(String value) {
-        return I18n.getTranslation("gameMenu.savingLevel");
+        return I18n.getTranslation("game_menu.saving_level");
     }
 
     @ModifyConstant(method = "render", constant = @Constant(stringValue = "Game menu"))
     private String broom_localizeGameMenuText(String value) {
-        return I18n.getTranslation("gameMenu.gameMenu");
+        return I18n.getTranslation("game_menu.game_menu");
     }
 }
