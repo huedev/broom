@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "common.BonemealAPIMixin",
+    "common.FuelRegistryAccessor",
     "common.block.BedBlockMixin",
     "common.block.BookshelfBlockMixin",
     "common.block.CakeBlockMixin",
@@ -61,7 +62,11 @@
     "common.item.PickaxeItemMixin",
     "common.item.ShovelItemMixin",
     "common.item.SignItemMixin",
-    "common.item.SlabBlockItemMixin"
+    "common.item.SlabBlockItemMixin",
+    "common.screen.CraftingScreenHandlerMixin",
+    "common.screen.DispenserScreenHandlerMixin",
+    "common.screen.FurnaceScreenHandlerMixin",
+    "common.screen.ScreenHandlerMixin"
   ],
   "server": [
     "server.class_70Mixin"
@@ -79,6 +84,7 @@
     "client.InGameHudMixin",
     "client.InteractionManagerMixin",
     "client.LivingEntityRendererMixin",
+    "client.MinecraftAccessor",
     "client.MinecraftAppletMixin",
     "client.MinecraftMixin",
     "client.MultiplayerInteractionManagerMixin",

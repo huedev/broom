@@ -30,6 +30,9 @@
     ],
     "gcapi": [
       "me.huedev.broom.Broom"
+    ],
+    "gcapi:factory_provider": [
+      "me.huedev.broom.util.ShiftClickFromContainersBehaviorEnumFactory"
     ]
   },
   "mixins": [

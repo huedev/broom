@@ -1,5 +1,6 @@
 package me.huedev.broom;
 
+import me.huedev.broom.util.ShiftClickFromContainersBehaviorEnum;
 import net.glasslauncher.mods.api.gcapi.api.ConfigName;
 import net.glasslauncher.mods.api.gcapi.api.GConfig;
 import net.glasslauncher.mods.api.gcapi.api.MultiplayerSynced;
@@ -20,6 +21,10 @@ public class Broom {
     public static ConfigFields config = new ConfigFields();
 
     public static class ConfigFields {
+        @ConfigName("Shift-Click from Containers Behavior")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(integerValue = 0)
+        public ShiftClickFromContainersBehaviorEnum shiftClickOutOfContainersBehavior = ShiftClickFromContainersBehaviorEnum.VANILLA;
     }
 
     public static Identifier id(String name) {
