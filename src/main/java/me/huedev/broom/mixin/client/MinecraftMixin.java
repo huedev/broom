@@ -99,6 +99,11 @@ public class MinecraftMixin {
         this.canvas.setBounds(0, 0, this.displayWidth, this.displayHeight);
     }
 
+    @Redirect(method = "run", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;method_2111(J)V"))
+    private void broom_disableDebugGraph(Minecraft instance, long l) {
+
+    }
+
     @Unique
     public int broom_getPickBlockId(int pickedBlockId, int blockId, int blockMeta) {
         if (blockId == Block.PISTON_HEAD.id) {

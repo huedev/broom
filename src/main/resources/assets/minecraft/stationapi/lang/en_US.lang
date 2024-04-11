@@ -22,6 +22,7 @@ tile.lapis_ore.name=Lapis Lazuli Ore
 tile.lapis_block.name=Block of Lapis Lazuli
 tile.sandstone.name=Sandstone
 tile.note_block.name=Note Block
+tile.bed.respawn_set=Respawn point set
 tile.powered_rail.name=Powered Rail
 tile.detector_rail.name=Detector Rail
 tile.sticky_piston.name=Sticky Piston

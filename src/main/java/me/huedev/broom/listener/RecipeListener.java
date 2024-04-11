@@ -40,6 +40,18 @@ public class RecipeListener {
                 CraftingHelper.removeRecipe(Block.LADDER.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.LADDER.asItem(), 3), "X X", "XXX", "X X", 'X', new ItemStack(Item.STICK, 1));
 
+                // Sign crafting recipe gives 3 Signs
+                CraftingHelper.removeRecipe(Item.SIGN, true);
+                CraftingRegistry.addShapedRecipe(new ItemStack(Item.SIGN, 3), "XXX", "XXX", " Y ", 'X', new ItemStack(Block.PLANKS.asItem(), 1), 'Y', new ItemStack(Item.STICK, 1));
+
+                // Wooden Door crafting recipe gives 3 Wooden Doors
+                CraftingHelper.removeRecipe(Item.WOODEN_DOOR, true);
+                CraftingRegistry.addShapedRecipe(new ItemStack(Item.WOODEN_DOOR, 3), "XX", "XX", "XX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
+
+                // Iron Door crafting recipe gives 3 Iron Doors
+                CraftingHelper.removeRecipe(Item.IRON_DOOR, true);
+                CraftingRegistry.addShapedRecipe(new ItemStack(Item.IRON_DOOR, 3), "XX", "XX", "XX", 'X', new ItemStack(Item.IRON_INGOT, 1));
+
                 // Trapdoor crafting recipe gives 6 Trapdoors
                 CraftingHelper.removeRecipe(Block.TRAPDOOR.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.TRAPDOOR.asItem(), 6), "XXX", "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
