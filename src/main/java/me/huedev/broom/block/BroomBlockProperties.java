@@ -14,7 +14,7 @@ public class BroomBlockProperties {
     public static final EnumProperty<Direction> FACING = EnumProperty.of("facing", Direction.class, dir -> dir.getAxis().isHorizontal());
     public static final EnumProperty<Direction> DIRECTION = EnumProperty.of("direction", Direction.class);
     public static final EnumProperty<ChestType> CHEST_TYPE = EnumProperty.of("type", ChestType.class);
-    public static final EnumProperty<TopBottom> TOP_BOTTOM = EnumProperty.of("half", TopBottom.class);
+    public static final EnumProperty<TopBottom> TOP_BOTTOM = EnumProperty.of("type", TopBottom.class);
     public static final EnumProperty<Axis> AXIS = EnumProperty.of("axis", Axis.class);
     public static final BooleanProperty NATURAL = BooleanProperty.of("natural");
     public static final BooleanProperty ACTIVE = BooleanProperty.of("active");

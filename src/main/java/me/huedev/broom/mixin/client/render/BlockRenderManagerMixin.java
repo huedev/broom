@@ -1,17 +1,20 @@
 package me.huedev.broom.mixin.client.render;
 
+import me.huedev.broom.block.BroomBlockProperties;
+import me.huedev.broom.block.BroomBlockProperties.TopBottom;
 import net.minecraft.block.Block;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.world.BlockView;
+import net.modificationstation.stationapi.api.block.BlockState;
+import net.modificationstation.stationapi.api.util.math.Direction;
+import net.modificationstation.stationapi.api.world.BlockStateView;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * @author DanyGames2014
- */
 @Mixin(BlockRenderManager.class)
 public abstract class BlockRenderManagerMixin {
     @Shadow
@@ -20,6 +23,9 @@ public abstract class BlockRenderManagerMixin {
     @Shadow
     private BlockView blockView;
 
+    /**
+     * @author DanyGames2014
+     */
     @Inject(method = "renderFence", at = @At(value = "HEAD"), cancellable = true)
     public void broom_renderConnectedFence(Block block, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
         float var6 = 0.375F;
@@ -74,5 +80,75 @@ public abstract class BlockRenderManagerMixin {
 
         block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         cir.setReturnValue(true);
+    }
+
+    @Inject(method = "renderStairs", at = @At("HEAD"), cancellable = true)
+    private void broom_renderStairs(Block block, int x, int y, int z, CallbackInfoReturnable<Boolean> info) {
+        if (this.blockView instanceof BlockStateView stateView && block instanceof StairsBlock) {
+            BlockState state = stateView.getBlockState(x, y, z);
+            Direction facing = state.get(BroomBlockProperties.FACING);
+            TopBottom type = state.get(BroomBlockProperties.TOP_BOTTOM);
+
+            switch (type) {
+                case BOTTOM -> {
+                    switch (facing) {
+                        case WEST -> {
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 0.5F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.0F, 0.0F, 0.5F, 1.0F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                        }
+                        case NORTH -> {
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.5F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                        }
+                        case EAST -> {
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.0F, 0.0F, 0.5F, 1.0F, 0.5F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                        }
+                        case SOUTH -> {
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 0.5F, 0.5F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                        }
+                    }
+                }
+                case TOP -> {
+                    switch (facing) {
+                        case WEST -> {
+                            block.setBoundingBox(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 0.5F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.0F, 0.0F, 0.5F, 1.0F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                        }
+                        case NORTH -> {
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.5F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                        }
+                        case EAST -> {
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.0F, 0.5F, 0.5F, 1.0F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                        }
+                        case SOUTH -> {
+                            block.setBoundingBox(0.0F, 0.5F, 0.0F, 0.5F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                        }
+                    }
+                }
+            }
+
+            info.setReturnValue(true);
+        }
     }
 }

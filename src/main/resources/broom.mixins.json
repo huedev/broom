@@ -92,6 +92,7 @@
     "client.gui.screen.VideoOptionsScreenMixin",
     "client.option.GameOptionsMixin",
     "client.option.OptionMixin",
+    "client.render.ArsenicItemRendererMixin",
     "client.render.BlockRenderManagerMixin",
     "client.render.FireballEntityRendererMixin",
     "client.render.LivingEntityRendererMixin",
