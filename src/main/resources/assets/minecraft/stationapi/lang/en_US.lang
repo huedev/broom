@@ -145,6 +145,7 @@ item.lava_bucket.name=Lava Bucket
 item.iron_door.name=Iron Door
 item.redstone.name=Redstone Dust
 item.milk_bucket.name=Milk Bucket
+item.clay_ball.name=Clay Ball
 item.sugar_cane.name=Sugar Cane
 item.chest_minecart.name=Chest Minecart
 item.furnace_minecart.name=Furnace Minecart

@@ -2,8 +2,8 @@ package me.huedev.broom.mixin.common.block;
 
 import me.huedev.broom.util.ToolHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.BookshelfBlock;
 import net.minecraft.block.Material;
+import net.minecraft.block.SnowyBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.stat.Stats;
@@ -16,12 +16,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
-@Mixin(BookshelfBlock.class)
-public class BookshelfBlockMixin extends Block {
+@Mixin(SnowyBlock.class)
+public class SnowyBlockMixin extends Block {
     @Unique
     private boolean brokenBySilkTouchTool = false;
 
-    public BookshelfBlockMixin(int id, int textureId, Material material) {
+    @Unique
+    private boolean brokenByNonSilkTouchShovel = false;
+
+    public SnowyBlockMixin(int id, int textureId, Material material) {
         super(id, textureId, material);
     }
 
@@ -29,27 +32,33 @@ public class BookshelfBlockMixin extends Block {
     public void afterBreak(World world, PlayerEntity player, int x, int y, int z, int meta) {
         if (ToolHelper.isUsingSilkTouchTool(player)) {
             brokenBySilkTouchTool = true;
+            brokenByNonSilkTouchShovel = false;
+        } else if (ToolHelper.isUsingShovel(player)) {
+            brokenByNonSilkTouchShovel = true;
+            brokenBySilkTouchTool = false;
         }
 
         player.increaseStat(Stats.MINE_BLOCK[this.id], 1);
         this.dropStacks(world, x, y, z, meta);
     }
 
-    @Inject(method = "getDroppedItemCount", at = @At("HEAD"), cancellable = true)
-    public void broom_changeDroppedItemCount(Random random, CallbackInfoReturnable<Integer> cir) {
-        if (brokenBySilkTouchTool) {
+    @Inject(at = @At("RETURN"), method = "getDroppedItemCount", cancellable = true)
+    public void broom_getDroppedItemCount(Random random, CallbackInfoReturnable<Integer> cir) {
+        if (brokenBySilkTouchTool || brokenByNonSilkTouchShovel) {
             cir.setReturnValue(1);
-        } else {
-            cir.setReturnValue(3);
         }
     }
 
-    @Override
-    public int getDroppedItemId(int blockMeta, Random random) {
+    @Inject(at = @At("RETURN"), method = "getDroppedItemId", cancellable = true)
+    public void broom_getDroppedItemId(int blockMeta, Random random, CallbackInfoReturnable<Integer> cir) {
         if (brokenBySilkTouchTool) {
+            cir.setReturnValue(id);
             brokenBySilkTouchTool = false;
-            return id;
+            brokenByNonSilkTouchShovel = false;
+        } else {
+            cir.setReturnValue(Item.SNOWBALL.id);
+            brokenBySilkTouchTool = false;
+            brokenByNonSilkTouchShovel = false;
         }
-        return Item.BOOK.id;
     }
 }

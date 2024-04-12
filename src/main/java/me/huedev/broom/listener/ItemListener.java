@@ -72,6 +72,7 @@ public class ItemListener {
         event.registry.getEntry(Item.IRON_DOOR).value().setTranslationKey("iron_door").setMaxCount(64);
         event.registry.getEntry(Item.SNOWBALL).value().setMaxCount(64);
         event.registry.getEntry(Item.MILK_BUCKET).value().setTranslationKey("milk_bucket");
+        event.registry.getEntry(Item.CLAY).value().setTranslationKey("clay_ball");
         event.registry.getEntry(Item.SUGAR_CANE).value().setTranslationKey("sugar_cane");
         event.registry.getEntry(Item.CHEST_MINECART).value().setTranslationKey("chest_minecart");
         event.registry.getEntry(Item.FURNACE_MINECART).value().setTranslationKey("furnace_minecart");

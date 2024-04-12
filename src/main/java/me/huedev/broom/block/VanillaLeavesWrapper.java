@@ -1,14 +1,18 @@
 package me.huedev.broom.block;
 
+import me.huedev.broom.util.ToolHelper;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.class_334;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.util.Identifier;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Collections;
 import java.util.List;
@@ -17,11 +21,24 @@ import java.util.List;
  * @author paulevsGitch
  */
 public class VanillaLeavesWrapper extends BroomLeavesBlock {
+
     private final int meta;
+    private boolean brokenBySilkTouchTool = false;
 
     public VanillaLeavesWrapper(Identifier id, int meta) {
         super(id);
         this.meta = meta;
+    }
+
+    @Override
+    public void afterBreak(World world, PlayerEntity player, int x, int y, int z, int meta) {
+        if (!world.isRemote) {
+            if (ToolHelper.isUsingSilkTouchTool(player) || ToolHelper.isUsingShears(player)) {
+                brokenBySilkTouchTool = true;
+            }
+
+            this.dropStacks(world, x, y, z, meta);
+        }
     }
 
     @Override
@@ -52,8 +69,13 @@ public class VanillaLeavesWrapper extends BroomLeavesBlock {
 
     @Override
     public List<ItemStack> getDropList(World world, int x, int y, int z, BlockState state, int meta) {
-        int count = LEAVES.getDroppedItemCount(world.field_214);
-        if (count == 0) return Collections.emptyList();
-        return Collections.singletonList(new ItemStack(BroomBlocks.getSaplingByMeta(this.meta), count, 0));
+        if (brokenBySilkTouchTool) {
+            brokenBySilkTouchTool = false;
+            return Collections.singletonList(new ItemStack(BroomBlocks.getLeavesByMeta(meta), 1, 0));
+        } else {
+            int count = this.getDroppedItemCount(world.field_214);
+            if (count == 0) return Collections.emptyList();
+            return Collections.singletonList(new ItemStack(BroomBlocks.getSaplingByMeta(meta), count, 0));
+        }
     }
 }

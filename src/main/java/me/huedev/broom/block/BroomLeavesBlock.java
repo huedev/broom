@@ -1,6 +1,7 @@
 package me.huedev.broom.block;
 
 import me.huedev.broom.util.FloodFillSearch;
+import me.huedev.broom.util.ToolHelper;
 import me.huedev.broom.util.WorldHelper;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -23,10 +24,9 @@ import net.modificationstation.stationapi.api.template.block.TemplateTranslucent
 import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.util.math.Direction;
 import net.modificationstation.stationapi.api.world.BlockStateView;
+import org.spongepowered.asm.mixin.Unique;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Function;
 
 /**
@@ -39,6 +39,7 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
     private static final Map<Integer, FloodFillSearch> SEARCH_CACHE = new HashMap<>();
     private final FloodFillSearch search;
     private final int maxDistance;
+    private boolean brokenBySilkTouchTool = false;
 
     public BroomLeavesBlock(Identifier id) {
         this(id, Material.LEAVES, 5);
@@ -78,16 +79,17 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
     @Override
     public void afterBreak(World world, PlayerEntity player, int x, int y, int z, int meta) {
         if (!world.isRemote) {
-            ItemStack stack = player.getHand();
-            if (stack != null && stack.getItem() instanceof ShearsItem) {
-                if (this.isTrackingStatistics()) {
-                    player.increaseStat(Stats.MINE_BLOCK[this.id], 1);
-                }
-                this.dropStack(world, x, y, z, new ItemStack(this));
-                return;
+            if (ToolHelper.isUsingSilkTouchTool(player) || ToolHelper.isUsingShears(player)) {
+                brokenBySilkTouchTool = true;
             }
+
+            this.dropStacks(world, x, y, z, meta);
         }
-        super.afterBreak(world, player, x, y, z, meta);
+    }
+
+    @Override
+    public int getDroppedItemCount(Random random) {
+        return random.nextInt(20) == 0 ? 1 : 0;
     }
 
     @Override
@@ -126,4 +128,18 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
         world.setBlockState(x, y, z, States.AIR.get());
         world.method_246(x, y, z);
     }
+
+    /*
+    @Override
+    public List<ItemStack> getDropList(World world, int x, int y, int z, BlockState state, int meta) {
+        if (brokenBySilkTouchTool) {
+            brokenBySilkTouchTool = false;
+            return Collections.singletonList(new ItemStack(BroomBlocks.getLeavesByMeta(meta), 1, 0));
+        } else {
+            int count = this.getDroppedItemCount(world.field_214);
+            if (count == 0) return Collections.emptyList();
+            return Collections.singletonList(new ItemStack(BroomBlocks.getSaplingByMeta(meta), count, 0));
+        }
+    }
+    */
 }
