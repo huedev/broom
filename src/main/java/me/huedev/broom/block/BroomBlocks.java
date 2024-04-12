@@ -3,7 +3,9 @@ package me.huedev.broom.block;
 import me.huedev.broom.Broom;
 import me.huedev.broom.gen.feature.BroomGrassPatchFeature;
 import net.minecraft.block.Block;
+import net.minecraft.block.StairsBlock;
 import net.modificationstation.stationapi.api.bonemeal.BonemealAPI;
+import net.modificationstation.stationapi.api.template.block.TemplateStairsBlock;
 
 public class BroomBlocks {
     public static Block OAK_LOG;
@@ -25,6 +27,9 @@ public class BroomBlocks {
     public static Block WOODEN_DOUBLE_SLAB;
     public static Block COBBLESTONE_SLAB;
     public static Block COBBLESTONE_DOUBLE_SLAB;
+    public static Block BRICK_SLAB;
+    public static Block BRICK_DOUBLE_SLAB;
+    public static Block BRICK_STAIRS;
 
     public static void init() {
         OAK_LOG = new BroomLogBlock(Broom.id("oak_log"));
@@ -46,11 +51,15 @@ public class BroomBlocks {
         WOODEN_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("wooden_double_slab"), Block.PLANKS);
         COBBLESTONE_SLAB = new BroomSlabBlock(Broom.id("cobblestone_slab"), Block.COBBLESTONE);
         COBBLESTONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("cobblestone_double_slab"), Block.COBBLESTONE);
+        BRICK_SLAB = new BroomSlabBlock(Broom.id("brick_slab"), Block.BRICKS);
+        BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("brick_double_slab"), Block.BRICKS);
+        BRICK_STAIRS = new TemplateStairsBlock(Broom.id("brick_stairs"), Block.BRICKS).setTranslationKey(Broom.id("brick_stairs"));
 
         connectSlabs(STONE_SLAB, STONE_DOUBLE_SLAB);
         connectSlabs(SANDSTONE_SLAB, SANDSTONE_DOUBLE_SLAB);
         connectSlabs(WOODEN_SLAB, WOODEN_DOUBLE_SLAB);
         connectSlabs(COBBLESTONE_SLAB, COBBLESTONE_DOUBLE_SLAB);
+        connectSlabs(BRICK_SLAB, BRICK_DOUBLE_SLAB);
 
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), new BroomGrassPatchFeature(), 10);
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), BroomBlocks.FERN.getDefaultState(), 1);

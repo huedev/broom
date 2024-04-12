@@ -29,12 +29,14 @@ public class RecipeListener {
                 CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.SANDSTONE_SLAB.asItem(), 6, 1), "XXX", 'X', new ItemStack(Block.SANDSTONE.asItem(), 1));
                 CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.WOODEN_SLAB.asItem(), 6, 2), "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
                 CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.COBBLESTONE_SLAB.asItem(), 6, 3), "XXX", 'X', new ItemStack(Block.COBBLESTONE.asItem(), 1));
+                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.BRICK_SLAB.asItem(), 6, 3), "XXX", 'X', new ItemStack(Block.BRICKS.asItem(), 1));
 
-                // Stairs crafting recipes give 8 Stairs
+                // Stairs crafting recipes give 6 Stairs
                 CraftingHelper.removeRecipe(Block.WOODEN_STAIRS.asItem(), true);
                 CraftingHelper.removeRecipe(Block.COBBLESTONE_STAIRS.asItem(), true);
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.WOODEN_STAIRS.asItem(), 8), "X  ", "XX ", "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.COBBLESTONE_STAIRS.asItem(), 8), "X  ", "XX ", "XXX", 'X', new ItemStack(Block.COBBLESTONE.asItem(), 1));
+                CraftingRegistry.addShapedRecipe(new ItemStack(Block.WOODEN_STAIRS.asItem(), 6), "X  ", "XX ", "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
+                CraftingRegistry.addShapedRecipe(new ItemStack(Block.COBBLESTONE_STAIRS.asItem(), 6), "X  ", "XX ", "XXX", 'X', new ItemStack(Block.COBBLESTONE.asItem(), 1));
+                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.BRICK_STAIRS.asItem(), 6), "X  ", "XX ", "XXX", 'X', new ItemStack(Block.BRICKS.asItem(), 1));
 
                 // Ladder crafting recipe gives 3 Ladders
                 CraftingHelper.removeRecipe(Block.LADDER.asItem(), true);

@@ -18,6 +18,9 @@
     "broom:sandstone_slab",
     "broom:sandstone_double_slab",
     "broom:cobblestone_slab",
-    "broom:cobblestone_double_slab"
+    "broom:cobblestone_double_slab",
+    "broom:brick_slab",
+    "broom:brick_double_slab",
+    "broom:brick_stairs"
   ]
 }

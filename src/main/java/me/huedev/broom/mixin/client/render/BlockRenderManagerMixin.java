@@ -99,15 +99,15 @@ public abstract class BlockRenderManagerMixin {
                             this.renderBlock(block, x, y, z);
                         }
                         case NORTH -> {
-                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
-                            this.renderBlock(block, x, y, z);
                             block.setBoundingBox(0.5F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
                             this.renderBlock(block, x, y, z);
                         }
                         case EAST -> {
-                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
-                            this.renderBlock(block, x, y, z);
                             block.setBoundingBox(0.0F, 0.0F, 0.5F, 1.0F, 0.5F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
                             this.renderBlock(block, x, y, z);
                         }
                         case SOUTH -> {
@@ -127,15 +127,15 @@ public abstract class BlockRenderManagerMixin {
                             this.renderBlock(block, x, y, z);
                         }
                         case NORTH -> {
-                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
-                            this.renderBlock(block, x, y, z);
                             block.setBoundingBox(0.5F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
                             this.renderBlock(block, x, y, z);
                         }
                         case EAST -> {
-                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
-                            this.renderBlock(block, x, y, z);
                             block.setBoundingBox(0.0F, 0.5F, 0.5F, 1.0F, 1.0F, 1.0F);
+                            this.renderBlock(block, x, y, z);
+                            block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
                             this.renderBlock(block, x, y, z);
                         }
                         case SOUTH -> {
