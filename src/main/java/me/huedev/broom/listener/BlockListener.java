@@ -69,6 +69,7 @@ public class BlockListener {
         event.registry.getEntry(Block.REPEATER).value().setTranslationKey("repeater").setSoundGroup(Block.STONE_SOUND_GROUP);
         event.registry.getEntry(Block.POWERED_REPEATER).value().setTranslationKey("repeater").setSoundGroup(Block.STONE_SOUND_GROUP);
         event.registry.getEntry(Block.LOCKED_CHEST).value().setTranslationKey("locked_chest");
+        event.registry.getEntry(Block.TRAPDOOR).value().setTranslationKey("wooden_trapdoor");
 
         BroomBlocks.init();
     }

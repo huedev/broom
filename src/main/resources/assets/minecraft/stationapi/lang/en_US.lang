@@ -83,6 +83,7 @@ tile.jack_o_lantern.name=Jack o'Lantern
 tile.sugar_cane.name=Sugar Cane
 tile.repeater.name=Redstone Repeater
 tile.locked_chest.name=Locked Chest
+tile.wooden_trapdoor.name=Wooden Trapdoor
 
 item.iron_shovel.name=Iron Shovel
 item.iron_pickaxe.name=Iron Pickaxe

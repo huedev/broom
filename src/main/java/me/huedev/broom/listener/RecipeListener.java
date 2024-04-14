@@ -54,9 +54,12 @@ public class RecipeListener {
                 CraftingHelper.removeRecipe(Item.IRON_DOOR, true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Item.IRON_DOOR, 3), "XX", "XX", "XX", 'X', new ItemStack(Item.IRON_INGOT, 1));
 
-                // Trapdoor crafting recipe gives 6 Trapdoors
+                // Wooden Trapdoor crafting recipe gives 6 Wooden Trapdoors
                 CraftingHelper.removeRecipe(Block.TRAPDOOR.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.TRAPDOOR.asItem(), 6), "XXX", "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
+
+                // Iron Trapdoor crafting recipe
+                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.IRON_TRAPDOOR.asItem(), 6), "XXX", "XXX", 'X', new ItemStack(Item.IRON_INGOT, 1));
 
                 // Powered Rails crafting recipe gives 16 Powered Rails
                 CraftingHelper.removeRecipe(Block.POWERED_RAIL.asItem(), true);
@@ -66,7 +69,7 @@ public class RecipeListener {
                 CraftingHelper.removeRecipe(Block.BUTTON.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.BUTTON.asItem(), 1), "X", 'X', new ItemStack(Block.STONE.asItem(), 1));
 
-                // Snow recipe
+                // Snow crafting recipe
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.SNOW.asItem(), 6), "XXX", 'X', new ItemStack(Block.SNOW_BLOCK, 1));
             }
 

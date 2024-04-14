@@ -3,8 +3,10 @@ package me.huedev.broom.block;
 import me.huedev.broom.Broom;
 import me.huedev.broom.gen.feature.BroomGrassPatchFeature;
 import net.minecraft.block.Block;
+import net.minecraft.block.Material;
 import net.modificationstation.stationapi.api.bonemeal.BonemealAPI;
 import net.modificationstation.stationapi.api.template.block.TemplateStairsBlock;
+import net.modificationstation.stationapi.api.template.block.TemplateTrapdoorBlock;
 
 public class BroomBlocks {
     public static Block OAK_LOG;
@@ -29,6 +31,7 @@ public class BroomBlocks {
     public static Block BRICK_SLAB;
     public static Block BRICK_DOUBLE_SLAB;
     public static Block BRICK_STAIRS;
+    public static Block IRON_TRAPDOOR;
 
     public static void init() {
         OAK_LOG = new BroomLogBlock(Broom.id("oak_log"));
@@ -53,6 +56,7 @@ public class BroomBlocks {
         BRICK_SLAB = new BroomSlabBlock(Broom.id("brick_slab"), Block.BRICKS);
         BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("brick_double_slab"), Block.BRICKS);
         BRICK_STAIRS = new TemplateStairsBlock(Broom.id("brick_stairs"), Block.BRICKS).setTranslationKey(Broom.id("brick_stairs"));
+        IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL).setTranslationKey(Broom.id("iron_trapdoor")).setHardness(5.0F).setSoundGroup(Block.METAL_SOUND_GROUP).disableTrackingStatistics().ignoreMetaUpdates();
 
         connectSlabs(STONE_SLAB, STONE_DOUBLE_SLAB);
         connectSlabs(SANDSTONE_SLAB, SANDSTONE_DOUBLE_SLAB);

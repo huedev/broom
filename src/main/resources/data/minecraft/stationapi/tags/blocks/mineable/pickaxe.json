@@ -21,6 +21,7 @@
     "broom:cobblestone_double_slab",
     "broom:brick_slab",
     "broom:brick_double_slab",
-    "broom:brick_stairs"
+    "broom:brick_stairs",
+    "broom:iron_trapdoor"
   ]
 }
