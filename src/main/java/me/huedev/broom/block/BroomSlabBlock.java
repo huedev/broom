@@ -143,8 +143,8 @@ public class BroomSlabBlock extends TemplateBlock {
 
         BlockState fullBlock = this.doubleSlabBlock.getDefaultState();
 
-        world.setBlockState(x, y, z, fullBlock);
-        world.playSound(x + 0.5, y + 0.5, z + 0.5, this.soundGroup.getBreakSound(), 1.0F, 1.0F);
+        world.setBlockStateWithNotify(x, y, z, fullBlock);
+        world.playSound(x + 0.5, y + 0.5, z + 0.5, this.soundGroup.getSound(), 1.0F, 1.0F);
         world.method_246(x, y, z);
 
         stack.count--;

@@ -79,18 +79,25 @@ public class TrapdoorBlockMixin extends Block {
     private void broom_neighborUpdate(World world, int x, int y, int z, int blockID, CallbackInfo ci) {
         ci.cancel();
 
-        BlockState state = world.getBlockState(x, y, z);
-        if (!state.isOf(this)) return;
+        if (!world.isRemote) {
+            BlockState state = world.getBlockState(x, y, z);
+            if (!state.isOf(this)) return;
 
-        if (Block.BLOCKS[blockID].canEmitRedstonePower()) {
-            boolean opened = world.method_265(x, y, z);
-            if (opened != state.get(BroomBlockProperties.OPENED)) {
-                state = state.with(BroomBlockProperties.OPENED, opened);
-                WorldHelper.setBlockSilent(world, x, y, z, state);
-                world.method_246(x, y, z);
-                world.method_173(null, 1003, x, y, z, 0);
+            if (blockID > 0 && Block.BLOCKS[blockID].canEmitRedstonePower()) {
+                boolean opened = world.method_265(x, y, z);
+                if (opened != state.get(BroomBlockProperties.OPENED)) {
+                    state = state.with(BroomBlockProperties.OPENED, opened);
+                    world.setBlockStateWithNotify(x, y, z, state);
+                    world.method_246(x, y, z);
+                    world.method_173(null, 1003, x, y, z, 0);
+                }
             }
         }
+    }
+
+    @Inject(method = "onBlockBreakStart", at = @At("HEAD"), cancellable = true)
+    private void broom_cancelInteract(World world, int x, int y, int z, PlayerEntity player, CallbackInfo ci) {
+        ci.cancel();
     }
 
     @Inject(method = "onUse", at = @At("HEAD"), cancellable = true)
@@ -106,9 +113,11 @@ public class TrapdoorBlockMixin extends Block {
 
         if (changed == state) return;
 
-        WorldHelper.setBlockSilent(world, x, y, z, changed);
+        world.setBlockStateWithNotify(x, y, z, changed);
         world.method_246(x, y, z);
-        world.method_173(null, 1003, x, y, z, 0);
+        if (!world.isRemote) {
+            world.method_173(null, 1003, x, y, z, 0);
+        }
     }
 
     @Inject(method = "updateBoundingBox", at = @At("HEAD"), cancellable = true)

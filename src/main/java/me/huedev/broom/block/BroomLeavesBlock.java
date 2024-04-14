@@ -8,11 +8,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
-import net.minecraft.class_307;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShearsItem;
-import net.minecraft.stat.Stats;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
@@ -22,9 +18,7 @@ import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.template.block.BlockTemplate;
 import net.modificationstation.stationapi.api.template.block.TemplateTranslucentBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
-import net.modificationstation.stationapi.api.util.math.Direction;
 import net.modificationstation.stationapi.api.world.BlockStateView;
-import org.spongepowered.asm.mixin.Unique;
 
 import java.util.*;
 import java.util.function.Function;
@@ -125,7 +119,7 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
         }
 
         dropStacks(world, x, y, z, 0);
-        world.setBlockState(x, y, z, States.AIR.get());
+        world.setBlockStateWithNotify(x, y, z, States.AIR.get());
         world.method_246(x, y, z);
     }
 

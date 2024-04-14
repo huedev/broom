@@ -15,7 +15,7 @@ public class BroomGrassPatchFeature extends Feature {
         BlockState worldState = world.getBlockState(x, y, z);
         if (!worldState.isAir()) return false;
         if (STATE.getBlock().canPlaceAt(world, x, y, z)) {
-            world.setBlockState(x, y, z, STATE);
+            world.setBlockStateWithNotify(x, y, z, STATE);
             world.method_215(x, y, z, 0);
             return true;
         }

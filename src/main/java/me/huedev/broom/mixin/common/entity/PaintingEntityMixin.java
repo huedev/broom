@@ -17,6 +17,6 @@ public abstract class PaintingEntityMixin extends Entity {
 
     @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;method_210(Lnet/minecraft/entity/Entity;)Z"))
     private void broom_playBlockBreakSound(Entity amount, int par2, CallbackInfoReturnable<Boolean> cir) {
-        world.playSound((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), Block.WOOD_SOUND_GROUP.getBreakSound(), (Block.WOOD_SOUND_GROUP.method_1976() + 1.0F) / 2.0F, Block.WOOD_SOUND_GROUP.method_1977() * 0.8F);
+        world.playSound((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), Block.WOOD_SOUND_GROUP.getSound(), (Block.WOOD_SOUND_GROUP.method_1976() + 1.0F) / 2.0F, Block.WOOD_SOUND_GROUP.method_1977() * 0.8F);
     }
 }

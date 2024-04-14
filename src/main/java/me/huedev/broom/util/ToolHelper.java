@@ -2,12 +2,7 @@ package me.huedev.broom.util;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.modificationstation.stationapi.api.item.tool.StationHoeItem;
-import net.modificationstation.stationapi.api.item.tool.StationShearsItem;
 import net.modificationstation.stationapi.api.item.tool.StationSwordItem;
-import net.modificationstation.stationapi.api.item.tool.StationToolItem;
-
-import javax.tools.Tool;
 
 public class ToolHelper {
     public static boolean isUsingItem(PlayerEntity player) {

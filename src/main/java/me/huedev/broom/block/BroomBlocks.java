@@ -3,7 +3,6 @@ package me.huedev.broom.block;
 import me.huedev.broom.Broom;
 import me.huedev.broom.gen.feature.BroomGrassPatchFeature;
 import net.minecraft.block.Block;
-import net.minecraft.block.StairsBlock;
 import net.modificationstation.stationapi.api.bonemeal.BonemealAPI;
 import net.modificationstation.stationapi.api.template.block.TemplateStairsBlock;
 

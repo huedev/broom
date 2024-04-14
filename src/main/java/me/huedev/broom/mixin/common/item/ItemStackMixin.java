@@ -36,8 +36,8 @@ public abstract class ItemStackMixin {
     @Environment(EnvType.CLIENT)
     @Inject(method = "damage", at = @At(value = "FIELD", opcode = Opcodes.PUTFIELD, target = "Lnet/minecraft/item/ItemStack;count:I", ordinal = 0, shift = At.Shift.BEFORE))
     public void broom_playSoundOnArmorBreak(int amount, Entity entity, CallbackInfo ci){
-        if (this.getItem() instanceof ArmorItem){
-            if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT){
+        if (this.getItem() instanceof ArmorItem) {
+            if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
                 Minecraft minecraft = (Minecraft)FabricLoader.getInstance().getGameInstance();
                 PlayerEntity player = minecraft.player;
                 player.world.playSound(player, "random.break", 1.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);

@@ -1,12 +1,10 @@
 package me.huedev.broom.mixin.common.block;
 
 import me.huedev.broom.util.ToolHelper;
-import net.minecraft.block.Block;
 import net.minecraft.block.GlassBlock;
 import net.minecraft.block.Material;
 import net.minecraft.class_221;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
