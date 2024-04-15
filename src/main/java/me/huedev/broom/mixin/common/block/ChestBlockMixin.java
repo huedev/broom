@@ -62,7 +62,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
                         sideState.get(BroomBlockProperties.FACING) == facing
         ) {
             sideState = sideState.with(BroomBlockProperties.CHEST_TYPE, ChestType.LEFT);
-            WorldHelper.setBlockSilent(world, sidePos.getX(), sidePos.getY(), sidePos.getZ(), sideState);
+            world.setBlockStateWithNotify(sidePos.getX(), sidePos.getY(), sidePos.getZ(), sideState);
             return chest.with(BroomBlockProperties.CHEST_TYPE, ChestType.RIGHT);
         }
 
@@ -75,7 +75,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
                         sideState.get(BroomBlockProperties.FACING) == facing
         ) {
             sideState = sideState.with(BroomBlockProperties.CHEST_TYPE, ChestType.RIGHT);
-            WorldHelper.setBlockSilent(world, sidePos.getX(), sidePos.getY(), sidePos.getZ(), sideState);
+            world.setBlockStateWithNotify(sidePos.getX(), sidePos.getY(), sidePos.getZ(), sideState);
             return chest.with(BroomBlockProperties.CHEST_TYPE, ChestType.LEFT);
         }
 

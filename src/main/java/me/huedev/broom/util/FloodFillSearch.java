@@ -129,7 +129,7 @@ public class FloodFillSearch {
                     if (criteria.apply(state)) {
                         BlockState transformed = transformer.apply(state);
                         if (transformed != state) {
-                            WorldHelper.setBlockSilent(world, x + px, y + py, z + pz, transformed);
+                            world.setBlockStateWithNotify(x + px, y + py, z + pz, transformed);
                         }
                         ends.add(cellIndex);
                     }

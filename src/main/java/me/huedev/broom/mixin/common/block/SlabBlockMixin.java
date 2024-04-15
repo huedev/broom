@@ -1,7 +1,6 @@
 package me.huedev.broom.mixin.common.block;
 
 import me.huedev.broom.block.BroomBlocks;
-import me.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.block.SlabBlock;
@@ -38,6 +37,6 @@ public class SlabBlockMixin extends Block {
         info.cancel();
         int meta = world.getBlockMeta(x, y, z);
         BlockState state = (this.doubleSlab ? BroomBlocks.getDoubleSlabByMeta(meta) : BroomBlocks.getSlabByMeta(meta)).getDefaultState();
-        WorldHelper.setBlockSilent(world, x, y, z, state);
+        world.setBlockStateWithNotify(x, y, z, state);
     }
 }

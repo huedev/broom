@@ -2,7 +2,6 @@ package me.huedev.broom.mixin.common.block;
 
 import me.huedev.broom.block.BroomBlockTags;
 import me.huedev.broom.block.BroomBlocks;
-import me.huedev.broom.util.WorldHelper;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.item.ItemStack;
@@ -34,7 +33,7 @@ public class SaplingBlockMixin extends PlantBlock {
     public void onPlaced(World world, int x, int y, int z) {
         int meta = world.getBlockMeta(x, y, z);
         BlockState state = BroomBlocks.getSaplingByMeta(meta).getDefaultState();
-        WorldHelper.setBlockSilent(world, x, y, z, state);
+        world.setBlockStateWithNotify(x, y, z, state);
     }
 
     @Override

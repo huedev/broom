@@ -73,13 +73,7 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
     @Override
     public boolean onBonemealUse(World world, int x, int y, int z, BlockState state) {
         if (!world.isRemote) {
-            //this.growTree(world, x, y, z, world.field_214);
-            int stage = state.get(BroomBlockProperties.SAPLING_STAGE);
-            if (stage == 0) {
-                world.setBlockStateWithNotify(x, y, z, state.with(BroomBlockProperties.SAPLING_STAGE, 1));
-            } else {
-                this.growTree(world, x, y, z, world.field_214);
-            }
+            this.growTree(world, x, y, z, world.field_214);
         }
         return true;
     }

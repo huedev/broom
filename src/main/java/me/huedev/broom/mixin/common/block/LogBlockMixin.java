@@ -1,7 +1,6 @@
 package me.huedev.broom.mixin.common.block;
 
 import me.huedev.broom.block.BroomBlocks;
-import me.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.Material;
@@ -26,7 +25,7 @@ public class LogBlockMixin extends Block {
     public void onPlaced(World world, int x, int y, int z) {
         int meta = world.getBlockMeta(x, y, z);
         BlockState state = BroomBlocks.getLogByMeta(meta).getDefaultState();
-        WorldHelper.setBlockSilent(world, x, y, z, state);
+        world.setBlockStateWithNotify(x, y, z, state);
     }
 
     @Override
