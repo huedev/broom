@@ -25,8 +25,6 @@ public class BroomPumpkinCropBlock extends TemplatePlantBlock {
         setSoundGroup(DIRT_SOUND_GROUP);
         disableTrackingStatistics();
         ignoreMetaUpdates();
-        float halfFaceLength = 0.5F;
-        //this.setBoundingBox(0.5F - halfFaceLength, 0.0F, 0.5F - halfFaceLength, 0.5F + halfFaceLength, 0.25F, 0.5F + halfFaceLength);
     }
 
     @Override
@@ -53,19 +51,62 @@ public class BroomPumpkinCropBlock extends TemplatePlantBlock {
     public void onTick(World world, int x, int y, int z, Random random) {
         if (!world.isRemote) {
             this.breakIfInvalid(world, x, y, z);
-            if (world.method_255(x, y + 1, z) >= 9 && random.nextInt(30) == 0) {
+            if (world.method_255(x, y + 1, z) >= 9) {
                 BlockState state = world.getBlockState(x, y, z);
                 int age = state.get(BroomBlockProperties.CROP_AGE);
                 if (age < 7) {
-                    int incrementedAge = age + 1;
-                    if (incrementedAge == 7) {
-                        this.growCrop(world, x, y, z);
-                    } else {
-                        world.setBlockStateWithNotify(x, y, z, state.with(BroomBlockProperties.CROP_AGE, incrementedAge));
+                    float growChance = this.calculateGrowChance(world, x, y, z);
+                    if (random.nextInt((int)(100.0F / growChance)) == 0) {
+                        int incrementedAge = age + 1;
+                        if (incrementedAge == 7) {
+                            this.growCrop(world, x, y, z);
+                        } else {
+                            world.setBlockStateWithNotify(x, y, z, state.with(BroomBlockProperties.CROP_AGE, incrementedAge));
+                        }
                     }
                 }
             }
         }
+    }
+
+    private float calculateGrowChance(World world, int x, int y, int z) {
+        float var5 = 1.0F;
+        int var6 = world.getBlockId(x, y, z - 1);
+        int var7 = world.getBlockId(x, y, z + 1);
+        int var8 = world.getBlockId(x - 1, y, z);
+        int var9 = world.getBlockId(x + 1, y, z);
+        int var10 = world.getBlockId(x - 1, y, z - 1);
+        int var11 = world.getBlockId(x + 1, y, z - 1);
+        int var12 = world.getBlockId(x + 1, y, z + 1);
+        int var13 = world.getBlockId(x - 1, y, z + 1);
+        boolean var14 = var8 == this.id || var9 == this.id;
+        boolean var15 = var6 == this.id || var7 == this.id;
+        boolean var16 = var10 == this.id || var11 == this.id || var12 == this.id || var13 == this.id;
+
+        for(int var17 = x - 1; var17 <= x + 1; ++var17) {
+            for(int var18 = z - 1; var18 <= z + 1; ++var18) {
+                int var19 = world.getBlockId(var17, y - 1, var18);
+                float var20 = 0.0F;
+                if (var19 == Block.FARMLAND.id) {
+                    var20 = 1.0F;
+                    if (world.getBlockMeta(var17, y - 1, var18) > 0) {
+                        var20 = 3.0F;
+                    }
+                }
+
+                if (var17 != x || var18 != z) {
+                    var20 /= 4.0F;
+                }
+
+                var5 += var20;
+            }
+        }
+
+        if (var16 || var14 && var15) {
+            var5 /= 2.0F;
+        }
+
+        return var5;
     }
 
     @Unique
@@ -84,16 +125,7 @@ public class BroomPumpkinCropBlock extends TemplatePlantBlock {
     @Override
     public boolean onBonemealUse(World world, int x, int y, int z, BlockState state) {
         if (!world.isRemote) {
-            //this.growCropBlock(world, x, y, z);
-            int age = state.get(BroomBlockProperties.CROP_AGE);
-            if (age < 7) {
-                int incrementedAge = age + 1;
-                if (incrementedAge == 7) {
-                    this.growCrop(world, x, y, z);
-                } else {
-                    world.setBlockStateWithNotify(x, y, z, state.with(BroomBlockProperties.CROP_AGE, incrementedAge));
-                }
-            }
+            this.growCrop(world, x, y, z);
         }
         return true;
     }

@@ -13,6 +13,7 @@
     "common.block.ChestBlockMixin",
     "common.block.ClayBlockMixin",
     "common.block.CobwebBlockMixin",
+    "common.block.CropBlockMixin",
     "common.block.DeadBushBlockMixin",
     "common.block.DoorBlockMixin",
     "common.block.FarmlandBlockMixin",
