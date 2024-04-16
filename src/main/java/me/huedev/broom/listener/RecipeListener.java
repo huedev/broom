@@ -2,6 +2,7 @@ package me.huedev.broom.listener;
 
 import me.huedev.broom.block.BroomBlocks;
 import me.huedev.broom.item.BroomItemTags;
+import me.huedev.broom.item.BroomItems;
 import me.huedev.broom.util.CraftingHelper;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
@@ -71,6 +72,9 @@ public class RecipeListener {
 
                 // Snow crafting recipe
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.SNOW.asItem(), 6), "XXX", 'X', new ItemStack(Block.SNOW_BLOCK, 1));
+
+                // Pumpkin Seed crafting recipe
+                CraftingRegistry.addShapedRecipe(new ItemStack(BroomItems.PUMPKIN_SEEDS, 4), "X", 'X', new ItemStack(BroomBlocks.PUMPKIN, 1));
             }
 
             case CRAFTING_SHAPELESS -> {

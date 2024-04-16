@@ -1,0 +1,65 @@
+{
+  "credit": "Made with Blockbench",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "#crop"
+  },
+  "elements": [
+    {
+      "from": [0, -1, 4],
+      "to": [16, 15, 4],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 7, 4]},
+      "color": 0,
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#crop"},
+        "east": {"uv": [0, 0, 0, 16], "texture": "#crop"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#crop"},
+        "west": {"uv": [0, 0, 0, 16], "texture": "#crop"},
+        "up": {"uv": [0, 0, 16, 0], "texture": "#crop"},
+        "down": {"uv": [0, 0, 16, 0], "texture": "#crop"}
+      }
+    },
+    {
+      "from": [0, -1, 12],
+      "to": [16, 15, 12],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 7, 12]},
+      "color": 0,
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#crop"},
+        "east": {"uv": [0, 0, 0, 16], "texture": "#crop"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#crop"},
+        "west": {"uv": [0, 0, 0, 16], "texture": "#crop"},
+        "up": {"uv": [0, 0, 16, 0], "texture": "#crop"},
+        "down": {"uv": [0, 0, 16, 0], "texture": "#crop"}
+      }
+    },
+    {
+      "from": [4, -1, 0],
+      "to": [4, 15, 16],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 7, 4]},
+      "color": 0,
+      "faces": {
+        "north": {"uv": [0, 0, 0, 16], "texture": "#crop"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#crop"},
+        "south": {"uv": [0, 0, 0, 16], "texture": "#crop"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#crop"},
+        "up": {"uv": [0, 0, 16, 0], "rotation": 270, "texture": "#crop"},
+        "down": {"uv": [0, 0, 16, 0], "rotation": 90, "texture": "#crop"}
+      }
+    },
+    {
+      "from": [12, -1, 0],
+      "to": [12, 15, 16],
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 7, 12]},
+      "color": 0,
+      "faces": {
+        "north": {"uv": [0, 0, 0, 16], "texture": "#crop"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#crop"},
+        "south": {"uv": [0, 0, 0, 16], "texture": "#crop"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#crop"},
+        "up": {"uv": [0, 0, 16, 0], "rotation": 270, "texture": "#crop"},
+        "down": {"uv": [0, 0, 16, 0], "rotation": 90, "texture": "#crop"}
+      }
+    }
+  ]
+}

@@ -11,5 +11,6 @@ public class BroomPumpkinBlock extends TemplateBlock {
         setHardness(PUMPKIN.getHardness());
         setSoundGroup(WOOD_SOUND_GROUP);
         ignoreMetaUpdates();
+        this.setTickRandomly(true);
     }
 }

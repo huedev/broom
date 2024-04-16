@@ -20,6 +20,7 @@ tile.birch_sapling.name=Birch Sapling
 tile.grass.name=Grass
 tile.fern.name=Fern
 tile.pumpkin.name=Pumpkin
+tile.pumpkin_crop.name=Pumpkin Crop
 tile.stone_slab.name=Stone Slab
 tile.stone_double_slab.name=Stone Double Slab
 tile.sandstone_slab.name=Sandstone Slab
@@ -34,3 +35,4 @@ tile.brick_stairs.name=Brick Stairs
 tile.iron_trapdoor.name=Iron Trapdoor
 
 item.music_disc.name=Music Disc
+item.pumpkin_seeds.name=Pumpkin Seeds

@@ -21,6 +21,7 @@ public class BroomBlocks {
     public static Block GRASS;
     public static Block FERN;
     public static Block PUMPKIN;
+    public static Block PUMPKIN_CROPS;
     public static Block STONE_SLAB;
     public static Block STONE_DOUBLE_SLAB;
     public static Block SANDSTONE_SLAB;
@@ -51,6 +52,7 @@ public class BroomBlocks {
         FERN = new BroomTallPlantBlock(Broom.id("fern"), Block.GRASS.getTexture(0, 2));
 
         PUMPKIN = new BroomPumpkinBlock(Broom.id("pumpkin"), Material.PUMPKIN);
+        PUMPKIN_CROPS = new BroomPumpkinCropBlock(Broom.id("pumpkin_crop"), Block.WHEAT.textureId);
 
         STONE_SLAB = new BroomSlabBlock(Broom.id("stone_slab"), Block.STONE);
         STONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("stone_double_slab"), Block.STONE);

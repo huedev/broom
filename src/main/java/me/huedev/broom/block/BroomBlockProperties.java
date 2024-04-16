@@ -20,6 +20,7 @@ public class BroomBlockProperties {
     public static final BooleanProperty ACTIVE = BooleanProperty.of("active");
     public static final BooleanProperty OPENED = BooleanProperty.of("opened");
     public static final IntProperty SAPLING_STAGE = IntProperty.of("stage", 0, 1);
+    public static final IntProperty CROP_AGE = IntProperty.of("age", 0, 7);
 
     public enum ChestType implements StringIdentifiable {
         SINGLE("single"), LEFT("left"), RIGHT("right");

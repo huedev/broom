@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "broom:item/music_disc_wait"
+    "layer0": "broom:item/pumpkin_seeds"
   }
 }

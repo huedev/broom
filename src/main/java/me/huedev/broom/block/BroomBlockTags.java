@@ -16,6 +16,7 @@ public class BroomBlockTags {
     public static final TagKey<Block> DIRT = get("dirt");
     public static final TagKey<Block> DEAD_BUSH_PLANTABLE_ON = get("dead_bush_plantable_on");
     public static final TagKey<Block> SUGAR_CANE_PLANTABLE_ON = get("sugar_cane_plantable_on");
+    public static final TagKey<Block> MAINTAINS_FARMLAND = get("maintains_farmland");
 
     private static TagKey<Block> get(String name) {
         return TagKey.of(BlockRegistry.KEY, Broom.id(name));

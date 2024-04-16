@@ -1,0 +1,6 @@
+{
+  "parent": "broom:block/template_cross_crop",
+  "textures": {
+    "cross": "broom:block/pumpkin_crop_stage0"
+  }
+}
