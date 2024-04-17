@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:redstone_ore"
+  },
+  "result": {
+    "item": "minecraft:redstone",
+    "count": 1
+  }
+}

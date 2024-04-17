@@ -21,23 +21,14 @@ public class RecipeListener {
 
         switch (type != null ? type : RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED) {
             case CRAFTING_SHAPED -> {
-                // Craft all logs into planks
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.PLANKS.asItem(), 4, 0), "X", 'X', BroomItemTags.LOGS);
-
-                // Slab crafting recipes give 6 Slabs
+                // Remove vanilla slab crafting recipes
                 CraftingHelper.removeRecipe(Block.SLAB.asItem());
-                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.STONE_SLAB.asItem(), 6, 0), "XXX", 'X', new ItemStack(Block.STONE.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.SANDSTONE_SLAB.asItem(), 6, 1), "XXX", 'X', new ItemStack(Block.SANDSTONE.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.WOODEN_SLAB.asItem(), 6, 2), "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.COBBLESTONE_SLAB.asItem(), 6, 3), "XXX", 'X', new ItemStack(Block.COBBLESTONE.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.BRICK_SLAB.asItem(), 6, 3), "XXX", 'X', new ItemStack(Block.BRICKS.asItem(), 1));
 
                 // Stairs crafting recipes give 6 Stairs
                 CraftingHelper.removeRecipe(Block.WOODEN_STAIRS.asItem(), true);
                 CraftingHelper.removeRecipe(Block.COBBLESTONE_STAIRS.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.WOODEN_STAIRS.asItem(), 6), "X  ", "XX ", "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.COBBLESTONE_STAIRS.asItem(), 6), "X  ", "XX ", "XXX", 'X', new ItemStack(Block.COBBLESTONE.asItem(), 1));
-                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.BRICK_STAIRS.asItem(), 6), "X  ", "XX ", "XXX", 'X', new ItemStack(Block.BRICKS.asItem(), 1));
 
                 // Ladder crafting recipe gives 3 Ladders
                 CraftingHelper.removeRecipe(Block.LADDER.asItem(), true);
@@ -59,9 +50,6 @@ public class RecipeListener {
                 CraftingHelper.removeRecipe(Block.TRAPDOOR.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.TRAPDOOR.asItem(), 6), "XXX", "XXX", 'X', new ItemStack(Block.PLANKS.asItem(), 1));
 
-                // Iron Trapdoor crafting recipe
-                CraftingRegistry.addShapedRecipe(new ItemStack(BroomBlocks.IRON_TRAPDOOR.asItem(), 6), "XXX", "XXX", 'X', new ItemStack(Item.IRON_INGOT, 1));
-
                 // Powered Rails crafting recipe gives 16 Powered Rails
                 CraftingHelper.removeRecipe(Block.POWERED_RAIL.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.POWERED_RAIL.asItem(), 16), "X X", "XYX", "XZX", 'X', new ItemStack(Item.GOLD_INGOT, 1), 'Y', new ItemStack(Item.STICK, 1), 'Z', new ItemStack(Item.REDSTONE, 1));
@@ -69,12 +57,6 @@ public class RecipeListener {
                 // Button crafting recipe takes 1 Stone
                 CraftingHelper.removeRecipe(Block.BUTTON.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.BUTTON.asItem(), 1), "X", 'X', new ItemStack(Block.STONE.asItem(), 1));
-
-                // Snow crafting recipe
-                CraftingRegistry.addShapedRecipe(new ItemStack(Block.SNOW.asItem(), 6), "XXX", 'X', new ItemStack(Block.SNOW_BLOCK, 1));
-
-                // Pumpkin Seed crafting recipe
-                CraftingRegistry.addShapedRecipe(new ItemStack(BroomItems.PUMPKIN_SEEDS, 4), "X", 'X', new ItemStack(BroomBlocks.PUMPKIN, 1));
             }
 
             case CRAFTING_SHAPELESS -> {
@@ -82,15 +64,6 @@ public class RecipeListener {
             }
 
             case SMELTING -> {
-                // Allow smelting all logs into charcoal
-                SmeltingRegistry.addSmeltingRecipe(BroomItemTags.LOGS, new ItemStack(Item.COAL, 1, 1));
-
-                // Allow smelting all ore blocks
-                SmeltingRegistry.addSmeltingRecipe(Block.COAL_ORE.id, new ItemStack(Item.COAL, 1, 0));
-                SmeltingRegistry.addSmeltingRecipe(Block.REDSTONE_ORE.id, new ItemStack(Item.REDSTONE, 1, 0));
-                SmeltingRegistry.addSmeltingRecipe(Block.LAPIS_ORE.id, new ItemStack(Item.DYE, 1, 4));
-                SmeltingRegistry.addSmeltingRecipe(Block.DIAMOND_ORE.id, new ItemStack(Item.DIAMOND, 1, 0));
-
                 // 60 second fuel duration items (6 items)
                 FuelRegistry.addFuelItem(Item.BOAT, 1200);
 

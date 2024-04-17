@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:coal_ore"
+  },
+  "result": {
+    "item": "minecraft:coal",
+    "count": 1
+  }
+}

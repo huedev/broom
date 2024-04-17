@@ -11,6 +11,25 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(value = FurnaceBlockEntity.class, priority = 1100)
 public class FurnaceBlockEntityMixin {
     @Redirect(
+            method = "method_1282",
+            at = @At(
+                    value = "FIELD",
+                    opcode = Opcodes.PUTFIELD,
+                    target = "Lnet/minecraft/item/ItemStack;count:I",
+                    ordinal = 1
+            ),
+            require = 0
+    )
+    public void broom_preserveInputBucket(ItemStack stack, int count) {
+        if (stack.itemId == Item.MILK_BUCKET.id) {
+            stack.itemId = Item.BUCKET.id;
+            stack.count = 1;
+        } else {
+            stack.count = count;
+        }
+    }
+
+    @Redirect(
             method = "method_1076",
             at = @At(
                     value = "FIELD",
@@ -19,7 +38,7 @@ public class FurnaceBlockEntityMixin {
             ),
             require = 0
     )
-    public void broom_preserveBucket(ItemStack stack, int count) {
+    public void broom_preserveFuelBucket(ItemStack stack, int count) {
         if (stack.itemId == Item.LAVA_BUCKET.id) {
             stack.itemId = Item.BUCKET.id;
             stack.count = 1;
