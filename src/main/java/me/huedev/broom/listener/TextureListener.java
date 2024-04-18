@@ -13,6 +13,7 @@ public class TextureListener {
     public void registerTexture(TextureRegisterEvent event) {
         ExpandableAtlas terrain = Atlases.getTerrain();
 
+        BroomBlocks.STONE_BRICKS.textureId = terrain.addTexture(Broom.id("block/stone_bricks")).index;
         BroomBlocks.IRON_TRAPDOOR.textureId = terrain.addTexture(Broom.id("block/iron_trapdoor")).index;
     }
 }

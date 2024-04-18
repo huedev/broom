@@ -32,6 +32,10 @@ tile.cobblestone_double_slab.name=Cobblestone Double Slab
 tile.brick_slab.name=Brick Slab
 tile.brick_double_slab.name=Brick Double Slab
 tile.brick_stairs.name=Brick Stairs
+tile.stone_bricks.name=Stone Bricks
+tile.stone_brick_slab.name=Stone Brick Slab
+tile.stone_brick_double_slab.name=Stone Brick Double Slab
+tile.stone_brick_stairs.name=Stone Brick Stairs
 tile.iron_trapdoor.name=Iron Trapdoor
 
 item.music_disc.name=Music Disc

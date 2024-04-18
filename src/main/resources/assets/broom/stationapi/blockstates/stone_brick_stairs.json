@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "type=bottom,facing=south": {
+      "model": "broom:block/stone_brick_stairs_bottom_south"
+    },
+    "type=bottom,facing=west": {
+      "model": "broom:block/stone_brick_stairs_bottom_west"
+    },
+    "type=bottom,facing=north": {
+      "model": "broom:block/stone_brick_stairs_bottom_north"
+    },
+    "type=bottom,facing=east": {
+      "model": "broom:block/stone_brick_stairs_bottom_east"
+    },
+    "type=top,facing=south": {
+      "model": "broom:block/stone_brick_stairs_top_south"
+    },
+    "type=top,facing=west": {
+      "model": "broom:block/stone_brick_stairs_top_west"
+    },
+    "type=top,facing=north": {
+      "model": "broom:block/stone_brick_stairs_top_north"
+    },
+    "type=top,facing=east": {
+      "model": "broom:block/stone_brick_stairs_top_east"
+    }
+  }
+}

@@ -5,6 +5,7 @@ import me.huedev.broom.gen.feature.BroomGrassPatchFeature;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.modificationstation.stationapi.api.bonemeal.BonemealAPI;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.template.block.TemplateStairsBlock;
 import net.modificationstation.stationapi.api.template.block.TemplateTrapdoorBlock;
 
@@ -33,6 +34,10 @@ public class BroomBlocks {
     public static Block BRICK_SLAB;
     public static Block BRICK_DOUBLE_SLAB;
     public static Block BRICK_STAIRS;
+    public static Block STONE_BRICKS;
+    public static Block STONE_BRICK_SLAB;
+    public static Block STONE_BRICK_DOUBLE_SLAB;
+    public static Block STONE_BRICK_STAIRS;
     public static Block IRON_TRAPDOOR;
 
     public static void init() {
@@ -70,6 +75,11 @@ public class BroomBlocks {
         BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("brick_double_slab"), Block.BRICKS);
         BRICK_STAIRS = new TemplateStairsBlock(Broom.id("brick_stairs"), Block.BRICKS).setTranslationKey(Broom.id("brick_stairs"));
 
+        STONE_BRICKS = new TemplateBlock(Broom.id("stone_bricks"), Material.STONE).setTranslationKey(Broom.id("stone_bricks")).setHardness(Block.STONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
+        STONE_BRICK_SLAB = new BroomSlabBlock(Broom.id("stone_brick_slab"), BroomBlocks.STONE_BRICKS);
+        STONE_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("stone_brick_double_slab"), BroomBlocks.STONE_BRICKS);
+        STONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("stone_brick_stairs"), BroomBlocks.STONE_BRICKS).setTranslationKey(Broom.id("stone_brick_stairs"));
+
         IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL).setTranslationKey(Broom.id("iron_trapdoor")).setHardness(5.0F).setSoundGroup(Block.METAL_SOUND_GROUP).disableTrackingStatistics().ignoreMetaUpdates();
 
         connectSlabs(STONE_SLAB, STONE_DOUBLE_SLAB);
@@ -77,6 +87,7 @@ public class BroomBlocks {
         connectSlabs(WOODEN_SLAB, WOODEN_DOUBLE_SLAB);
         connectSlabs(COBBLESTONE_SLAB, COBBLESTONE_DOUBLE_SLAB);
         connectSlabs(BRICK_SLAB, BRICK_DOUBLE_SLAB);
+        connectSlabs(STONE_BRICK_SLAB, STONE_BRICK_DOUBLE_SLAB);
 
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), new BroomGrassPatchFeature(), 10);
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), BroomBlocks.FERN.getDefaultState(), 1);
