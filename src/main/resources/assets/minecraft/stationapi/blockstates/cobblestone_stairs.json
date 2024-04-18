@@ -1,28 +1,46 @@
 {
   "variants": {
     "type=bottom,facing=south": {
-      "model": "minecraft:block/cobblestone_stairs_bottom_south"
+      "model": "minecraft:block/cobblestone_stairs",
+      "y": 90,
+      "uvlock": true
     },
     "type=bottom,facing=west": {
-      "model": "minecraft:block/cobblestone_stairs_bottom_west"
+      "model": "minecraft:block/cobblestone_stairs",
+      "y": 180,
+      "uvlock": true
     },
     "type=bottom,facing=north": {
-      "model": "minecraft:block/cobblestone_stairs_bottom_north"
+      "model": "minecraft:block/cobblestone_stairs",
+      "y": 270,
+      "uvlock": true
     },
     "type=bottom,facing=east": {
-      "model": "minecraft:block/cobblestone_stairs_bottom_east"
+      "model": "minecraft:block/cobblestone_stairs",
+      "uvlock": true
     },
     "type=top,facing=south": {
-      "model": "minecraft:block/cobblestone_stairs_top_south"
+      "model": "minecraft:block/cobblestone_stairs",
+      "x": 270,
+      "y": 90,
+      "uvlock": true
     },
     "type=top,facing=west": {
-      "model": "minecraft:block/cobblestone_stairs_top_west"
+      "model": "minecraft:block/cobblestone_stairs",
+      "x": 270,
+      "y": 180,
+      "uvlock": true
     },
     "type=top,facing=north": {
-      "model": "minecraft:block/cobblestone_stairs_top_north"
+      "model": "minecraft:block/cobblestone_stairs",
+      "x": 270,
+      "y": 270,
+      "uvlock": true
     },
     "type=top,facing=east": {
-      "model": "minecraft:block/cobblestone_stairs_top_east"
+      "model": "minecraft:block/cobblestone_stairs",
+      "x": 270,
+      "uvlock": true
     }
   }
 }

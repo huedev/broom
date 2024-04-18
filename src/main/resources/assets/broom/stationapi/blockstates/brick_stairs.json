@@ -1,28 +1,46 @@
 {
   "variants": {
     "type=bottom,facing=south": {
-      "model": "broom:block/brick_stairs_bottom_south"
+      "model": "broom:block/brick_stairs",
+      "y": 90,
+      "uvlock": true
     },
     "type=bottom,facing=west": {
-      "model": "broom:block/brick_stairs_bottom_west"
+      "model": "broom:block/brick_stairs",
+      "y": 180,
+      "uvlock": true
     },
     "type=bottom,facing=north": {
-      "model": "broom:block/brick_stairs_bottom_north"
+      "model": "broom:block/brick_stairs",
+      "y": 270,
+      "uvlock": true
     },
     "type=bottom,facing=east": {
-      "model": "broom:block/brick_stairs_bottom_east"
+      "model": "broom:block/brick_stairs",
+      "uvlock": true
     },
     "type=top,facing=south": {
-      "model": "broom:block/brick_stairs_top_south"
+      "model": "broom:block/brick_stairs",
+      "x": 270,
+      "y": 90,
+      "uvlock": true
     },
     "type=top,facing=west": {
-      "model": "broom:block/brick_stairs_top_west"
+      "model": "broom:block/brick_stairs",
+      "x": 270,
+      "y": 180,
+      "uvlock": true
     },
     "type=top,facing=north": {
-      "model": "broom:block/brick_stairs_top_north"
+      "model": "broom:block/brick_stairs",
+      "x": 270,
+      "y": 270,
+      "uvlock": true
     },
     "type=top,facing=east": {
-      "model": "broom:block/brick_stairs_top_east"
+      "model": "broom:block/brick_stairs",
+      "x": 270,
+      "uvlock": true
     }
   }
 }

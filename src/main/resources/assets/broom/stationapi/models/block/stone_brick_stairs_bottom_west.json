@@ -1,6 +1,0 @@
-{
-  "parent": "broom:block/template_stairs_bottom_west",
-  "textures": {
-    "all": "broom:block/stone_bricks"
-  }
-}
