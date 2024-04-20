@@ -14,6 +14,7 @@ public class BroomBlocks {
     public static Block SPRUCE_LOG;
     public static Block BIRCH_LOG;
     public static Block OAK_LEAVES;
+    public static Block APPLE_OAK_LEAVES;
     public static Block SPRUCE_LEAVES;
     public static Block BIRCH_LEAVES;
     public static Block OAK_SAPLING;
@@ -46,6 +47,7 @@ public class BroomBlocks {
         BIRCH_LOG = new BroomLogBlock(Broom.id("birch_log"));
 
         OAK_LEAVES = new VanillaLeavesWrapper(Broom.id("oak_leaves"), 0);
+        APPLE_OAK_LEAVES = new BroomAppleOakLeavesBlock(Broom.id("apple_oak_leaves"));
         SPRUCE_LEAVES = new VanillaLeavesWrapper(Broom.id("spruce_leaves"), 1);
         BIRCH_LEAVES = new VanillaLeavesWrapper(Broom.id("birch_leaves"), 2);
 

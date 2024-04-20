@@ -33,10 +33,10 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
     private static final Map<Integer, FloodFillSearch> SEARCH_CACHE = new HashMap<>();
     private final FloodFillSearch search;
     private final int maxDistance;
-    private boolean brokenBySilkTouchTool = false;
+    protected boolean brokenBySilkTouchTool = false;
 
     public BroomLeavesBlock(Identifier id) {
-        this(id, Material.LEAVES, 5);
+        this(id, Material.LEAVES, 6);
     }
 
     public BroomLeavesBlock(Identifier id, Material material, int maxDistance) {
