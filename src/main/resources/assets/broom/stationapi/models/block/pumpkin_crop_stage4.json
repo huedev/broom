@@ -3,8 +3,8 @@
   "ambientocclusion": false,
   "textures": {
     "particle": "#cross",
-    "side": "broom:block/pumpkin_fruit_stage1_side",
-    "end": "broom:block/pumpkin_fruit_stage1_top",
+    "side": "broom:block/pumpkin_fruit_stage0_side",
+    "end": "broom:block/pumpkin_fruit_stage0_top",
     "cross": "broom:block/pumpkin_crop_stage4"
   },
   "elements": [

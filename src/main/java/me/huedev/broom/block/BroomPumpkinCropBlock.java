@@ -125,7 +125,16 @@ public class BroomPumpkinCropBlock extends TemplatePlantBlock {
     @Override
     public boolean onBonemealUse(World world, int x, int y, int z, BlockState state) {
         if (!world.isRemote) {
-            this.growCrop(world, x, y, z);
+            //this.growCrop(world, x, y, z);
+            int age = state.get(BroomBlockProperties.CROP_AGE);
+            if (age < 7) {
+                int incrementedAge = age + 1;
+                if (incrementedAge == 7) {
+                    this.growCrop(world, x, y, z);
+                } else {
+                    world.setBlockStateWithNotify(x, y, z, state.with(BroomBlockProperties.CROP_AGE, incrementedAge));
+                }
+            }
         }
         return true;
     }
@@ -157,7 +166,7 @@ public class BroomPumpkinCropBlock extends TemplatePlantBlock {
         BlockState state = world.getBlockState(x, y, z);
         if (state.isOf(this)) {
             int age = state.get(BroomBlockProperties.CROP_AGE);
-            if (age <= 2) {
+            if (age <= 3) {
                 return null;
             } else {
                 return generateBox(x, y, z, age);
@@ -172,8 +181,8 @@ public class BroomPumpkinCropBlock extends TemplatePlantBlock {
         BlockState state = world.getBlockState(x, y, z);
         if (state.isOf(this)) {
             int age = state.get(BroomBlockProperties.CROP_AGE);
-            if (age <= 2) {
-                return generateBox(x, y, z, 3);
+            if (age <= 3) {
+                return generateBox(x, y, z, 4);
             } else {
                 return generateBox(x, y, z, age);
             }

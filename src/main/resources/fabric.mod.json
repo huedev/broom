@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Broom",
-  "description": "Sweeps away the dust on b1.7.3, fixing bugs and tweaking existing features for a fresh experience.",
+  "description": "Sweeps away the dust on b1.7.3, fixing bugs, tweaking existing features, and makes some new additions for a fresh experience.",
   "authors": [
     "huedev"
   ],
