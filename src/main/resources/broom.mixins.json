@@ -110,6 +110,7 @@
     "client.gui.screen.HandledScreenMixin",
     "client.gui.screen.OptionsScreenMixin",
     "client.gui.screen.VideoOptionsScreenMixin",
+    "client.item.BowItemMixin",
     "client.network.ClientNetworkHandlerMixin",
     "client.option.GameOptionsMixin",
     "client.option.OptionMixin",
