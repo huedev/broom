@@ -118,6 +118,8 @@
     "client.render.FireballEntityRendererMixin",
     "client.render.LivingEntityRendererMixin",
     "client.render.PlayerEntityRendererMixin",
+    "client.render.SignBlockEntityRendererMixin",
+    "client.render.SignModelMixin",
     "client.render.SkeletonEntityRendererMixin",
     "client.render.WorldRendererMixin",
     "client.screen.ArmorSlotMixin"

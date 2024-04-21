@@ -8,16 +8,18 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.entity.player.PlayerHelper;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-/**
- * @author Telvarost
- */
 @Mixin(SignBlock.class)
 public abstract class SignBlockMixin extends BlockWithEntity {
     protected SignBlockMixin(int i, int j, Material arg) {
         super(i, j, arg);
     }
 
+    /**
+     * @author Telvarost
+     */
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity user) {
         SignBlockEntity signBlockEntity = (SignBlockEntity)world.method_1777(x, y, z);
@@ -29,5 +31,15 @@ public abstract class SignBlockMixin extends BlockWithEntity {
             user.method_489(signBlockEntity);
         }
         return true;
+    }
+
+    @ModifyVariable(method = "updateBoundingBox", at = @At("STORE"), ordinal = 0)
+    private float broom_fixStartingY(float value) {
+        return 0.25F;
+    }
+
+    @ModifyVariable(method = "updateBoundingBox", at = @At("STORE"), ordinal = 1)
+    private float broom_fixEndingY(float value) {
+        return 0.75F;
     }
 }
