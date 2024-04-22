@@ -39,6 +39,7 @@ public class PickaxeItemMixin {
         blocks.add(Block.REDSTONE_ORE);
         blocks.add(Block.LIT_REDSTONE_ORE);
         blocks.add(Block.BUTTON);
+        blocks.add(Block.OBSIDIAN);
         blocks.add(Block.SPAWNER);
         blocks.add(Block.GLOWSTONE);
         pickaxeEffectiveBlocks = blocks.toArray(Block[]::new);
