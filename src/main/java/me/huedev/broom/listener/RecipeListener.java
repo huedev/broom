@@ -57,6 +57,10 @@ public class RecipeListener {
                 // Button crafting recipe takes 1 Stone
                 CraftingHelper.removeRecipe(Block.BUTTON.asItem(), true);
                 CraftingRegistry.addShapedRecipe(new ItemStack(Block.BUTTON.asItem(), 1), "X", 'X', new ItemStack(Block.STONE.asItem(), 1));
+
+                // Golden Apple crafting recipe takes 8 Gold Ingots
+                CraftingHelper.removeRecipe(Item.GOLDEN_APPLE, true);
+                CraftingRegistry.addShapedRecipe(new ItemStack(Item.GOLDEN_APPLE, 1), "XXX", "XYX", "XXX", 'X', new ItemStack(Item.GOLD_INGOT, 1), 'Y', new ItemStack(Item.APPLE, 1));
             }
 
             case CRAFTING_SHAPELESS -> {
