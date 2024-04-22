@@ -48,6 +48,7 @@
     "common.entity.ChickenEntityMixin",
     "common.entity.CowEntityMixin",
     "common.entity.CreeperEntityMixin",
+    "common.entity.EntityAccessor",
     "common.entity.EntityMixin",
     "common.entity.FishingBobberEntityMixin",
     "common.entity.MinecartEntityMixin",

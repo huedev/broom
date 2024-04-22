@@ -1,9 +1,12 @@
 package me.huedev.broom.mixin.common.block;
 
+import me.huedev.broom.mixin.common.entity.EntityAccessor;
+import me.huedev.broom.mixin.common.entity.PlayerEntityAccessor;
 import me.huedev.broom.util.ToolHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.CobwebBlock;
 import net.minecraft.block.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.stat.Stats;
@@ -12,6 +15,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
@@ -26,6 +30,11 @@ public class CobwebBlockMixin extends Block {
 
     public CobwebBlockMixin(int id, int textureId, Material material) {
         super(id, textureId, material);
+    }
+
+    @Inject(method = "onEntityCollision", at = @At("HEAD"))
+    public void broom_negateFallDamage(World world, int x, int y, int z, Entity entity, CallbackInfo ci) {
+        ((EntityAccessor) entity).broom_setFallDistance(0);
     }
 
     @Override
