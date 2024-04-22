@@ -35,6 +35,7 @@ public class AxeItemMixin {
         blocks.add(Block.JACK_O_LANTERN);
         blocks.add(Block.FENCE);
         blocks.add(Block.NOTE_BLOCK);
+        blocks.add(Block.BED);
         axeEffectiveBlocks = blocks.toArray(Block[]::new);
     }
 }
