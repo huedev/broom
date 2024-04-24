@@ -64,11 +64,13 @@ public class SnowyBlockMixin extends Block {
         int blockId = world.getBlockId(x, y, z);
         if (blockId != this.id) return false;
 
+        BlockState state = world.getBlockState(x, y, z);
         int meta = world.getBlockMeta(x, y, z);
 
         if (meta < 7) {
             meta += 1;
-            world.method_215(x, y, z, meta);
+            world.setBlockStateWithMetadataWithNotify(x, y, z, state, meta);
+            //world.method_215(x, y, z, meta);
             world.playSound(x + 0.5, y + 0.5, z + 0.5, this.soundGroup.getSound(), 1.0F, 1.0F);
             world.method_246(x, y, z);
 
@@ -90,28 +92,6 @@ public class SnowyBlockMixin extends Block {
         player.increaseStat(Stats.MINE_BLOCK[this.id], 1);
         this.dropStacks(world, x, y, z, meta);
     }
-
-    /*
-    @Inject(at = @At("RETURN"), method = "getDroppedItemCount", cancellable = true)
-    public void broom_getDroppedItemCount(Random random, CallbackInfoReturnable<Integer> cir) {
-        if (brokenBySilkTouchTool || brokenByNonSilkTouchShovel) {
-            cir.setReturnValue(1);
-        }
-    }
-
-    @Inject(at = @At("RETURN"), method = "getDroppedItemId", cancellable = true)
-    public void broom_getDroppedItemId(int blockMeta, Random random, CallbackInfoReturnable<Integer> cir) {
-        if (brokenBySilkTouchTool) {
-            cir.setReturnValue(id);
-            brokenBySilkTouchTool = false;
-            brokenByNonSilkTouchShovel = false;
-        } else {
-            cir.setReturnValue(Item.SNOWBALL.id);
-            brokenBySilkTouchTool = false;
-            brokenByNonSilkTouchShovel = false;
-        }
-    }
-    */
 
     @Override
     public List<ItemStack> getDropList(World world, int x, int y, int z, BlockState state, int meta) {
