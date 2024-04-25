@@ -76,6 +76,7 @@
     "common.item.FlintAndSteelMixin",
     "common.item.FoodItemMixin",
     "common.item.HoeItemMixin",
+    "common.item.ItemAccessor",
     "common.item.ItemStackMixin",
     "common.item.MusicDiscItemMixin",
     "common.item.PaintingItemMixin",
