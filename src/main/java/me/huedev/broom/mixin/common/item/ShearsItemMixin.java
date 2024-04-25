@@ -34,10 +34,12 @@ public class ShearsItemMixin extends Item {
                 meta = MathHelper.floor((double)(player.yaw * 4.0F / 360.0F) + 2.5) & 3;
             }
             world.setBlockStateWithMetadataWithNotify(x, y, z, state, meta);
-            world.playSound((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), "broom:entity.sheep.shear", 1.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
-            ItemStack seeds = new ItemStack(BroomItems.PUMPKIN_SEEDS, 4);
-            broom_dropStack(world, x, y, z, seeds);
-            stack.damage(1, player);
+            if (!world.isRemote) {
+                world.method_173(null, 1008, x, y, z, 0);
+                ItemStack seeds = new ItemStack(BroomItems.PUMPKIN_SEEDS, 4);
+                broom_dropStack(world, x, y, z, seeds);
+                stack.damage(1, player);
+            }
             return true;
         }
         return false;

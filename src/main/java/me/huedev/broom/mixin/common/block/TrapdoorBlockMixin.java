@@ -89,7 +89,11 @@ public class TrapdoorBlockMixin extends Block {
                     state = state.with(BroomBlockProperties.OPENED, opened);
                     world.setBlockStateWithNotify(x, y, z, state);
                     world.method_246(x, y, z);
-                    world.method_173(null, 1003, x, y, z, 0);
+                    if (opened) {
+                        world.method_173(null, 1006, x, y, z, 0);
+                    } else {
+                        world.method_173(null, 1007, x, y, z, 0);
+                    }
                 }
             }
         }
@@ -116,7 +120,11 @@ public class TrapdoorBlockMixin extends Block {
         world.setBlockStateWithNotify(x, y, z, changed);
         world.method_246(x, y, z);
         if (!world.isRemote) {
-            world.method_173(null, 1003, x, y, z, 0);
+            if (opened) {
+                world.method_173(null, 1006, x, y, z, 0);
+            } else {
+                world.method_173(null, 1007, x, y, z, 0);
+            }
         }
     }
 
