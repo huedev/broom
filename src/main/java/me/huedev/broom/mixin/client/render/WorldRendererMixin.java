@@ -51,6 +51,14 @@ public class WorldRendererMixin {
                 this.world.playSound((double)j + 0.5, (double)k + 0.5, (double)l + 0.5, "broom:entity.sheep.shear", 1.0F, (this.world.field_214.nextFloat() - this.world.field_214.nextFloat()) * 0.2F + 1.0F);
                 ci.cancel();
                 break;
+            case 1009:
+                this.world.playSound((double)j + 0.5, (double)k + 0.5, (double)l + 0.5, "random.click", 0.3F, 0.6F);
+                ci.cancel();
+                break;
+            case 1010:
+                this.world.playSound((double)j + 0.5, (double)k + 0.5, (double)l + 0.5, "random.click", 0.3F, 0.5F);
+                ci.cancel();
+                break;
         }
     }
 }

@@ -158,7 +158,11 @@ public abstract class LeverBlockMixin extends Block {
 
             world.setBlockStateWithNotify(x, y, z, changed);
             world.method_202(x, y, z, x, y, z);
-            world.playSound((double)x + 0.5, (double)y + 0.5, (double)z + 0.5, "random.click", 0.3F, powered ? 0.6F : 0.5F);
+            if (powered) {
+                world.method_173(null, 1009, x, y, z, 0);
+            } else {
+                world.method_173(null, 1010, x, y, z, 0);
+            }
             world.method_244(x, y, z, this.id);
 
             BroomBlockProperties.Face face = state.get(BroomBlockProperties.FACE);
