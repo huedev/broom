@@ -129,11 +129,11 @@ public class TrapdoorBlockMixin extends Block {
     }
 
     @Inject(method = "updateBoundingBox", at = @At("HEAD"), cancellable = true)
-    public void vbe_updateBoundingBox(BlockView view, int x, int y, int z, CallbackInfo info) {
+    public void broom_updateBoundingBox(BlockView view, int x, int y, int z, CallbackInfo info) {
         info.cancel();
 
-        if (!(view instanceof BlockStateView level)) return;
-        BlockState state = level.getBlockState(x, y, z);
+        if (!(view instanceof BlockStateView world)) return;
+        BlockState state = world.getBlockState(x, y, z);
         if (!state.isOf(this)) return;
 
         TopBottom part = state.get(BroomBlockProperties.TOP_BOTTOM);
@@ -156,7 +156,7 @@ public class TrapdoorBlockMixin extends Block {
     }
 
     @Inject(method = "canPlaceAt", at = @At("HEAD"), cancellable = true)
-    private void vbe_canPlaceAt(World world, int x, int y, int z, int side, CallbackInfoReturnable<Boolean> cir) {
+    private void broom_canPlaceAt(World world, int x, int y, int z, int side, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(true);
     }
 }
