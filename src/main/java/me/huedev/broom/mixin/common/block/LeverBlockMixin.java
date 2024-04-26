@@ -1,20 +1,16 @@
 package me.huedev.broom.mixin.common.block;
 
 import me.huedev.broom.block.BroomBlockProperties;
-import me.huedev.broom.block.BroomBlockTags;
-import me.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.LeverBlock;
 import net.minecraft.block.Material;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.item.ItemPlacementContext;
 import net.modificationstation.stationapi.api.state.StateManager;
-import net.modificationstation.stationapi.api.util.Util;
 import net.modificationstation.stationapi.api.util.math.Direction;
 import net.modificationstation.stationapi.api.world.BlockStateView;
 import org.spongepowered.asm.mixin.Mixin;
@@ -71,8 +67,6 @@ public abstract class LeverBlockMixin extends Block {
         Direction side = context.getSide();
         Direction facing = context.getSide().getOpposite();
         PlayerEntity player = context.getPlayer();
-        BlockPos pos = context.getBlockPos();
-        World world = context.getWorld();
 
         if (facing.getAxis() == Direction.Axis.Y) {
             facing = Direction.fromRotation(player == null ? 0 : player.yaw);
@@ -90,42 +84,6 @@ public abstract class LeverBlockMixin extends Block {
                 state = state.with(BroomBlockProperties.FACE, BroomBlockProperties.Face.WALL);
             }
         }
-
-        /*
-        int meta = world.getBlockMeta(pos.getX(), pos.getY(), pos.getZ());
-        int var7 = meta & 8;
-        meta &= 7;
-        meta = -1;
-        if (side == Direction.UP && world.method_1780(pos.getX(), pos.getY() - 1, pos.getZ())) {
-            switch (facing) {
-                case EAST, WEST -> meta = 5;
-                case NORTH, SOUTH -> meta = 6;
-            }
-        }
-
-        if (side == Direction.EAST && world.method_1780(pos.getX(), pos.getY(), pos.getZ() + 1)) {
-            meta = 4;
-        }
-
-        if (side == Direction.WEST && world.method_1780(pos.getX(), pos.getY(), pos.getZ() - 1)) {
-            meta = 3;
-        }
-
-        if (side == Direction.NORTH && world.method_1780(pos.getX() + 1, pos.getY(), pos.getZ())) {
-            meta = 2;
-        }
-
-        if (side == Direction.UP && world.method_1780(pos.getX() - 1, pos.getY(), pos.getZ())) {
-            meta = 1;
-        }
-
-        if (meta == -1) {
-            this.dropStacks(world, pos.getX(), pos.getY(), pos.getZ(), world.getBlockMeta(pos.getX(), pos.getY(), pos.getZ()));
-            world.setBlock(pos.getX(), pos.getY(), pos.getZ(), 0);
-        } else {
-            world.method_215(pos.getX(), pos.getY(), pos.getZ(), meta + var7);
-        }
-        */
 
         return state;
     }
@@ -217,6 +175,8 @@ public abstract class LeverBlockMixin extends Block {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, int x, int y, int z, BlockState state, int meta) {
+        super.afterBreak(world, player, x, y, z, state, meta);
+
         if (!state.isOf(this)) return;
 
         boolean powered = state.get(BroomBlockProperties.POWERED);
@@ -234,30 +194,6 @@ public abstract class LeverBlockMixin extends Block {
             }
         }
     }
-
-    /*
-    @Inject(method = "onBreak", at = @At("HEAD"), cancellable = true)
-    private void broom_onBreak(World world, int x, int y, int z, CallbackInfo ci) {
-        ci.cancel();
-
-        world.method_244(x, y, z, this.id);
-
-        BlockState state = world.getBlockState(x, y, z);
-        if (!state.isOf(this)) return;
-
-        BroomBlockProperties.Face face = state.get(BroomBlockProperties.FACE);
-        if (face == BroomBlockProperties.Face.CEILING) {
-            world.method_244(x, y + 1, z, this.id);
-        } else if (face == BroomBlockProperties.Face.FLOOR) {
-            world.method_244(x, y - 1, z, this.id);
-        } else {
-            Direction facing = state.get(BroomBlockProperties.FACING);
-            world.method_244(x + facing.getOffsetX(), y, z + facing.getOffsetZ(), this.id);
-        }
-
-        super.onBreak(world, x, y, z);
-    }
-    */
 
     @Inject(method = "isEmittingRedstonePower", at = @At("HEAD"), cancellable = true)
     private void broom_isEmittingRedstonePower(BlockView blockView, int x, int y, int z, int meta, CallbackInfoReturnable<Boolean> cir) {
