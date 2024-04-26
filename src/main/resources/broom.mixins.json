@@ -50,6 +50,7 @@
     "common.entity.CreeperEntityMixin",
     "common.entity.EntityAccessor",
     "common.entity.EntityMixin",
+    "common.entity.FireballEntityMixin",
     "common.entity.FishingBobberEntityMixin",
     "common.entity.MinecartEntityMixin",
     "common.entity.PaintingEntityMixin",

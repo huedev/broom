@@ -75,7 +75,6 @@ public class InGameHudMixin extends DrawContext {
         return "";
     }
 
-    // Seed
     @Inject(
             method = "render",
             at = @At(
@@ -89,7 +88,7 @@ public class InGameHudMixin extends DrawContext {
         int offset = 52;
 
         double playerX = minecraft.player.x;
-        double playerY = minecraft.player.y - 1;
+        double playerY = minecraft.player.y - minecraft.player.eyeHeight;
         double playerZ = minecraft.player.z;
         String text = "XYZ: " + String.format("%.4f", playerX) + " " + String.format("%.4f", playerY) + " " + String.format("%.4f", playerZ);
         this.drawTextWithShadow(var8, text, 2, offset += 10, 14737632);
@@ -101,7 +100,7 @@ public class InGameHudMixin extends DrawContext {
         this.drawTextWithShadow(var8, text, 2, offset += 10, 14737632);
 
         int blockX = (int) Math.floor(minecraft.player.x);
-        int blockY = (int) Math.floor(minecraft.player.y) - 1;
+        int blockY = (int) Math.floor(minecraft.player.y - minecraft.player.eyeHeight);
         int blockZ = (int) Math.floor(minecraft.player.z);
         int blockRelativeX = blockX & 15;
         int blockRelativeY = blockY & 15;
