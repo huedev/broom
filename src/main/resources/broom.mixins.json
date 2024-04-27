@@ -53,6 +53,7 @@
     "common.entity.FireballEntityMixin",
     "common.entity.FishingBobberEntityMixin",
     "common.entity.MinecartEntityMixin",
+    "common.entity.MonsterEntityMixin",
     "common.entity.PaintingEntityMixin",
     "common.entity.PigEntityMixin",
     "common.entity.PlayerEntityAccessor",
