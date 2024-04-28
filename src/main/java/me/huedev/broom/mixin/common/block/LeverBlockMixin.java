@@ -1,11 +1,11 @@
 package me.huedev.broom.mixin.common.block;
 
 import me.huedev.broom.block.BroomBlockProperties;
+import me.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.LeverBlock;
 import net.minecraft.block.Material;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
@@ -43,11 +43,19 @@ public abstract class LeverBlockMixin extends Block {
         if (side == 0 && world.method_1780(x, y + 1, z)) {
             cir.setReturnValue(true);
         }
+
+        if (WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) {
+            cir.setReturnValue(true);
+        }
     }
 
     @Inject(method = "canPlaceAt(Lnet/minecraft/world/World;III)Z", at = @At("HEAD"), cancellable = true)
     public void broom_canPlaceAt(World world, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
         if (world.method_1780(x, y + 1, z)) {
+            cir.setReturnValue(true);
+        }
+
+        if (WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) {
             cir.setReturnValue(true);
         }
     }
@@ -100,8 +108,10 @@ public abstract class LeverBlockMixin extends Block {
 
             if (face == BroomBlockProperties.Face.CEILING && !world.method_1780(x, y + 1, z)) {
                 invalid = true;
-            } else if (face == BroomBlockProperties.Face.FLOOR && !world.method_1780(x, y - 1, z)) {
-                invalid = true;
+            } else if (face == BroomBlockProperties.Face.FLOOR) {
+                if (!world.method_1780(x, y - 1, z) && !WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) {
+                    invalid = true;
+                }
             } else if (face == BroomBlockProperties.Face.WALL) {
                 Direction facing = state.get(BroomBlockProperties.FACING);
                 if (!world.method_1780(x + facing.getOffsetX(), y, z + facing.getOffsetZ())) {
@@ -213,8 +223,7 @@ public abstract class LeverBlockMixin extends Block {
 
         cir.setReturnValue(state.get(BroomBlockProperties.POWERED));
     }
-
-    // TODO: canTransferPowerInDirection()
+    
     @Inject(method = "canTransferPowerInDirection", at = @At("HEAD"), cancellable = true)
     private void broom_canTransferPowerInDirection(World world, int x, int y, int z, int direction, CallbackInfoReturnable<Boolean> cir) {
         BlockState state = world.getBlockState(x, y, z);

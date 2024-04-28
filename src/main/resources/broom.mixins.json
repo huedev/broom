@@ -40,6 +40,7 @@
     "common.block.StoneBlockMixin",
     "common.block.SugarCaneBlockMixin",
     "common.block.TallPlantBlockMixin",
+    "common.block.TorchBlockMixin",
     "common.block.TrapdoorBlockMixin",
     "common.block.WoolBlockItemMixin",
     "common.block.entity.FurnaceBlockEntityMixin",

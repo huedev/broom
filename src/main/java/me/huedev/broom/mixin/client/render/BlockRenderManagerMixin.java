@@ -82,6 +82,7 @@ public abstract class BlockRenderManagerMixin {
         cir.setReturnValue(true);
     }
 
+    /*
     @Inject(method = "renderStairs", at = @At("HEAD"), cancellable = true)
     private void broom_renderStairs(Block block, int x, int y, int z, CallbackInfoReturnable<Boolean> info) {
         if (this.blockView instanceof BlockStateView stateView && block instanceof StairsBlock) {
@@ -151,4 +152,5 @@ public abstract class BlockRenderManagerMixin {
             info.setReturnValue(true);
         }
     }
+    */
 }

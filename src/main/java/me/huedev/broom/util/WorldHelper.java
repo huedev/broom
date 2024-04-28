@@ -1,5 +1,8 @@
 package me.huedev.broom.util;
 
+import me.huedev.broom.block.BroomBlockProperties;
+import me.huedev.broom.block.BroomSlabBlock;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.MathHelper;
@@ -47,5 +50,14 @@ public class WorldHelper {
             chunk.sections[index] = section;
         }
         section.setBlockState(x & 15, y & 15, z & 15, state);
+    }
+
+    public static boolean isBlockStateFloorSupport(World world, int x, int y, int z) {
+        BlockState state = world.getBlockState(x, y, z);
+        if (state.getBlock() instanceof StairsBlock || state.getBlock() instanceof BroomSlabBlock) {
+            BroomBlockProperties.TopBottom topBottom = state.get(BroomBlockProperties.TOP_BOTTOM);
+            return topBottom == BroomBlockProperties.TopBottom.TOP;
+        }
+        return false;
     }
 }
