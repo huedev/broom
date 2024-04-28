@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LeverBlock.class)
 public abstract class LeverBlockMixin extends Block {
-    @Shadow protected abstract boolean method_1785(World arg, int i, int j, int k);
+    @Shadow protected abstract boolean breakIfCannotPlaceAt(World arg, int i, int j, int k);
 
     public LeverBlockMixin(int id, Material material) {
         super(id, material);
@@ -100,7 +100,7 @@ public abstract class LeverBlockMixin extends Block {
     private void broom_neighborUpdate(World world, int x, int y, int z, int id, CallbackInfo ci) {
         ci.cancel();
 
-        if (this.method_1785(world, x, y, z)) {
+        if (this.breakIfCannotPlaceAt(world, x, y, z)) {
             BlockState state = world.getBlockState(x, y, z);
             BroomBlockProperties.Face face = state.get(BroomBlockProperties.FACE);
 
@@ -223,7 +223,7 @@ public abstract class LeverBlockMixin extends Block {
 
         cir.setReturnValue(state.get(BroomBlockProperties.POWERED));
     }
-    
+
     @Inject(method = "canTransferPowerInDirection", at = @At("HEAD"), cancellable = true)
     private void broom_canTransferPowerInDirection(World world, int x, int y, int z, int direction, CallbackInfoReturnable<Boolean> cir) {
         BlockState state = world.getBlockState(x, y, z);

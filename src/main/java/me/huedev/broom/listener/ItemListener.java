@@ -26,7 +26,7 @@ public class ItemListener {
         event.registry.getEntry(Item.STONE_SWORD).value().setTranslationKey("stone_sword");
         event.registry.getEntry(Item.STONE_SHOVEL).value().setTranslationKey("stone_shovel");
         event.registry.getEntry(Item.STONE_PICKAXE).value().setTranslationKey("stone_pickaxe");
-        event.registry.getEntry(Item.STONE_HATCHET).value().setTranslationKey("stone_axe");
+        event.registry.getEntry(Item.STONE_AXE).value().setTranslationKey("stone_axe");
         event.registry.getEntry(Item.DIAMOND_SWORD).value().setTranslationKey("diamond_sword");
         event.registry.getEntry(Item.DIAMOND_SHOVEL).value().setTranslationKey("diamond_shovel");
         event.registry.getEntry(Item.DIAMOND_PICKAXE).value().setTranslationKey("diamond_pickaxe");

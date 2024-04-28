@@ -3,7 +3,7 @@ package me.huedev.broom.listener;
 import me.huedev.broom.block.BroomBlocks;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
-import net.minecraft.class_287;
+import net.minecraft.client.color.world.GrassColors;
 import net.modificationstation.stationapi.api.client.color.world.BiomeColors;
 import net.modificationstation.stationapi.api.client.event.color.block.BlockColorsRegisterEvent;
 import net.modificationstation.stationapi.api.client.event.color.item.ItemColorsRegisterEvent;
@@ -36,7 +36,7 @@ public class ColorListener {
     @EventListener
     public void registerItemColors(ItemColorsRegisterEvent event) {
         event.itemColors.register(
-                (item, damage) -> class_287.method_981(1.0F, 1.0F),
+                (item, damage) -> GrassColors.getColor(1.0F, 1.0F),
                 Block.GRASS_BLOCK,
                 Block.GRASS,
                 BroomBlocks.GRASS,

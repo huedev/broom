@@ -64,6 +64,7 @@
     "common.entity.SkeletonEntityMixin",
     "common.entity.SlimeEntityMixin",
     "common.gen.feature.BirchTreeFeatureMixin",
+    "common.gen.feature.DungeonFeatureMixin",
     "common.gen.feature.GrassPatchFeatureMixin",
     "common.gen.feature.LargeOakTreeFeatureMixin",
     "common.gen.feature.OakTreeFeatureMixin",

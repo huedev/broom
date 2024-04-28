@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(TorchBlock.class)
 public class TorchBlockMixin {
-    @Inject(method = "method_1674", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "canPlaceOn", at = @At("HEAD"), cancellable = true)
     public void broom_placeOnTopSlabsAndStairs(World world, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
         if (WorldHelper.isBlockStateFloorSupport(world, x, y, z)) {
             cir.setReturnValue(true);

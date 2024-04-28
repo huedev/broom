@@ -2,7 +2,7 @@ package me.huedev.broom.block;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.class_334;
+import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -43,7 +43,7 @@ public class BroomAppleOakLeavesBlock extends BroomLeavesBlock {
         view.method_1781().method_1788(x, z, 1, 1);
         double t = view.method_1781().field_2235[0];
         double w = view.method_1781().field_2236[0];
-        return class_334.method_1080(t, w);
+        return FoliageColors.getColor(t, w);
     }
 
     @Override

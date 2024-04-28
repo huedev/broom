@@ -27,7 +27,7 @@ public class CakeBlockMixin extends Block {
         super(id, material);
     }
 
-    @Inject(method = "method_1528", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;method_939(I)V"))
+    @Inject(method = "tryEat", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;method_939(I)V"))
     public void broom_playSoundOnEat(World world, int x, int y, int z, PlayerEntity player, CallbackInfo ci) {
         world.playSound(player, "random.eat", 1.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
     }

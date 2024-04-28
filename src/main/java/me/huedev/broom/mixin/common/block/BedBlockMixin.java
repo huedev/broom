@@ -21,7 +21,7 @@ public abstract class BedBlockMixin extends Block {
         super(id, textureId, material);
     }
 
-    @Inject(method = "onUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;method_495(III)Lnet/minecraft/class_141;"))
+    @Inject(method = "onUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;method_495(III)Lnet/minecraft/entity/player/SleepAttemptResult;"))
     public void broom_setSpawn(World world, int x, int y, int z, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
         if (!player.world.isRemote) {
             Vec3i currentRespawnPosition = ((PlayerEntityAccessor) player).getField_516();

@@ -3,7 +3,7 @@ package me.huedev.broom.block;
 import me.huedev.broom.util.ToolHelper;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.class_334;
+import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.BlockView;
@@ -56,12 +56,12 @@ public class VanillaLeavesWrapper extends BroomLeavesBlock {
 
     @Environment(value = EnvType.CLIENT)
     public int getColorMultiplier(BlockView view, int x, int y, int z) {
-        if ((meta & 1) == 1) return class_334.method_1079();
-        if ((meta & 2) == 2) return class_334.method_1082();
+        if ((meta & 1) == 1) return FoliageColors.getSpruceColor();
+        if ((meta & 2) == 2) return FoliageColors.getBirchColor();
         view.method_1781().method_1788(x, z, 1, 1);
         double t = view.method_1781().field_2235[0];
         double w = view.method_1781().field_2236[0];
-        return class_334.method_1080(t, w);
+        return FoliageColors.getColor(t, w);
     }
 
     @Override

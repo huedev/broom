@@ -112,7 +112,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
             return;
         }
 
-        Inventory inventory = (Inventory) world.method_1777(x, y, z);
+        Inventory inventory = (Inventory) world.getBlockEntity(x, y, z);
         BlockState state = world.getBlockState(x, y, z);
 
         ChestType part = state.get(BroomBlockProperties.CHEST_TYPE);
@@ -133,7 +133,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
             return;
         }
 
-        Inventory sideInventory = (Inventory) world.method_1777(x, y, z);
+        Inventory sideInventory = (Inventory) world.getBlockEntity(x, y, z);
 
         switch (part) {
             case LEFT -> inventory = new DoubleInventory("Large Chest", inventory, sideInventory);

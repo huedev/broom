@@ -22,7 +22,7 @@ public abstract class SignBlockMixin extends BlockWithEntity {
      */
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity user) {
-        SignBlockEntity signBlockEntity = (SignBlockEntity)world.method_1777(x, y, z);
+        SignBlockEntity signBlockEntity = (SignBlockEntity)world.getBlockEntity(x, y, z);
         if (signBlockEntity != null) {
             PlayerEntity player = PlayerHelper.getPlayerFromGame();
             if (player == null) {

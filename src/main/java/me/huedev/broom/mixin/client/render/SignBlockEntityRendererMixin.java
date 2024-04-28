@@ -27,11 +27,11 @@ public class SignBlockEntityRendererMixin extends BlockEntityRenderer {
         float var12;
         if (var9 == Block.SIGN) {
             GL11.glTranslatef((float)d + 0.5F, (float)e + 0.75F * var10, (float)f + 0.5F);
-            float var11 = (float)(arg.method_1069() * 360) / 16.0F;
+            float var11 = (float)(arg.getPushedBlockData() * 360) / 16.0F;
             GL11.glRotatef(-var11, 0.0F, 1.0F, 0.0F);
             this.model.stick.visible = true;
         } else {
-            int var16 = arg.method_1069();
+            int var16 = arg.getPushedBlockData();
             var12 = 0.0F;
             if (var16 == 2) {
                 var12 = 180.0F;

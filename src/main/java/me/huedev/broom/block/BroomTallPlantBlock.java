@@ -3,7 +3,7 @@ package me.huedev.broom.block;
 import me.huedev.broom.util.ToolHelper;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.class_287;
+import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.stat.Stats;
@@ -73,7 +73,7 @@ public class BroomTallPlantBlock extends TemplatePlantBlock {
         blockView.method_1781().method_1788(x, z, 1, 1);
         double var8 = blockView.method_1781().field_2235[0];
         double var10 = blockView.method_1781().field_2236[0];
-        return class_287.method_981(var8, var10);
+        return GrassColors.getColor(var8, var10);
     }
 
     @Override
