@@ -5,11 +5,11 @@
   ],
   "key": {
     "X": {
-      "item": "broom:stone_bricks"
+      "item": "broom:polished_stone_bricks"
     }
   },
   "result": {
-    "item": "broom:stone_brick_slab",
+    "item": "broom:polished_stone_brick_slab",
     "count": 6
   }
 }

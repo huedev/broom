@@ -24,8 +24,9 @@ public class BroomBlocks {
     public static Block FERN;
     public static Block PUMPKIN;
     public static Block PUMPKIN_CROPS;
-    public static Block STONE_SLAB;
-    public static Block STONE_DOUBLE_SLAB;
+    public static Block POLISHED_STONE;
+    public static Block POLISHED_STONE_SLAB;
+    public static Block POLISHED_STONE_DOUBLE_SLAB;
     public static Block SANDSTONE_SLAB;
     public static Block SANDSTONE_DOUBLE_SLAB;
     public static Block WOODEN_SLAB;
@@ -35,10 +36,10 @@ public class BroomBlocks {
     public static Block BRICK_SLAB;
     public static Block BRICK_DOUBLE_SLAB;
     public static Block BRICK_STAIRS;
-    public static Block STONE_BRICKS;
-    public static Block STONE_BRICK_SLAB;
-    public static Block STONE_BRICK_DOUBLE_SLAB;
-    public static Block STONE_BRICK_STAIRS;
+    public static Block POLISHED_STONE_BRICKS;
+    public static Block POLISHED_STONE_BRICK_SLAB;
+    public static Block POLISHED_STONE_BRICK_DOUBLE_SLAB;
+    public static Block POLISHED_STONE_BRICK_STAIRS;
     public static Block IRON_TRAPDOOR;
 
     public static void init() {
@@ -61,8 +62,10 @@ public class BroomBlocks {
         PUMPKIN = new BroomPumpkinBlock(Broom.id("pumpkin"), Material.PUMPKIN);
         PUMPKIN_CROPS = new BroomPumpkinCropBlock(Broom.id("pumpkin_crop"), Block.WHEAT.textureId);
 
-        STONE_SLAB = new BroomSlabBlock(Broom.id("stone_slab"), Block.STONE);
-        STONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("stone_double_slab"), Block.STONE);
+        POLISHED_STONE = new TemplateBlock(Broom.id("polished_stone"), Material.STONE).setTranslationKey(Broom.id("polished_stone")).setHardness(Block.STONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
+
+        POLISHED_STONE_SLAB = new BroomSlabBlock(Broom.id("polished_stone_slab"), BroomBlocks.POLISHED_STONE);
+        POLISHED_STONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("polished_stone_double_slab"), BroomBlocks.POLISHED_STONE);
 
         SANDSTONE_SLAB = new BroomSlabBlock(Broom.id("sandstone_slab"), Block.SANDSTONE);
         SANDSTONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("sandstone_double_slab"), Block.SANDSTONE);
@@ -77,19 +80,19 @@ public class BroomBlocks {
         BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("brick_double_slab"), Block.BRICKS);
         BRICK_STAIRS = new TemplateStairsBlock(Broom.id("brick_stairs"), Block.BRICKS).setTranslationKey(Broom.id("brick_stairs"));
 
-        STONE_BRICKS = new TemplateBlock(Broom.id("stone_bricks"), Material.STONE).setTranslationKey(Broom.id("stone_bricks")).setHardness(Block.STONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
-        STONE_BRICK_SLAB = new BroomSlabBlock(Broom.id("stone_brick_slab"), BroomBlocks.STONE_BRICKS);
-        STONE_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("stone_brick_double_slab"), BroomBlocks.STONE_BRICKS);
-        STONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("stone_brick_stairs"), BroomBlocks.STONE_BRICKS).setTranslationKey(Broom.id("stone_brick_stairs"));
+        POLISHED_STONE_BRICKS = new TemplateBlock(Broom.id("polished_stone_bricks"), Material.STONE).setTranslationKey(Broom.id("polished_stone_bricks")).setHardness(Block.STONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
+        POLISHED_STONE_BRICK_SLAB = new BroomSlabBlock(Broom.id("polished_stone_brick_slab"), BroomBlocks.POLISHED_STONE_BRICKS);
+        POLISHED_STONE_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("polished_stone_brick_double_slab"), BroomBlocks.POLISHED_STONE_BRICKS);
+        POLISHED_STONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("polished_stone_brick_stairs"), BroomBlocks.POLISHED_STONE_BRICKS).setTranslationKey(Broom.id("polished_stone_brick_stairs"));
 
         IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL).setTranslationKey(Broom.id("iron_trapdoor")).setHardness(5.0F).setSoundGroup(Block.METAL_SOUND_GROUP).disableTrackingStatistics().ignoreMetaUpdates();
 
-        connectSlabs(STONE_SLAB, STONE_DOUBLE_SLAB);
+        connectSlabs(POLISHED_STONE_SLAB, POLISHED_STONE_DOUBLE_SLAB);
         connectSlabs(SANDSTONE_SLAB, SANDSTONE_DOUBLE_SLAB);
         connectSlabs(WOODEN_SLAB, WOODEN_DOUBLE_SLAB);
         connectSlabs(COBBLESTONE_SLAB, COBBLESTONE_DOUBLE_SLAB);
         connectSlabs(BRICK_SLAB, BRICK_DOUBLE_SLAB);
-        connectSlabs(STONE_BRICK_SLAB, STONE_BRICK_DOUBLE_SLAB);
+        connectSlabs(POLISHED_STONE_BRICK_SLAB, POLISHED_STONE_BRICK_DOUBLE_SLAB);
 
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), new BroomGrassPatchFeature(), 10);
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), BroomBlocks.FERN.getDefaultState(), 1);
@@ -151,7 +154,7 @@ public class BroomBlocks {
             case 1 -> SANDSTONE_SLAB;
             case 2 -> WOODEN_SLAB;
             case 3 -> COBBLESTONE_SLAB;
-            default -> STONE_SLAB;
+            default -> POLISHED_STONE_SLAB;
         };
     }
 
@@ -163,7 +166,7 @@ public class BroomBlocks {
             case 1 -> SANDSTONE_DOUBLE_SLAB;
             case 2 -> WOODEN_DOUBLE_SLAB;
             case 3 -> COBBLESTONE_DOUBLE_SLAB;
-            default -> STONE_DOUBLE_SLAB;
+            default -> POLISHED_STONE_DOUBLE_SLAB;
         };
     }
 }

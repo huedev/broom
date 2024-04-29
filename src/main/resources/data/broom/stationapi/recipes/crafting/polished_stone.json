@@ -1,7 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XXX"
+    "XX ",
+    "XX "
   ],
   "key": {
     "X": {
@@ -9,7 +10,7 @@
     }
   },
   "result": {
-    "item": "broom:stone_slab",
-    "count": 6
+    "item": "broom:polished_stone",
+    "count": 4
   }
 }

@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_column",
   "textures": {
     "side": "minecraft:block/smooth_stone_slab_side",
-    "end": "minecraft:block/smooth_stone"
+    "end": "broom:block/polished_stone"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "type=top": { "model": "broom:block/polished_stone_slab_top" },
+    "type=bottom": { "model": "broom:block/polished_stone_slab_bottom" }
+  }
+}
