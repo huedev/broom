@@ -36,6 +36,7 @@ public class AxeItemMixin {
         blocks.add(Block.FENCE);
         blocks.add(Block.NOTE_BLOCK);
         blocks.add(Block.BED);
+        blocks.add(Block.WOODEN_PRESSURE_PLATE);
         axeEffectiveBlocks = blocks.toArray(Block[]::new);
     }
 }

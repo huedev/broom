@@ -2,6 +2,8 @@
   "values": [
     "minecraft:glass",
     "minecraft:stone_button",
+    "minecraft:oak_pressure_plate",
+    "minecraft:lever",
     "broom:stone_slab",
     "broom:stone_double_slab",
     "broom:sandstone_slab",

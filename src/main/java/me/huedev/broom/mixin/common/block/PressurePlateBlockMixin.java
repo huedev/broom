@@ -1,5 +1,6 @@
 package me.huedev.broom.mixin.common.block;
 
+import me.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.world.World;
@@ -15,8 +16,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PressurePlateBlock.class)
 public class PressurePlateBlockMixin {
     @Inject(method = "canPlaceAt", at = @At("HEAD"), cancellable = true)
-    public void broom_allowPlacementOnFences(World world, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
+    public void broom_allowMoreValidGroundBlocks(World world, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
         if (world.getBlockId(x, y - 1, z) == Block.FENCE.id) {
+            cir.setReturnValue(true);
+        }
+
+        if (WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) {
             cir.setReturnValue(true);
         }
     }
@@ -32,6 +37,10 @@ public class PressurePlateBlockMixin {
     )
     public void broom_preventBreakingOnUpdate(World world, int x, int y, int z, int id, CallbackInfo ci) {
         if (world.getBlockId(x, y - 1, z) == Block.FENCE.id) {
+            ci.cancel();
+        }
+
+        if (WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) {
             ci.cancel();
         }
     }
