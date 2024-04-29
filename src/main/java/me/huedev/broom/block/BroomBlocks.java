@@ -24,6 +24,9 @@ public class BroomBlocks {
     public static Block FERN;
     public static Block PUMPKIN;
     public static Block PUMPKIN_CROPS;
+    public static Block STONE_SLAB;
+    public static Block STONE_DOUBLE_SLAB;
+    public static Block STONE_STAIRS;
     public static Block POLISHED_STONE;
     public static Block POLISHED_STONE_SLAB;
     public static Block POLISHED_STONE_DOUBLE_SLAB;
@@ -62,6 +65,10 @@ public class BroomBlocks {
         PUMPKIN = new BroomPumpkinBlock(Broom.id("pumpkin"), Material.PUMPKIN);
         PUMPKIN_CROPS = new BroomPumpkinCropBlock(Broom.id("pumpkin_crop"), Block.WHEAT.textureId);
 
+        STONE_SLAB = new BroomSlabBlock(Broom.id("stone_slab"), Block.STONE);
+        STONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("stone_double_slab"), Block.STONE);
+        STONE_STAIRS = new TemplateStairsBlock(Broom.id("stone_stairs"), Block.STONE).setTranslationKey(Broom.id("stone_stairs"));
+
         POLISHED_STONE = new TemplateBlock(Broom.id("polished_stone"), Material.STONE).setTranslationKey(Broom.id("polished_stone")).setHardness(Block.STONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
 
         POLISHED_STONE_SLAB = new BroomSlabBlock(Broom.id("polished_stone_slab"), BroomBlocks.POLISHED_STONE);
@@ -92,6 +99,7 @@ public class BroomBlocks {
         connectSlabs(WOODEN_SLAB, WOODEN_DOUBLE_SLAB);
         connectSlabs(COBBLESTONE_SLAB, COBBLESTONE_DOUBLE_SLAB);
         connectSlabs(BRICK_SLAB, BRICK_DOUBLE_SLAB);
+        connectSlabs(STONE_SLAB, STONE_DOUBLE_SLAB);
         connectSlabs(POLISHED_STONE_BRICK_SLAB, POLISHED_STONE_BRICK_DOUBLE_SLAB);
 
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), new BroomGrassPatchFeature(), 10);
