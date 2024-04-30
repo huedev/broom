@@ -47,6 +47,7 @@ tile.sandstone_bricks.name=Sandstone Bricks
 tile.sandstone_brick_slab.name=Sandstone Brick Slab
 tile.sandstone_brick_double_slab.name= Sandstone Brick Double Slab
 tile.sandstone_brick_stairs.name=Sandstone Brick Stairs
+tile.wooden_button.name=Wooden Button
 tile.iron_trapdoor.name=Iron Trapdoor
 
 item.music_disc.name=Music Disc

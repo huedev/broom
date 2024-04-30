@@ -57,6 +57,7 @@ public class BlockListener {
         event.registry.getEntry(Block.LIT_REDSTONE_ORE).value().setTranslationKey("redstone_ore");
         event.registry.getEntry(Block.REDSTONE_TORCH).value().setTranslationKey("redstone_torch");
         event.registry.getEntry(Block.LIT_REDSTONE_TORCH).value().setTranslationKey("redstone_torch");
+        event.registry.getEntry(Block.BUTTON).value().setTranslationKey("stone_button");
         event.registry.getEntry(Block.SNOW_BLOCK).value().setTranslationKey("snow_block");
         event.registry.getEntry(Block.SUGAR_CANE).value().setTranslationKey("sugar_cane");
         event.registry.getEntry(Block.JUKEBOX).value().setSoundGroup(Block.WOOD_SOUND_GROUP);

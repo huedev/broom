@@ -49,10 +49,6 @@ public class BroomBlocks {
     public static Block SANDSTONE_BRICK_SLAB;
     public static Block SANDSTONE_BRICK_DOUBLE_SLAB;
     public static Block SANDSTONE_BRICK_STAIRS;
-    public static Block STONE_BRICKS;
-    public static Block STONE_BRICK_SLAB;
-    public static Block STONE_BRICK_DOUBLE_SLAB;
-    public static Block STONE_BRICK_STAIRS;
     public static Block WOODEN_BUTTON;
     public static Block IRON_TRAPDOOR;
 

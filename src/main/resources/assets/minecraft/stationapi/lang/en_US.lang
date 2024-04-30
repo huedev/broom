@@ -72,6 +72,7 @@ tile.iron_door.name=Iron Door
 tile.wooden_pressure_plate.name=Wooden Pressure Plate
 tile.redstone_ore.name=Redstone Ore
 tile.redstone_torch.name=Redstone Torch
+tile.stone_button.name=Stone Button
 tile.snow_block.name=Snow Block
 tile.sugar_cane.name=Sugar Cane
 tile.carved_pumpkin.name=Carved Pumpkin

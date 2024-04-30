@@ -94,6 +94,7 @@ public class RecipeListener {
                 FuelRegistry.addFuelItem(Item.BOWL, 100);
                 FuelRegistry.addFuelItem(Block.WOOL.asItem(), 100);
                 FuelRegistry.addFuelItem(Block.DEAD_BUSH.asItem(), 100);
+                FuelRegistry.addFuelItem(BroomBlocks.WOODEN_BUTTON.asItem(), 100);
             }
         }
     }
