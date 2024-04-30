@@ -1,5 +1,9 @@
 {
   "values": [
-    "minecraft:soul_sand"
+    "minecraft:soul_sand",
+    "broom:snow_bricks",
+    "broom:snow_brick_slab",
+    "broom:snow_brick_double_slab",
+    "broom:snow_brick_stairs"
   ]
 }

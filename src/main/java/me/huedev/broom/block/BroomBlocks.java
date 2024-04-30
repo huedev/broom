@@ -49,6 +49,10 @@ public class BroomBlocks {
     public static Block SANDSTONE_BRICK_SLAB;
     public static Block SANDSTONE_BRICK_DOUBLE_SLAB;
     public static Block SANDSTONE_BRICK_STAIRS;
+    public static Block SNOW_BRICKS;
+    public static Block SNOW_BRICK_SLAB;
+    public static Block SNOW_BRICK_DOUBLE_SLAB;
+    public static Block SNOW_BRICK_STAIRS;
     public static Block WOODEN_BUTTON;
     public static Block IRON_TRAPDOOR;
 
@@ -106,6 +110,11 @@ public class BroomBlocks {
         SANDSTONE_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("sandstone_brick_double_slab"), BroomBlocks.SANDSTONE_BRICKS);
         SANDSTONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("sandstone_brick_stairs"), BroomBlocks.SANDSTONE_BRICKS).setTranslationKey(Broom.id("sandstone_brick_stairs"));
 
+        SNOW_BRICKS = new TemplateBlock(Broom.id("snow_bricks"), Material.field_999).setTranslationKey(Broom.id("snow_bricks")).setHardness(0.3F).setSoundGroup(Block.WOOL_SOUND_GROUP);
+        SNOW_BRICK_SLAB = new BroomSlabBlock(Broom.id("snow_brick_slab"), BroomBlocks.SNOW_BRICKS);
+        SNOW_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("snow_brick_double_slab"), BroomBlocks.SNOW_BRICKS);
+        SNOW_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("snow_brick_stairs"), BroomBlocks.SNOW_BRICKS).setTranslationKey(Broom.id("snow_brick_stairs"));
+
         WOODEN_BUTTON = new BroomButtonBlock(Broom.id("wooden_button"), Block.PLANKS, 30);
 
         IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL).setTranslationKey(Broom.id("iron_trapdoor")).setHardness(5.0F).setSoundGroup(Block.METAL_SOUND_GROUP).disableTrackingStatistics().ignoreMetaUpdates();
@@ -118,6 +127,7 @@ public class BroomBlocks {
         connectSlabs(STONE_SLAB, STONE_DOUBLE_SLAB);
         connectSlabs(POLISHED_STONE_BRICK_SLAB, POLISHED_STONE_BRICK_DOUBLE_SLAB);
         connectSlabs(SANDSTONE_BRICK_SLAB, SANDSTONE_BRICK_DOUBLE_SLAB);
+        connectSlabs(SNOW_BRICK_SLAB, SNOW_BRICK_DOUBLE_SLAB);
 
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), new BroomGrassPatchFeature(), 10);
         BonemealAPI.addPlant(Block.GRASS_BLOCK.getDefaultState(), BroomBlocks.FERN.getDefaultState(), 1);

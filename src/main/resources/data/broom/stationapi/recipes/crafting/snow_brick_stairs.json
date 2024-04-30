@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "broom:snow_bricks"
+    }
+  },
+  "result": {
+    "item": "broom:snow_brick_stairs",
+    "count": 6
+  }
+}

@@ -17,6 +17,7 @@ public class TextureListener {
         BroomBlocks.POLISHED_STONE.textureId = terrain.addTexture(Broom.id("block/polished_stone")).index;
         BroomBlocks.POLISHED_STONE_BRICKS.textureId = terrain.addTexture(Broom.id("block/polished_stone_bricks")).index;
         BroomBlocks.SANDSTONE_BRICKS.textureId = terrain.addTexture(Broom.id("block/sandstone_bricks")).index;
+        BroomBlocks.SNOW_BRICKS.textureId = terrain.addTexture(Broom.id("block/snow_bricks")).index;
         BroomBlocks.IRON_TRAPDOOR.textureId = terrain.addTexture(Broom.id("block/iron_trapdoor")).index;
     }
 }
