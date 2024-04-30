@@ -6,6 +6,7 @@ import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
 import net.modificationstation.stationapi.api.client.texture.atlas.ExpandableAtlas;
+import net.modificationstation.stationapi.api.util.Namespace;
 
 @SuppressWarnings("unused")
 public class TextureListener {
@@ -15,6 +16,7 @@ public class TextureListener {
 
         BroomBlocks.POLISHED_STONE.textureId = terrain.addTexture(Broom.id("block/polished_stone")).index;
         BroomBlocks.POLISHED_STONE_BRICKS.textureId = terrain.addTexture(Broom.id("block/polished_stone_bricks")).index;
+        BroomBlocks.SANDSTONE_BRICKS.textureId = terrain.addTexture(Broom.id("block/sandstone_bricks")).index;
         BroomBlocks.IRON_TRAPDOOR.textureId = terrain.addTexture(Broom.id("block/iron_trapdoor")).index;
     }
 }

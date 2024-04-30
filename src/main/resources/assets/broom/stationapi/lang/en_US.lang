@@ -41,6 +41,12 @@ tile.polished_stone_bricks.name=Polished Stone Bricks
 tile.polished_stone_brick_slab.name=Polished Stone Brick Slab
 tile.polished_stone_brick_double_slab.name=Polished Stone Brick Double Slab
 tile.polished_stone_brick_stairs.name=Polished Stone Brick Stairs
+tile.sandstone_stairs.name=Sandstone Stairs
+tile.cut_sandstone.name=Cut Sandstone
+tile.sandstone_bricks.name=Sandstone Bricks
+tile.sandstone_brick_slab.name=Sandstone Brick Slab
+tile.sandstone_brick_double_slab.name= Sandstone Brick Double Slab
+tile.sandstone_brick_stairs.name=Sandstone Brick Stairs
 tile.iron_trapdoor.name=Iron Trapdoor
 
 item.music_disc.name=Music Disc

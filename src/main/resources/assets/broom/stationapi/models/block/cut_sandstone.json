@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "broom:block/cut_sandstone_side",
+    "top": "minecraft:block/sandstone_top",
+    "bottom": "broom:block/cut_sandstone_bottom"
+  }
+}

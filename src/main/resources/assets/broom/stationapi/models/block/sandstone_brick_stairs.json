@@ -1,0 +1,6 @@
+{
+  "parent": "broom:block/template_stairs",
+  "textures": {
+    "all": "broom:block/sandstone_bricks"
+  }
+}

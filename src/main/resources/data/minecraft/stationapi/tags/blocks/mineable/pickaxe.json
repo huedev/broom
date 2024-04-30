@@ -21,6 +21,12 @@
     "broom:polished_stone_bricks",
     "broom:polished_stone_brick_slab",
     "broom:polished_stone_brick_double_slab",
-    "broom:polished_stone_brick_stairs"
+    "broom:polished_stone_brick_stairs",
+    "broom:sandstone_stairs",
+    "broom:cut_sandstone",
+    "broom:sandstone_bricks",
+    "broom:sandstone_brick_slab",
+    "broom:sandstone_brick_double_slab",
+    "broom:sandstone_brick_stairs"
   ]
 }
