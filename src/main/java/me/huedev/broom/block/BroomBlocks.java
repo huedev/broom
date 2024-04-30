@@ -49,6 +49,11 @@ public class BroomBlocks {
     public static Block SANDSTONE_BRICK_SLAB;
     public static Block SANDSTONE_BRICK_DOUBLE_SLAB;
     public static Block SANDSTONE_BRICK_STAIRS;
+    public static Block STONE_BRICKS;
+    public static Block STONE_BRICK_SLAB;
+    public static Block STONE_BRICK_DOUBLE_SLAB;
+    public static Block STONE_BRICK_STAIRS;
+    public static Block WOODEN_BUTTON;
     public static Block IRON_TRAPDOOR;
 
     public static void init() {
@@ -104,6 +109,8 @@ public class BroomBlocks {
         SANDSTONE_BRICK_SLAB = new BroomSlabBlock(Broom.id("sandstone_brick_slab"), BroomBlocks.SANDSTONE_BRICKS);
         SANDSTONE_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("sandstone_brick_double_slab"), BroomBlocks.SANDSTONE_BRICKS);
         SANDSTONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("sandstone_brick_stairs"), BroomBlocks.SANDSTONE_BRICKS).setTranslationKey(Broom.id("sandstone_brick_stairs"));
+
+        WOODEN_BUTTON = new BroomButtonBlock(Broom.id("wooden_button"), Block.PLANKS, 30);
 
         IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL).setTranslationKey(Broom.id("iron_trapdoor")).setHardness(5.0F).setSoundGroup(Block.METAL_SOUND_GROUP).disableTrackingStatistics().ignoreMetaUpdates();
 
