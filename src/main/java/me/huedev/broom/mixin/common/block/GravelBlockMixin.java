@@ -25,7 +25,7 @@ public class GravelBlockMixin extends SandBlock {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, int x, int y, int z, int meta) {
-        if (ToolHelper.isUsingSilkTouchTool(player)) {
+        if (ToolHelper.isUsingGoldenTool(player)) {
             brokenBySilkTouchTool = true;
         }
 

@@ -40,7 +40,7 @@ public class LeavesBlockMixin extends class_307 {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, int x, int y, int z, int meta) {
-        if (ToolHelper.isUsingSilkTouchTool(player) || ToolHelper.isUsingShears(player)) {
+        if (ToolHelper.isUsingGoldenTool(player) || ToolHelper.isUsingShears(player)) {
             brokenBySilkTouchTool = true;
         }
 

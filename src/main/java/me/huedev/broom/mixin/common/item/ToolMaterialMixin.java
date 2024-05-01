@@ -16,4 +16,14 @@ public class ToolMaterialMixin {
     private static int broom_increaseGoldDurability(int constant) {
         return 59;
     }
+
+    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 12.0F))
+    private static float broom_decreaseGoldMiningSpeed(float constant) {
+        return 6.0F;
+    }
+
+    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 8.0F))
+    private static float broom_increaseDiamondMiningSpeed(float constant) {
+        return 14.0F;
+    }
 }

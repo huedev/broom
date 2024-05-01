@@ -30,7 +30,7 @@ public class VanillaLeavesWrapper extends BroomLeavesBlock {
     @Override
     public void afterBreak(World world, PlayerEntity player, int x, int y, int z, int meta) {
         if (!world.isRemote) {
-            if (ToolHelper.isUsingSilkTouchTool(player) || ToolHelper.isUsingShears(player)) {
+            if (ToolHelper.isUsingGoldenTool(player) || ToolHelper.isUsingShears(player)) {
                 brokenBySilkTouchTool = true;
             }
 

@@ -26,7 +26,7 @@ public class OreBlockMixin extends Block {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, int x, int y, int z, int meta) {
-        if (ToolHelper.isUsingSilkTouchTool(player)) {
+        if (ToolHelper.isUsingGoldenTool(player)) {
             brokenBySilkTouchTool = true;
         }
 

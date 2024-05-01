@@ -40,7 +40,7 @@ public class BlockListener {
         event.registry.getEntry(Block.SLAB).value().setTranslationKey("slab");
         event.registry.getEntry(Block.BRICKS).value().setTranslationKey("bricks");
         event.registry.getEntry(Block.MOSSY_COBBLESTONE).value().setTranslationKey("mossy_cobblestone");
-        event.registry.getEntry(Block.OBSIDIAN).value().setHardness(50.0F);
+        event.registry.getEntry(Block.OBSIDIAN).value().setHardness(20.0F);
         event.registry.getEntry(Block.SPAWNER).value().setTranslationKey("spawner");
         event.registry.getEntry(Block.WOODEN_STAIRS).value().setTranslationKey("wooden_stairs");
         event.registry.getEntry(Block.REDSTONE_WIRE).value().setTranslationKey("redstone_wire");

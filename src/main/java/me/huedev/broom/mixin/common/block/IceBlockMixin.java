@@ -27,7 +27,7 @@ public class IceBlockMixin extends class_221 {
 
     @Override
     public void afterBreak(World world, PlayerEntity player, int x, int y, int z, int meta) {
-        if (ToolHelper.isUsingSilkTouchTool(player)) {
+        if (ToolHelper.isUsingGoldenTool(player)) {
             brokenBySilkTouchTool = true;
         }
 
