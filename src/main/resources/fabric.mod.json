@@ -25,6 +25,7 @@
     ],
     "stationapi:event_bus_client": [
       "me.huedev.broom.listener.ColorListener",
+      "me.huedev.broom.listener.HowManyItemsListener",
       "me.huedev.broom.listener.KeyBindingListener",
       "me.huedev.broom.listener.KeyPressedListener",
       "me.huedev.broom.listener.TextureListener"
