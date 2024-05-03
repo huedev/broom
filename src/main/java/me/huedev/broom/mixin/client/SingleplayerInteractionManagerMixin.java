@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.InteractionManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,7 +34,11 @@ public class SingleplayerInteractionManagerMixin extends InteractionManager {
 
     @ModifyConstant(method = "method_1721", constant = @Constant(intValue = 5))
     private int broom_modifyBlockBreakDelay(int constant) {
-        return switch (Objects.requireNonNull(ToolHelper.getItemToolMaterial(minecraft.player))) {
+        ToolMaterial toolMaterial = ToolHelper.getItemToolMaterial(minecraft.player);
+        if (toolMaterial == null) {
+            return constant;
+        }
+        return switch (toolMaterial) {
             case IRON, GOLD -> 4;
             case DIAMOND -> 3;
             default -> constant;
