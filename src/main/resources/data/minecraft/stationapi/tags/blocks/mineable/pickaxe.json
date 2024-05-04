@@ -27,6 +27,7 @@
     "broom:sandstone_bricks",
     "broom:sandstone_brick_slab",
     "broom:sandstone_brick_double_slab",
-    "broom:sandstone_brick_stairs"
+    "broom:sandstone_brick_stairs",
+    "broom:coal_block"
   ]
 }

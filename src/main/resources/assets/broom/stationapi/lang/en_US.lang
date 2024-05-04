@@ -53,6 +53,7 @@ tile.snow_brick_double_slab.name= Snow Brick Double Slab
 tile.snow_brick_stairs.name=Snow Brick Stairs
 tile.wooden_button.name=Wooden Button
 tile.iron_trapdoor.name=Iron Trapdoor
+tile.coal_block.name=Block of Coal
 
 item.music_disc.name=Music Disc
 item.pumpkin_seeds.name=Pumpkin Seeds

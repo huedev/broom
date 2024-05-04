@@ -68,6 +68,9 @@ public class RecipeListener {
             }
 
             case SMELTING -> {
+                // 800 second fuel duration items (80 items)
+                FuelRegistry.addFuelItem(BroomBlocks.COAL_BLOCK.asItem(), 16000);
+
                 // 60 second fuel duration items (6 items)
                 FuelRegistry.addFuelItem(Item.BOAT, 1200);
 
