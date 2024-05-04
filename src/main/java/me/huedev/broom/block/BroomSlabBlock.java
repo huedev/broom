@@ -35,7 +35,7 @@ public class BroomSlabBlock extends TemplateBlock {
 
     public BroomSlabBlock(Identifier id, Material material) {
         super(id, material);
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         this.textureGetter = side -> this.textureId;
         BLOCKS_ALLOW_VISION[this.id] = true;
         setDefaultState(getDefaultState().with(BroomBlockProperties.TOP_BOTTOM, TopBottom.BOTTOM));
@@ -43,7 +43,7 @@ public class BroomSlabBlock extends TemplateBlock {
 
     public BroomSlabBlock(Identifier id, Block source) {
         super(id, source.material);
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         BLOCKS_LIGHT_LUMINANCE[this.id] = BLOCKS_LIGHT_LUMINANCE[source.id] / 2;
         setHardness(source.getHardness());
         setSoundGroup(source.soundGroup);

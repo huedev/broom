@@ -10,7 +10,7 @@ public class BroomButtonBlock extends TemplateButtonBlock {
     public BroomButtonBlock(Identifier id, Block baseBlock, int tickRate) {
         super(id, baseBlock.textureId);
         this.tickRate = tickRate;
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         setSoundGroup(baseBlock.soundGroup);
         setHardness(0.5F);
         ignoreMetaUpdates();

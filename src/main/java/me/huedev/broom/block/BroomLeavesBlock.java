@@ -42,7 +42,7 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
     public BroomLeavesBlock(Identifier id, Material material, int maxDistance) {
         super(BlockTemplate.getNextId(), 0, material, false);
         BlockTemplate.onConstructor(this, id);
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         setHardness(LEAVES.getHardness());
         setSoundGroup(DIRT_SOUND_GROUP);
         disableTrackingStatistics();

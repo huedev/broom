@@ -22,7 +22,7 @@ public class BroomTallPlantBlock extends TemplatePlantBlock {
 
     public BroomTallPlantBlock(Identifier id, int texture) {
         super(id, texture);
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         setSoundGroup(DIRT_SOUND_GROUP);
         float halfFaceLength = 0.4F;
         this.setBoundingBox(0.5F - halfFaceLength, 0.0F, 0.5F - halfFaceLength, 0.5F + halfFaceLength, halfFaceLength * 2.0F, 0.5F + halfFaceLength);

@@ -13,6 +13,6 @@ public class KeyBindingListener {
 
     @EventListener
     public void registerKeyBindings(KeyBindingRegisterEvent event) {
-        event.keyBindings.add(dismount = new KeyBinding("key.broom:dismount", Keyboard.KEY_LSHIFT));
+        event.keyBindings.add(dismount = new KeyBinding("key.broom.dismount", Keyboard.KEY_LSHIFT));
     }
 }

@@ -74,30 +74,30 @@ public abstract class GameOptionsMixin {
         if (option == BroomOptions.fovOption) {
             float value = BroomOptions.fov;
             if (value == 0.0f) {
-                cir.setReturnValue(translations.get("options.broom:fov") + ": " + translations.get("options.broom:fov.default"));
+                cir.setReturnValue(translations.get("options.broom.fov") + ": " + translations.get("options.broom.fov.default"));
             } else if (value == 1.0f) {
-                cir.setReturnValue(translations.get("options.broom:fov") + ": " + translations.get("options.broom:fov.max"));
+                cir.setReturnValue(translations.get("options.broom.fov") + ": " + translations.get("options.broom.fov.max"));
             } else {
-                cir.setReturnValue(translations.get("options.broom:fov") + ": " + BroomOptions.getFovInDegrees());
+                cir.setReturnValue(translations.get("options.broom.fov") + ": " + BroomOptions.getFovInDegrees());
             }
         }
 
         if (option == BroomOptions.cloudsOption) {
-            String optionName = translations.get("options.broom:clouds") + ": " + (BroomOptions.clouds ? translations.get("options.on") : translations.get("options.off"));
+            String optionName = translations.get("options.broom.clouds") + ": " + (BroomOptions.clouds ? translations.get("options.on") : translations.get("options.off"));
             cir.setReturnValue(optionName);
         }
 
         if (option == BroomOptions.cloudHeightOption) {
-            String optionName = translations.get("options.broom:cloud_height") + ": " + BroomOptions.getCloudHeight();
+            String optionName = translations.get("options.broom.cloud_height") + ": " + BroomOptions.getCloudHeight();
             cir.setReturnValue(optionName);
         }
 
         if (option == BroomOptions.fpsLimitOption) {
             int value = BroomOptions.getFpsLimitValue();
             if (value >= 300) {
-                cir.setReturnValue(translations.get("options.broom:fps_limit") + ": " + translations.get("options.broom:fps_limit.max"));
+                cir.setReturnValue(translations.get("options.broom.fps_limit") + ": " + translations.get("options.broom.fps_limit.max"));
             } else {
-                cir.setReturnValue(translations.get("options.broom:fps_limit") + ": " + value);
+                cir.setReturnValue(translations.get("options.broom.fps_limit") + ": " + value);
             }
         }
     }

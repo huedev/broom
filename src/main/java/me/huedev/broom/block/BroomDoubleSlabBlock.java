@@ -29,7 +29,7 @@ public class BroomDoubleSlabBlock extends TemplateBlock {
 
     public BroomDoubleSlabBlock(Identifier id, Block source) {
         super(id, source.material);
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         BLOCKS_LIGHT_LUMINANCE[this.id] = BLOCKS_LIGHT_LUMINANCE[source.id] / 2;
         setHardness(source.getHardness());
         setSoundGroup(source.soundGroup);

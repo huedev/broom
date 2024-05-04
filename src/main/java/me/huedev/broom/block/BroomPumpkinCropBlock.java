@@ -20,7 +20,7 @@ import java.util.Random;
 public class BroomPumpkinCropBlock extends TemplatePlantBlock {
     public BroomPumpkinCropBlock(Identifier id, int textureId) {
         super(id, textureId);
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         setHardness(0.0F);
         setSoundGroup(DIRT_SOUND_GROUP);
         disableTrackingStatistics();

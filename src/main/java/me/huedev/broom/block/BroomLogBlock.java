@@ -15,7 +15,7 @@ import net.modificationstation.stationapi.api.util.math.Direction.Axis;
 public class BroomLogBlock extends TemplateBlock {
     public BroomLogBlock(Identifier id) {
         super(id, Material.WOOD);
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         setHardness(LOG.getHardness());
         setSoundGroup(WOOD_SOUND_GROUP);
         setDefaultState(getDefaultState().with(BroomBlockProperties.AXIS, Axis.Y));

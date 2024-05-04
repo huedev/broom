@@ -7,7 +7,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 public class BroomPumpkinBlock extends TemplateBlock {
     public BroomPumpkinBlock(Identifier id, Material material) {
         super(id, material);
-        setTranslationKey(id.toString());
+        setTranslationKey(id);
         setHardness(PUMPKIN.getHardness());
         setSoundGroup(WOOD_SOUND_GROUP);
         ignoreMetaUpdates();
