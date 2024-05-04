@@ -91,5 +91,6 @@ public class BlockListener {
         event.addBurnable(BroomBlocks.WOODEN_DOUBLE_SLAB.id, 5, 20);
 
         event.addBurnable(BroomBlocks.COAL_BLOCK.id, 5, 5);
+        event.addBurnable(BroomBlocks.CHARCOAL_BLOCK.id, 5, 5);
     }
 }

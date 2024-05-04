@@ -56,6 +56,7 @@ public class BroomBlocks {
     public static Block WOODEN_BUTTON;
     public static Block IRON_TRAPDOOR;
     public static Block COAL_BLOCK;
+    public static Block CHARCOAL_BLOCK;
 
     public static void init() {
         OAK_LOG = new BroomLogBlock(Broom.id("oak_log"));
@@ -121,6 +122,7 @@ public class BroomBlocks {
         IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL).setTranslationKey(Broom.id("iron_trapdoor")).setHardness(5.0F).setSoundGroup(Block.METAL_SOUND_GROUP).disableTrackingStatistics().ignoreMetaUpdates();
 
         COAL_BLOCK = new TemplateBlock(Broom.id("coal_block"), Material.STONE).setTranslationKey(Broom.id("coal_block")).setHardness(5.0F).setSoundGroup(Block.STONE_SOUND_GROUP);
+        CHARCOAL_BLOCK = new TemplateBlock(Broom.id("charcoal_block"), Material.STONE).setTranslationKey(Broom.id("charcoal_block")).setHardness(5.0F).setSoundGroup(Block.STONE_SOUND_GROUP);
 
         connectSlabs(POLISHED_STONE_SLAB, POLISHED_STONE_DOUBLE_SLAB);
         connectSlabs(SANDSTONE_SLAB, SANDSTONE_DOUBLE_SLAB);
