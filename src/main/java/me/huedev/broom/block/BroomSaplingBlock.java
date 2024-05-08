@@ -1,5 +1,6 @@
 package me.huedev.broom.block;
 
+import me.huedev.broom.gen.feature.CacaoTreeFeature;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
@@ -88,6 +89,8 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
             }
         } else if (this.id == BroomBlocks.BIRCH_SAPLING.id) {
             feature = new BirchTreeFeature();
+        } else if (this.id == BroomBlocks.CACAO_SAPLING.id) {
+            feature = new CacaoTreeFeature();
         } else {
             feature = new OakTreeFeature();
             if (random.nextInt(10) == 0) {

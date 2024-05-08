@@ -17,7 +17,9 @@ public class ColorListener {
     public void registerBlockColors(BlockColorsRegisterEvent event) {
         event.blockColors.registerColorProvider(
                 (blockState, blockView, blockPos, index) -> BiomeColors.getFoliageColor(blockView, blockPos),
-                BroomBlocks.APPLE_OAK_LEAVES
+                BroomBlocks.APPLE_OAK_LEAVES,
+                BroomBlocks.CACAO_LEAVES,
+                BroomBlocks.CACAO_POD_LEAVES
         );
         event.blockColors.registerColorProvider(
                 (blockState, blockView, blockPos, index) -> Block.LEAVES.getColor(0),
@@ -44,7 +46,9 @@ public class ColorListener {
         );
         event.itemColors.register(
                 (item, damage) -> Block.LEAVES.getColor(0),
-                BroomBlocks.APPLE_OAK_LEAVES
+                BroomBlocks.APPLE_OAK_LEAVES,
+                BroomBlocks.CACAO_LEAVES,
+                BroomBlocks.CACAO_POD_LEAVES
         );
     }
 }

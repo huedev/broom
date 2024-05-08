@@ -14,6 +14,7 @@ public class TextureListener {
     public void registerTexture(TextureRegisterEvent event) {
         ExpandableAtlas terrain = Atlases.getTerrain();
 
+        BroomBlocks.CACAO_SAPLING.textureId = terrain.addTexture(Broom.id("block/cacao_sapling")).index;
         BroomBlocks.POLISHED_STONE.textureId = terrain.addTexture(Broom.id("block/polished_stone")).index;
         BroomBlocks.POLISHED_STONE_BRICKS.textureId = terrain.addTexture(Broom.id("block/polished_stone_bricks")).index;
         BroomBlocks.SANDSTONE_BRICKS.textureId = terrain.addTexture(Broom.id("block/sandstone_bricks")).index;

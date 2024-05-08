@@ -13,13 +13,17 @@ public class BroomBlocks {
     public static Block OAK_LOG;
     public static Block SPRUCE_LOG;
     public static Block BIRCH_LOG;
+    public static Block CACAO_LOG;
     public static Block OAK_LEAVES;
     public static Block APPLE_OAK_LEAVES;
     public static Block SPRUCE_LEAVES;
     public static Block BIRCH_LEAVES;
+    public static Block CACAO_LEAVES;
+    public static Block CACAO_POD_LEAVES;
     public static Block OAK_SAPLING;
     public static Block SPRUCE_SAPLING;
     public static Block BIRCH_SAPLING;
+    public static Block CACAO_SAPLING;
     public static Block GRASS;
     public static Block FERN;
     public static Block PUMPKIN;
@@ -62,15 +66,19 @@ public class BroomBlocks {
         OAK_LOG = new BroomLogBlock(Broom.id("oak_log"));
         SPRUCE_LOG = new BroomLogBlock(Broom.id("spruce_log"));
         BIRCH_LOG = new BroomLogBlock(Broom.id("birch_log"));
+        CACAO_LOG = new BroomLogBlock(Broom.id("cacao_log"));
 
         OAK_LEAVES = new VanillaLeavesWrapper(Broom.id("oak_leaves"), 0);
-        APPLE_OAK_LEAVES = new BroomAppleOakLeavesBlock(Broom.id("apple_oak_leaves"));
+        APPLE_OAK_LEAVES = new BroomLeavesBlock(Broom.id("apple_oak_leaves"));
         SPRUCE_LEAVES = new VanillaLeavesWrapper(Broom.id("spruce_leaves"), 1);
         BIRCH_LEAVES = new VanillaLeavesWrapper(Broom.id("birch_leaves"), 2);
+        CACAO_LEAVES = new BroomLeavesBlock(Broom.id("cacao_leaves"));
+        CACAO_POD_LEAVES = new BroomLeavesBlock(Broom.id("cacao_pod_leaves"));
 
         OAK_SAPLING = new BroomSaplingBlock(Broom.id("oak_sapling"), Block.SAPLING.getTexture(0, 0));
         SPRUCE_SAPLING = new BroomSaplingBlock(Broom.id("spruce_sapling"), Block.SAPLING.getTexture(0, 1));
         BIRCH_SAPLING = new BroomSaplingBlock(Broom.id("birch_sapling"), Block.SAPLING.getTexture(0, 2));
+        CACAO_SAPLING = new BroomSaplingBlock(Broom.id("cacao_sapling"), Block.SAPLING.getTexture(0, 0));
 
         GRASS = new BroomTallPlantBlock(Broom.id("grass"), Block.GRASS.getTexture(0, 1));
         FERN = new BroomTallPlantBlock(Broom.id("fern"), Block.GRASS.getTexture(0, 2));
