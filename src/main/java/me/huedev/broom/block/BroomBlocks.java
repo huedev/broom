@@ -88,9 +88,13 @@ public class BroomBlocks {
 
         STONE_SLAB = new BroomSlabBlock(Broom.id("stone_slab"), Block.STONE);
         STONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("stone_double_slab"), Block.STONE);
-        STONE_STAIRS = new TemplateStairsBlock(Broom.id("stone_stairs"), Block.STONE).setTranslationKey(Broom.id("stone_stairs"));
+        STONE_STAIRS = new TemplateStairsBlock(Broom.id("stone_stairs"), Block.STONE)
+                .setTranslationKey(Broom.id("stone_stairs"));
 
-        POLISHED_STONE = new TemplateBlock(Broom.id("polished_stone"), Material.STONE).setTranslationKey(Broom.id("polished_stone")).setHardness(Block.STONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
+        POLISHED_STONE = new TemplateBlock(Broom.id("polished_stone"), Material.STONE)
+                .setTranslationKey(Broom.id("polished_stone"))
+                .setHardness(Block.STONE.getHardness())
+                .setSoundGroup(Block.STONE_SOUND_GROUP);
         POLISHED_STONE_SLAB = new BroomSlabBlock(Broom.id("polished_stone_slab"), BroomBlocks.POLISHED_STONE);
         POLISHED_STONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("polished_stone_double_slab"), BroomBlocks.POLISHED_STONE);
 
@@ -105,32 +109,60 @@ public class BroomBlocks {
 
         BRICK_SLAB = new BroomSlabBlock(Broom.id("brick_slab"), Block.BRICKS);
         BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("brick_double_slab"), Block.BRICKS);
-        BRICK_STAIRS = new TemplateStairsBlock(Broom.id("brick_stairs"), Block.BRICKS).setTranslationKey(Broom.id("brick_stairs"));
+        BRICK_STAIRS = new TemplateStairsBlock(Broom.id("brick_stairs"), Block.BRICKS)
+                .setTranslationKey(Broom.id("brick_stairs"));
 
-        POLISHED_STONE_BRICKS = new TemplateBlock(Broom.id("polished_stone_bricks"), Material.STONE).setTranslationKey(Broom.id("polished_stone_bricks")).setHardness(Block.STONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
+        POLISHED_STONE_BRICKS = new TemplateBlock(Broom.id("polished_stone_bricks"), Material.STONE)
+                .setTranslationKey(Broom.id("polished_stone_bricks"))
+                .setHardness(Block.STONE.getHardness())
+                .setSoundGroup(Block.STONE_SOUND_GROUP);
         POLISHED_STONE_BRICK_SLAB = new BroomSlabBlock(Broom.id("polished_stone_brick_slab"), BroomBlocks.POLISHED_STONE_BRICKS);
         POLISHED_STONE_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("polished_stone_brick_double_slab"), BroomBlocks.POLISHED_STONE_BRICKS);
-        POLISHED_STONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("polished_stone_brick_stairs"), BroomBlocks.POLISHED_STONE_BRICKS).setTranslationKey(Broom.id("polished_stone_brick_stairs"));
+        POLISHED_STONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("polished_stone_brick_stairs"), BroomBlocks.POLISHED_STONE_BRICKS)
+                .setTranslationKey(Broom.id("polished_stone_brick_stairs"));
 
-        SANDSTONE_STAIRS = new TemplateStairsBlock(Broom.id("sandstone_stairs"), Block.SANDSTONE).setTranslationKey(Broom.id("sandstone_stairs"));
-        CUT_SANDSTONE = new TemplateBlock(Broom.id("cut_sandstone"), Material.STONE).setTranslationKey(Broom.id("cut_sandstone")).setHardness(Block.SANDSTONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
+        SANDSTONE_STAIRS = new TemplateStairsBlock(Broom.id("sandstone_stairs"), Block.SANDSTONE)
+                .setTranslationKey(Broom.id("sandstone_stairs"));
+        CUT_SANDSTONE = new TemplateBlock(Broom.id("cut_sandstone"), Material.STONE)
+                .setTranslationKey(Broom.id("cut_sandstone"))
+                .setHardness(Block.SANDSTONE.getHardness())
+                .setSoundGroup(Block.STONE_SOUND_GROUP);
 
-        SANDSTONE_BRICKS = new TemplateBlock(Broom.id("sandstone_bricks"), Material.STONE).setTranslationKey(Broom.id("sandstone_bricks")).setHardness(Block.SANDSTONE.getHardness()).setSoundGroup(Block.STONE_SOUND_GROUP);
+        SANDSTONE_BRICKS = new TemplateBlock(Broom.id("sandstone_bricks"), Material.STONE)
+                .setTranslationKey(Broom.id("sandstone_bricks"))
+                .setHardness(Block.SANDSTONE.getHardness())
+                .setSoundGroup(Block.STONE_SOUND_GROUP);
         SANDSTONE_BRICK_SLAB = new BroomSlabBlock(Broom.id("sandstone_brick_slab"), BroomBlocks.SANDSTONE_BRICKS);
         SANDSTONE_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("sandstone_brick_double_slab"), BroomBlocks.SANDSTONE_BRICKS);
-        SANDSTONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("sandstone_brick_stairs"), BroomBlocks.SANDSTONE_BRICKS).setTranslationKey(Broom.id("sandstone_brick_stairs"));
+        SANDSTONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("sandstone_brick_stairs"), BroomBlocks.SANDSTONE_BRICKS)
+                .setTranslationKey(Broom.id("sandstone_brick_stairs"));
 
-        SNOW_BRICKS = new TemplateBlock(Broom.id("snow_bricks"), Material.field_999).setTranslationKey(Broom.id("snow_bricks")).setHardness(0.3F).setSoundGroup(Block.WOOL_SOUND_GROUP);
+        SNOW_BRICKS = new TemplateBlock(Broom.id("snow_bricks"), Material.field_999)
+                .setTranslationKey(Broom.id("snow_bricks"))
+                .setHardness(0.3F)
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
         SNOW_BRICK_SLAB = new BroomSlabBlock(Broom.id("snow_brick_slab"), BroomBlocks.SNOW_BRICKS);
         SNOW_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("snow_brick_double_slab"), BroomBlocks.SNOW_BRICKS);
-        SNOW_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("snow_brick_stairs"), BroomBlocks.SNOW_BRICKS).setTranslationKey(Broom.id("snow_brick_stairs"));
+        SNOW_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("snow_brick_stairs"), BroomBlocks.SNOW_BRICKS)
+                .setTranslationKey(Broom.id("snow_brick_stairs"));
 
         WOODEN_BUTTON = new BroomButtonBlock(Broom.id("wooden_button"), Block.PLANKS, 30);
 
-        IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL).setTranslationKey(Broom.id("iron_trapdoor")).setHardness(5.0F).setSoundGroup(Block.METAL_SOUND_GROUP).disableTrackingStatistics().ignoreMetaUpdates();
+        IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL)
+                .setTranslationKey(Broom.id("iron_trapdoor"))
+                .setHardness(5.0F)
+                .setSoundGroup(Block.METAL_SOUND_GROUP)
+                .disableTrackingStatistics()
+                .ignoreMetaUpdates();
 
-        COAL_BLOCK = new TemplateBlock(Broom.id("coal_block"), Material.STONE).setTranslationKey(Broom.id("coal_block")).setHardness(5.0F).setSoundGroup(Block.STONE_SOUND_GROUP);
-        CHARCOAL_BLOCK = new TemplateBlock(Broom.id("charcoal_block"), Material.STONE).setTranslationKey(Broom.id("charcoal_block")).setHardness(5.0F).setSoundGroup(Block.STONE_SOUND_GROUP);
+        COAL_BLOCK = new TemplateBlock(Broom.id("coal_block"), Material.STONE)
+                .setTranslationKey(Broom.id("coal_block"))
+                .setHardness(5.0F)
+                .setSoundGroup(Block.STONE_SOUND_GROUP);
+        CHARCOAL_BLOCK = new TemplateBlock(Broom.id("charcoal_block"), Material.STONE)
+                .setTranslationKey(Broom.id("charcoal_block"))
+                .setHardness(5.0F)
+                .setSoundGroup(Block.STONE_SOUND_GROUP);
 
         connectSlabs(POLISHED_STONE_SLAB, POLISHED_STONE_DOUBLE_SLAB);
         connectSlabs(SANDSTONE_SLAB, SANDSTONE_DOUBLE_SLAB);

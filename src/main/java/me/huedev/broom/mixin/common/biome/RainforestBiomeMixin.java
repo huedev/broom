@@ -4,20 +4,19 @@ import me.huedev.broom.gen.feature.CacaoTreeFeature;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.RainforestBiome;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.LargeOakTreeFeature;
-import net.minecraft.world.gen.feature.OakTreeFeature;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
 @Mixin(RainforestBiome.class)
 public class RainforestBiomeMixin extends Biome {
-    @Override
-    public Feature getRandomTreeFeature(Random random) {
-        if (random.nextInt(5) == 0) {
-            return new CacaoTreeFeature();
-        } else {
-            return (Feature)(random.nextInt(3) == 0 ? new LargeOakTreeFeature() : new OakTreeFeature());
+    @Inject(method = "getRandomTreeFeature", at = @At("HEAD"), cancellable = true)
+    public void broom_addCacaoTrees(Random random, CallbackInfoReturnable<Feature> cir) {
+        if (random.nextInt(2) == 0) {
+            cir.setReturnValue(new CacaoTreeFeature());
         }
     }
 }

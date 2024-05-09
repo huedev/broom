@@ -23,18 +23,39 @@ public class BroomItems {
     public static Item PUMPKIN_SEEDS;
 
     public static void init() {
-        RECORD_ELEVEN = new TemplateMusicDiscItem(Broom.id("music_disc_11"), "11").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_BLOCKS = new TemplateMusicDiscItem(Broom.id("music_disc_blocks"), "blocks").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_CHIRP = new TemplateMusicDiscItem(Broom.id("music_disc_chirp"), "chirp").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_FAR = new TemplateMusicDiscItem(Broom.id("music_disc_far"), "far").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_MALL = new TemplateMusicDiscItem(Broom.id("music_disc_mall"), "blocks").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_MELLOHI = new TemplateMusicDiscItem(Broom.id("music_disc_mellohi"), "mellohi").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_STAL = new TemplateMusicDiscItem(Broom.id("music_disc_stal"), "stal").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_STRAD = new TemplateMusicDiscItem(Broom.id("music_disc_strad"), "strad").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_WARD = new TemplateMusicDiscItem(Broom.id("music_disc_ward"), "ward").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
-        RECORD_WAIT = new TemplateMusicDiscItem(Broom.id("music_disc_wait"), "wait").setMaxCount(1).setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_ELEVEN = new TemplateMusicDiscItem(Broom.id("music_disc_11"), "11")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_BLOCKS = new TemplateMusicDiscItem(Broom.id("music_disc_blocks"), "blocks")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_CHIRP = new TemplateMusicDiscItem(Broom.id("music_disc_chirp"), "chirp")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_FAR = new TemplateMusicDiscItem(Broom.id("music_disc_far"), "far")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_MALL = new TemplateMusicDiscItem(Broom.id("music_disc_mall"), "blocks")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_MELLOHI = new TemplateMusicDiscItem(Broom.id("music_disc_mellohi"), "mellohi")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_STAL = new TemplateMusicDiscItem(Broom.id("music_disc_stal"), "stal")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_STRAD = new TemplateMusicDiscItem(Broom.id("music_disc_strad"), "strad")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_WARD = new TemplateMusicDiscItem(Broom.id("music_disc_ward"), "ward")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
+        RECORD_WAIT = new TemplateMusicDiscItem(Broom.id("music_disc_wait"), "wait")
+                .setMaxCount(1)
+                .setTranslationKey(Broom.NAMESPACE, "music_disc");
 
-        PUMPKIN_SEEDS = new TemplateSeedsItem(Broom.id("pumpkin_seeds"), BroomBlocks.PUMPKIN_CROPS.id).setTranslationKey(Broom.NAMESPACE, "pumpkin_seeds");
+        PUMPKIN_SEEDS = new TemplateSeedsItem(Broom.id("pumpkin_seeds"), BroomBlocks.PUMPKIN_CROPS.id)
+                .setTranslationKey(Broom.NAMESPACE, "pumpkin_seeds");
 
         MUSIC_DISCS = new Item[] {
                 Item.RECORD_THIRTEEN,
