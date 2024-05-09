@@ -1,11 +1,15 @@
 package me.huedev.broom.mixin.common.block;
 
+import me.huedev.broom.block.BroomBlockProperties;
+import me.huedev.broom.block.BroomBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.Material;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.block.BlockState;
+import net.modificationstation.stationapi.api.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -34,10 +38,10 @@ public class FenceBlockMixin extends Block {
         boolean connectNegZ;
         int fenceId = Block.FENCE.id;
 
-        connectPosX = world.method_1780(x + 1, y, z) || world.getBlockId(x + 1, y, z) == fenceId;
-        connectNegX = world.method_1780(x - 1, y, z) || world.getBlockId(x - 1, y, z) == fenceId;
-        connectPosZ = world.method_1780(x, y, z + 1) || world.getBlockId(x, y, z + 1) == fenceId;
-        connectNegZ = world.method_1780(x, y, z - 1) || world.getBlockId(x, y, z - 1) == fenceId;
+        connectPosX = world.method_1780(x + 1, y, z) || world.getBlockId(x + 1, y, z) == fenceId || broom_isValidFenceGate(world, x, y, z, x + 1, y, z);
+        connectNegX = world.method_1780(x - 1, y, z) || world.getBlockId(x - 1, y, z) == fenceId || broom_isValidFenceGate(world, x, y, z, x - 1, y, z);
+        connectPosZ = world.method_1780(x, y, z + 1) || world.getBlockId(x, y, z + 1) == fenceId || broom_isValidFenceGate(world, x, y, z, x, y, z + 1);
+        connectNegZ = world.method_1780(x, y, z - 1) || world.getBlockId(x, y, z - 1) == fenceId || broom_isValidFenceGate(world, x, y, z, x, y, z - 1);
 
         return Box.create(
                 connectNegX ? 0.0F : 0.375F,
@@ -47,6 +51,31 @@ public class FenceBlockMixin extends Block {
                 1.0F,
                 connectPosZ ? 1.0F : 0.625F
         );
+    }
+
+    @Unique
+    private boolean broom_isValidFenceGate(World world, int originalX, int originalY, int originalZ, int targetX, int targetY, int targetZ) {
+        if (world.getBlockId(targetX, targetY, targetZ) != BroomBlocks.FENCE_GATE.id) {
+            return false;
+        }
+
+        BlockState state = world.getBlockState(targetX, targetY, targetZ);
+        Direction facing = state.get(BroomBlockProperties.FACING);
+
+        switch (facing.getAxis()) {
+            case X -> {
+                if (originalZ != targetZ) {
+                    return true;
+                }
+            }
+            case Z -> {
+                if (originalX != targetX) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     @Unique

@@ -76,10 +76,11 @@ public class RecipeListener {
                 FuelRegistry.addFuelItem(Item.BOAT, 1200);
 
                 // 15 second fuel duration items (1.5 items)
-                FuelRegistry.addFuelItem(BroomBlocks.WOODEN_DOUBLE_SLAB.asItem(), 150);
+                FuelRegistry.addFuelItem(BroomBlocks.WOODEN_DOUBLE_SLAB.asItem(), 300);
                 FuelRegistry.addFuelItem(Item.BOW, 300);
                 FuelRegistry.addFuelItem(Item.FISHING_ROD, 300);
                 FuelRegistry.addFuelItem(Block.LADDER.asItem(), 300);
+                FuelRegistry.addFuelItem(BroomBlocks.FENCE_GATE.asItem(), 300);
 
                 // 10 second fuel duration items (1 item)
                 FuelRegistry.addFuelItem(Item.WOODEN_AXE, 200);

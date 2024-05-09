@@ -2,15 +2,18 @@ package me.huedev.broom.mixin.client.render;
 
 import me.huedev.broom.block.BroomBlockProperties;
 import me.huedev.broom.block.BroomBlockProperties.TopBottom;
+import me.huedev.broom.block.BroomBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.util.math.Direction;
 import net.modificationstation.stationapi.api.world.BlockStateView;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -34,10 +37,10 @@ public abstract class BlockRenderManagerMixin {
         block.setBoundingBox(var6, 0.0F, var6, var7, 1.0F, var7);
         this.renderBlock(block, x, y, z);
 
-        boolean connectedPosX = this.blockView.method_1780(x + 1, y, z) || this.blockView.getBlockId(x + 1, y, z) == Block.FENCE.id;
-        boolean connectedNegX = this.blockView.method_1780(x - 1, y, z) || this.blockView.getBlockId(x - 1, y, z) == Block.FENCE.id;
-        boolean connectedPosZ = this.blockView.method_1780(x, y, z + 1) || this.blockView.getBlockId(x, y, z + 1) == Block.FENCE.id;
-        boolean connectedNegZ = this.blockView.method_1780(x, y, z - 1) || this.blockView.getBlockId(x, y, z - 1) == Block.FENCE.id;
+        boolean connectedPosX = this.blockView.method_1780(x + 1, y, z) || this.blockView.getBlockId(x + 1, y, z) == Block.FENCE.id || broom_isValidFenceGate(blockView, x, y, z, x + 1, y, z);
+        boolean connectedNegX = this.blockView.method_1780(x - 1, y, z) || this.blockView.getBlockId(x - 1, y, z) == Block.FENCE.id || broom_isValidFenceGate(blockView, x, y, z, x - 1, y, z);
+        boolean connectedPosZ = this.blockView.method_1780(x, y, z + 1) || this.blockView.getBlockId(x, y, z + 1) == Block.FENCE.id || broom_isValidFenceGate(blockView, x, y, z, x, y, z + 1);
+        boolean connectedNegZ = this.blockView.method_1780(x, y, z - 1) || this.blockView.getBlockId(x, y, z - 1) == Block.FENCE.id || broom_isValidFenceGate(blockView, x, y, z, x, y, z - 1);
 
         boolean connectedX = connectedPosX || connectedNegX;
         boolean connectedZ = connectedPosZ || connectedNegZ;
@@ -80,6 +83,35 @@ public abstract class BlockRenderManagerMixin {
 
         block.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         cir.setReturnValue(true);
+    }
+
+    @Unique
+    private boolean broom_isValidFenceGate(BlockView view, int originalX, int originalY, int originalZ, int targetX, int targetY, int targetZ) {
+        if (!(view instanceof BlockStateView bsView)) {
+            return false;
+        }
+
+        if (!bsView.getBlockState(targetX, targetY, targetZ).isOf(BroomBlocks.FENCE_GATE)) {
+            return false;
+        }
+
+        BlockState state = bsView.getBlockState(targetX, targetY, targetZ);
+        Direction facing = state.get(BroomBlockProperties.FACING);
+
+        switch (facing.getAxis()) {
+            case X -> {
+                if (originalZ != targetZ) {
+                    return true;
+                }
+            }
+            case Z -> {
+                if (originalX != targetX) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /*

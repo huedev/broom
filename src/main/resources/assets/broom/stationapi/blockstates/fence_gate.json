@@ -1,0 +1,42 @@
+{
+  "variants": {
+    "opened=false,facing=south": {
+      "model": "broom:block/fence_gate",
+      "y": 270,
+      "uvlock": true
+    },
+    "opened=false,facing=west": {
+      "model": "broom:block/fence_gate",
+      "uvlock": true
+    },
+    "opened=false,facing=north": {
+      "model": "broom:block/fence_gate",
+      "y": 90,
+      "uvlock": true
+    },
+    "opened=false,facing=east": {
+      "model": "broom:block/fence_gate",
+      "y": 180,
+      "uvlock": true
+    },
+    "opened=true,facing=south": {
+      "model": "broom:block/fence_gate_open",
+      "y": 270,
+      "uvlock": true
+    },
+    "opened=true,facing=west": {
+      "model": "broom:block/fence_gate_open",
+      "uvlock": true
+    },
+    "opened=true,facing=north": {
+      "model": "broom:block/fence_gate_open",
+      "y": 90,
+      "uvlock": true
+    },
+    "opened=true,facing=east": {
+      "model": "broom:block/fence_gate_open",
+      "y": 180,
+      "uvlock": true
+    }
+  }
+}

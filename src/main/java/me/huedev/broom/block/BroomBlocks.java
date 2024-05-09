@@ -58,6 +58,7 @@ public class BroomBlocks {
     public static Block SNOW_BRICK_DOUBLE_SLAB;
     public static Block SNOW_BRICK_STAIRS;
     public static Block WOODEN_BUTTON;
+    public static Block FENCE_GATE;
     public static Block IRON_TRAPDOOR;
     public static Block COAL_BLOCK;
     public static Block CHARCOAL_BLOCK;
@@ -147,6 +148,8 @@ public class BroomBlocks {
                 .setTranslationKey(Broom.id("snow_brick_stairs"));
 
         WOODEN_BUTTON = new BroomButtonBlock(Broom.id("wooden_button"), Block.PLANKS, 30);
+
+        FENCE_GATE = new BroomFenceGateBlock(Broom.id("fence_gate"));
 
         IRON_TRAPDOOR = new TemplateTrapdoorBlock(Broom.id("iron_trapdoor"), Material.METAL)
                 .setTranslationKey(Broom.id("iron_trapdoor"))
