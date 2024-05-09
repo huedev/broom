@@ -44,9 +44,7 @@ public class BroomFenceGateBlock extends TemplateBlock {
         Direction facing = context.getSide().getOpposite();
         PlayerEntity player = context.getPlayer();
 
-        if (facing.getAxis() == Direction.Axis.Y) {
-            facing = Direction.fromRotation(player == null ? 0 : player.yaw);
-        }
+        facing = Direction.fromRotation(player == null ? 0 : player.yaw);
 
         BlockState state = getDefaultState().with(BroomBlockProperties.FACING, facing);
 
