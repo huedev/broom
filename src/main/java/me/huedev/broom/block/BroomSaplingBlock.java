@@ -34,7 +34,7 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
     }
 
     protected boolean canPlantOn(BlockState state) {
-        return state.isIn(BroomBlockTags.DIRT);
+        return state.isIn(BroomBlockTags.SAPLING_PLANTABLE_ON);
     }
 
     @Override
@@ -80,26 +80,32 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
     }
 
     public void growTree(World world, int x, int y, int z, Random random) {
-        world.method_200(x, y, z, 0);
-        Feature feature;
-        if (this.id == BroomBlocks.SPRUCE_SAPLING.id) {
-            feature = new SpruceTreeFeature();
-            if (random.nextInt(2) == 0) {
-                feature = new PineTreeFeature();
-            }
-        } else if (this.id == BroomBlocks.BIRCH_SAPLING.id) {
-            feature = new BirchTreeFeature();
-        } else if (this.id == BroomBlocks.CACAO_SAPLING.id) {
-            feature = new CacaoTreeFeature();
+        BlockState plantedOnState = world.getBlockState(x, y - 1, z);
+        if (plantedOnState.isIn(BroomBlockTags.DRIES_OUT_SAPLING)) {
+            BlockState newState = Block.DEAD_BUSH.getDefaultState();
+            world.setBlockStateWithNotify(x, y, z, newState);
         } else {
-            feature = new OakTreeFeature();
-            if (random.nextInt(10) == 0) {
-                feature = new LargeOakTreeFeature();
+            world.method_200(x, y, z, 0);
+            Feature feature;
+            if (this.id == BroomBlocks.SPRUCE_SAPLING.id) {
+                feature = new SpruceTreeFeature();
+                if (random.nextInt(2) == 0) {
+                    feature = new PineTreeFeature();
+                }
+            } else if (this.id == BroomBlocks.BIRCH_SAPLING.id) {
+                feature = new BirchTreeFeature();
+            } else if (this.id == BroomBlocks.CACAO_SAPLING.id) {
+                feature = new CacaoTreeFeature();
+            } else {
+                feature = new OakTreeFeature();
+                if (random.nextInt(10) == 0) {
+                    feature = new LargeOakTreeFeature();
+                }
             }
-        }
 
-        if (!feature.generate(world, random, x, y, z)) {
-            world.method_154(x, y, z, this.id, this.id);
+            if (!feature.generate(world, random, x, y, z)) {
+                world.method_154(x, y, z, this.id, this.id);
+            }
         }
     }
 }
