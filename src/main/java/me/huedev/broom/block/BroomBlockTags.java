@@ -16,6 +16,7 @@ public class BroomBlockTags {
     public static final TagKey<Block> DIRT = get("dirt");
     public static final TagKey<Block> DEAD_BUSH_PLANTABLE_ON = get("dead_bush_plantable_on");
     public static final TagKey<Block> DRIES_OUT_SAPLING = get("dries_out_sapling");
+    public static final TagKey<Block> REPLACEABLE = get("replaceable");
     public static final TagKey<Block> SAPLING_PLANTABLE_ON = get("sapling_plantable_on");
     public static final TagKey<Block> SUGAR_CANE_PLANTABLE_ON = get("sugar_cane_plantable_on");
     public static final TagKey<Block> MAINTAINS_FARMLAND = get("maintains_farmland");
