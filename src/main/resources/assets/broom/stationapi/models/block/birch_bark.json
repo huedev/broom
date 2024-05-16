@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_column",
   "textures": {
     "side": "minecraft:block/birch_log",
-    "end": "broom:block/birch_log_end"
+    "end": "minecraft:block/birch_log"
   }
 }

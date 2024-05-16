@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube_column",
   "textures": {
     "side": "minecraft:block/spruce_log",
-    "end": "broom:block/spruce_log_end"
+    "end": "minecraft:block/spruce_log"
   }
 }
 

@@ -3,6 +3,10 @@
     "broom:oak_log",
     "broom:spruce_log",
     "broom:birch_log",
-    "broom:cacao_log"
+    "broom:cacao_log",
+    "broom:oak_bark",
+    "broom:spruce_bark",
+    "broom:birch_bark",
+    "broom:cacao_bark"
   ]
 }
