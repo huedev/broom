@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "minecraft:block/oak_leaves",
-    "cross": "minecraft:item/apple"
+    "cross": "broom:block/apple_oak_leaves_fruit"
   },
   "elements": [
     {
