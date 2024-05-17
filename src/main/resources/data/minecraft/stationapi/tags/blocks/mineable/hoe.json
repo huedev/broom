@@ -2,6 +2,7 @@
   "values": [
     "#minecraft:leaves",
     "minecraft:sponge",
-    "minecraft:cactus"
+    "minecraft:cactus",
+    "broom:wet_sponge"
   ]
 }

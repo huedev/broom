@@ -30,6 +30,7 @@ public class BroomBlocks {
     public static Block CACAO_SAPLING;
     public static Block GRASS;
     public static Block FERN;
+    public static Block WET_SPONGE;
     public static Block PUMPKIN;
     public static Block PUMPKIN_CROPS;
     public static Block STONE_SLAB;
@@ -92,6 +93,8 @@ public class BroomBlocks {
 
         GRASS = new BroomTallPlantBlock(Broom.id("grass"), Block.GRASS.getTexture(0, 1));
         FERN = new BroomTallPlantBlock(Broom.id("fern"), Block.GRASS.getTexture(0, 2));
+
+        WET_SPONGE = new BroomWetSpongeBlock(Broom.id("wet_sponge"), Material.SPONGE);
 
         PUMPKIN = new BroomPumpkinBlock(Broom.id("pumpkin"), Material.PUMPKIN);
         PUMPKIN_CROPS = new BroomPumpkinCropBlock(Broom.id("pumpkin_crop"), Block.WHEAT.textureId);

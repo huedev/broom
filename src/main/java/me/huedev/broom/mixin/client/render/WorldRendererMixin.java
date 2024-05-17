@@ -65,6 +65,10 @@ public class WorldRendererMixin {
                 this.world.playSound((double)j + 0.5, (double)k + 0.5, (double)l + 0.5, "random.click", 0.3F, 0.5F);
                 ci.cancel();
                 break;
+            case 1011:
+                this.world.playSound((double)j + 0.5, (double)k + 0.5, (double)l + 0.5, "random.fizz", 0.5F, 2.6F + (this.world.field_214.nextFloat() - this.world.field_214.nextFloat()) * 0.8F);
+                ci.cancel();
+                break;
         }
     }
 

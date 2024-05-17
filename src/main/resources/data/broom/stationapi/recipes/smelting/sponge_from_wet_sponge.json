@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "broom:wet_sponge"
+  },
+  "result": {
+    "item": "minecraft:sponge",
+    "count": 1
+  }
+}

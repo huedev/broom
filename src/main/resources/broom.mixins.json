@@ -41,6 +41,7 @@
     "common.block.SlabBlockMixin",
     "common.block.SnowBlockMixin",
     "common.block.SnowyBlockMixin",
+    "common.block.SpongeBlockMixin",
     "common.block.StairsBlockMixin",
     "common.block.StoneBlockMixin",
     "common.block.SugarCaneBlockMixin",
