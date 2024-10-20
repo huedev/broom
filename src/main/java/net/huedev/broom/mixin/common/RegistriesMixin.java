@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
  */
 @Mixin(Registries.class)
 public class RegistriesMixin {
-    @WrapWithCondition(method = "bootstrap", at = @At(value = "INVOKE", target = "Lnet/modificationstation/stationapi/api/registry/Registries;freezeRegistries()V"), remap = false)
+    @WrapWithCondition(method = "bootstrap", at = @At(value = "INVOKE", target = "Lnet/modificationstation/stationapi/api/registry/Registries;freezeRegistries()V"), remap = false, require = 0)
     private static boolean deleteFreezing() {
         return false;
     }
