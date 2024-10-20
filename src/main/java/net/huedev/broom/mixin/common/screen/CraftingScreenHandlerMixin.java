@@ -24,7 +24,7 @@ public abstract class CraftingScreenHandlerMixin extends ScreenHandler {
             } else if (slotIndex >= 37 && slotIndex < 46) {
                 this.insertItem(var4, 1, 37, false);
             } else {
-                if (Broom.config.shiftClickOutOfContainersBehavior == ShiftClickFromContainersBehaviorEnum.ALWAYS_LAST_SLOT) {
+                if (!Broom.config.shiftClickOutOfContainersBehavior) {
                     this.insertItem(var4, 10, 46, true);
                 } else {
                     this.insertItem(var4, 10, 46, false);

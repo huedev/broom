@@ -55,7 +55,7 @@ public abstract class FurnaceScreenHandlerMixin extends ScreenHandler {
                     this.insertItem(var4, 3, 30, false);
                 }
             } else {
-                if (Broom.config.shiftClickOutOfContainersBehavior == ShiftClickFromContainersBehaviorEnum.ALWAYS_LAST_SLOT) {
+                if (!Broom.config.shiftClickOutOfContainersBehavior) {
                     this.insertItem(var4, 3, 39, true);
                 } else {
                     this.insertItem(var4, 3, 39, false);

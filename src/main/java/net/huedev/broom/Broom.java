@@ -1,10 +1,8 @@
 package net.huedev.broom;
 
-import net.huedev.broom.util.ShiftClickFromContainersBehaviorEnum;
-import net.glasslauncher.mods.api.gcapi.api.ConfigName;
-import net.glasslauncher.mods.api.gcapi.api.GConfig;
-import net.glasslauncher.mods.api.gcapi.api.MultiplayerSynced;
-import net.glasslauncher.mods.api.gcapi.api.ValueOnVanillaServer;
+import net.glasslauncher.mods.gcapi3.api.ConfigEntry;
+import net.glasslauncher.mods.gcapi3.api.ConfigRoot;
+import net.glasslauncher.mods.gcapi3.api.ValueOnVanillaServer;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.util.Namespace;
@@ -17,14 +15,13 @@ public class Broom {
     @Entrypoint.Logger
     private static final Logger LOGGER = Null.get();
 
-    @GConfig(value = "config", visibleName = "Broom")
+    @ConfigRoot(value = "config", visibleName = "Broom", index = 0)
     public static ConfigFields config = new ConfigFields();
 
     public static class ConfigFields {
-        @ConfigName("Shift-Click from Containers Behavior")
-        @MultiplayerSynced
+        @ConfigEntry(name = "Shift-Click from Containers Behavior")
         @ValueOnVanillaServer(integerValue = 0)
-        public ShiftClickFromContainersBehaviorEnum shiftClickOutOfContainersBehavior = ShiftClickFromContainersBehaviorEnum.VANILLA;
+        public Boolean shiftClickOutOfContainersBehavior = false;
     }
 
     public static Identifier id(String name) {

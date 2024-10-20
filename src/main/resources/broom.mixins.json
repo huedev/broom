@@ -6,6 +6,7 @@
   "mixins": [
     "common.BonemealAPIMixin",
     "common.FuelRegistryAccessor",
+    "common.RegistriesMixin",
     "common.biome.RainforestBiomeMixin",
     "common.block.BedBlockMixin",
     "common.block.BlockMixin",

@@ -1,13 +1,13 @@
 package net.huedev.broom.listener;
 
+
 import net.huedev.broom.block.BroomBlocks;
-import net.glasslauncher.hmifabric.Utils;
-import net.glasslauncher.hmifabric.event.HMITabRegistryEvent;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 public class HowManyItemsListener {
+    /*
     @EventListener
     public void registerTabs(HMITabRegistryEvent event) {
         Utils.hiddenItems.add(new ItemStack(Block.LOG));
@@ -36,4 +36,5 @@ public class HowManyItemsListener {
         Utils.hiddenItems.add(new ItemStack(BroomBlocks.SANDSTONE_BRICK_DOUBLE_SLAB));
         Utils.hiddenItems.add(new ItemStack(BroomBlocks.SNOW_BRICK_DOUBLE_SLAB));
     }
+    */
 }
