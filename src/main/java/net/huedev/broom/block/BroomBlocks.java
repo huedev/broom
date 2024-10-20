@@ -3,7 +3,7 @@ package net.huedev.broom.block;
 import net.huedev.broom.Broom;
 import net.huedev.broom.gen.feature.BroomGrassPatchFeature;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.bonemeal.BonemealAPI;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.template.block.TemplateStairsBlock;
@@ -150,7 +150,7 @@ public class BroomBlocks {
         SANDSTONE_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("sandstone_brick_stairs"), BroomBlocks.SANDSTONE_BRICKS)
                 .setTranslationKey(Broom.id("sandstone_brick_stairs"));
 
-        SNOW_BRICKS = new TemplateBlock(Broom.id("snow_bricks"), Material.field_999)
+        SNOW_BRICKS = new TemplateBlock(Broom.id("snow_bricks"), Material.SNOW_BLOCK)
                 .setTranslationKey(Broom.id("snow_bricks"))
                 .setHardness(0.3F)
                 .setSoundGroup(Block.WOOL_SOUND_GROUP);

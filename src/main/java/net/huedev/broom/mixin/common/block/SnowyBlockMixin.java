@@ -3,8 +3,8 @@ package net.huedev.broom.mixin.common.block;
 import net.huedev.broom.util.ToolHelper;
 import net.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
 import net.minecraft.block.SnowyBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -78,7 +78,7 @@ public class SnowyBlockMixin extends Block {
             world.setBlockStateWithMetadataWithNotify(x, y, z, state, meta);
             //world.method_215(x, y, z, meta);
             world.playSound(x + 0.5, y + 0.5, z + 0.5, this.soundGroup.getSound(), 1.0F, 1.0F);
-            world.method_246(x, y, z);
+            world.setBlockDirty(x, y, z);
 
             stack.count--;
         }

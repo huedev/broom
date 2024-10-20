@@ -43,7 +43,7 @@ public class MinecraftMixin {
     public int displayHeight;
 
     @Shadow
-    public HitResult field_2823;
+    public HitResult crosshairTarget;
 
     @Shadow
     public World world;
@@ -92,14 +92,14 @@ public class MinecraftMixin {
             method = "run",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/Minecraft;method_2108(II)V"
+                    target = "Lnet/minecraft/client/Minecraft;resize(II)V"
             )
     )
     public void broom_fixCanvasSize(CallbackInfo ci) {
         this.canvas.setBounds(0, 0, this.displayWidth, this.displayHeight);
     }
 
-    @Redirect(method = "run", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;method_2111(J)V"))
+    @Redirect(method = "run", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;renderProfilerChart(J)V"))
     private void broom_disableDebugGraph(Minecraft instance, long l) {
 
     }
@@ -128,7 +128,7 @@ public class MinecraftMixin {
         }
 
         if (pickedEntity instanceof MinecartEntity minecart) {
-            return switch (minecart.field_2275) {
+            return switch (minecart.type) {
                 case 1 -> Item.CHEST_MINECART.id;
                 case 2 -> Item.FURNACE_MINECART.id;
                 default -> Item.MINECART.id;
@@ -138,7 +138,7 @@ public class MinecraftMixin {
     }
 
     @ModifyVariable(
-            method = "method_2103",
+            method = "handlePickBlock",
             at = @At(
                     value = "FIELD",
                     target = "Lnet/minecraft/client/Minecraft;player:Lnet/minecraft/entity/player/ClientPlayerEntity;",
@@ -147,19 +147,19 @@ public class MinecraftMixin {
             index = 1
     )
     public int broom_pickBlockId(int pickedId) {
-        switch (this.field_2823.type) {
+        switch (this.crosshairTarget.type) {
             case BLOCK -> {
                 return broom_getPickBlockId(
                         pickedId,
-                        world.getBlockId(this.field_2823.blockX, this.field_2823.blockY, this.field_2823.blockZ),
-                        world.getBlockMeta(this.field_2823.blockX, this.field_2823.blockY, this.field_2823.blockZ)
+                        world.getBlockId(this.crosshairTarget.blockX, this.crosshairTarget.blockY, this.crosshairTarget.blockZ),
+                        world.getBlockMeta(this.crosshairTarget.blockX, this.crosshairTarget.blockY, this.crosshairTarget.blockZ)
                 );
             }
 
             case ENTITY -> {
                 return broom_getPickEntityId(
                         pickedId,
-                        this.field_2823.entity
+                        this.crosshairTarget.entity
                 );
             }
         }

@@ -2,8 +2,8 @@ package net.huedev.broom.mixin.common.block;
 
 import net.huedev.broom.block.BroomBlockTags;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
 import net.minecraft.block.SugarCaneBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,14 +22,14 @@ public class SugarCaneBlockMixin extends Block {
             return true;
         } else if (!state.isIn(BroomBlockTags.SUGAR_CANE_PLANTABLE_ON)) {
             return false;
-        } else if (world.method_1779(x - 1, y - 1, z) == Material.WATER) {
+        } else if (world.getMaterial(x - 1, y - 1, z) == Material.WATER) {
             return true;
-        } else if (world.method_1779(x + 1, y - 1, z) == Material.WATER) {
+        } else if (world.getMaterial(x + 1, y - 1, z) == Material.WATER) {
             return true;
-        } else if (world.method_1779(x, y - 1, z - 1) == Material.WATER) {
+        } else if (world.getMaterial(x, y - 1, z - 1) == Material.WATER) {
             return true;
         } else {
-            return world.method_1779(x, y - 1, z + 1) == Material.WATER;
+            return world.getMaterial(x, y - 1, z + 1) == Material.WATER;
         }
     }
 
@@ -48,6 +48,6 @@ public class SugarCaneBlockMixin extends Block {
 
     @Override
     public boolean canGrow(World world, int x, int y, int z) {
-        return (world.method_252(x, y, z) >= 8 || world.method_249(x, y, z)) && this.canPlaceAt(world, x, y, z);
+        return (world.getBrightness(x, y, z) >= 8 || world.hasSkyLight(x, y, z)) && this.canPlaceAt(world, x, y, z);
     }
 }

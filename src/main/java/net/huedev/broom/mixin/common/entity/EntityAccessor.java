@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(Entity.class)
 public interface EntityAccessor {
     @Accessor
-    float getField_1636();
+    float getFallDistance();
 
-    @Accessor("field_1636")
+    @Accessor("fallDistance")
     void broom_setFallDistance(float fallDistance);
 }

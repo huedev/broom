@@ -123,7 +123,7 @@ public abstract class HandledScreenMixin extends Screen {
             cancellable = true
     )
     public void broom_addArmorSlotIcon(Slot slot, CallbackInfo ci) {
-        if (slot.method_471() == 7355608) {
+        if (slot.getBackgroundTextureId() == 7355608) {
             this.minecraft.textureManager.bindTexture(this.minecraft.textureManager.getTextureId("/assets/broom/textures/gui/armor_icons.png"));
             this.drawTexture(slot.x, slot.y, 0, (slot.id - 5) * 16, 16, 16);
             GL11.glEnable(2896);

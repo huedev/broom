@@ -20,16 +20,16 @@ public abstract class BoatEntityMixin extends Entity {
     }
 
     @Inject(
-            method = "method_1323",
+            method = "interact",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/entity/player/PlayerEntity;method_1376(Lnet/minecraft/entity/Entity;)V",
+                    target = "Lnet/minecraft/entity/player/PlayerEntity;setVehicle(Lnet/minecraft/entity/Entity;)V",
                     shift = At.Shift.AFTER
             )
     )
     public void broom_fixDismountPosition(PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
-        if (player.field_1594 == null) {
-            player.method_1340(player.x, player.y + 0.01, player.z);
+        if (player.passenger == null) {
+            player.setPosition(player.x, player.y + 0.01, player.z);
         }
     }
 
@@ -37,11 +37,11 @@ public abstract class BoatEntityMixin extends Entity {
             method = "damage",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/entity/vehicle/BoatEntity;method_1325(IIF)Lnet/minecraft/entity/ItemEntity;"
+                    target = "Lnet/minecraft/entity/vehicle/BoatEntity;dropItem(IIF)Lnet/minecraft/entity/ItemEntity;"
             )
     )
     private ItemEntity broom_changeItemId(BoatEntity instance, int id, int count, float offset) {
-        return this.method_1325(Item.BOAT.id, 1, 0.0F);
+        return this.dropItem(Item.BOAT.id, 1, 0.0F);
     }
 
     @ModifyConstant(method = "damage", constant = @Constant(intValue = 3))

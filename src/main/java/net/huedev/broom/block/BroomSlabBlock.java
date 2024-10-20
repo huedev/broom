@@ -5,7 +5,7 @@ import net.huedev.broom.util.WorldHelper;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -68,7 +68,7 @@ public class BroomSlabBlock extends TemplateBlock {
         Direction side = context.getSide();
         PlayerEntity player = context.getPlayer();
 
-        if (player != null && !player.method_1373()) {
+        if (player != null && !player.isSneaking()) {
             if (side.equals(Direction.DOWN)) {
                 return getDefaultState().with(BroomBlockProperties.TOP_BOTTOM, TopBottom.TOP);
             } else if (side.equals(Direction.UP)) {
@@ -145,7 +145,7 @@ public class BroomSlabBlock extends TemplateBlock {
 
         world.setBlockStateWithNotify(x, y, z, fullBlock);
         world.playSound(x + 0.5, y + 0.5, z + 0.5, this.soundGroup.getSound(), 1.0F, 1.0F);
-        world.method_246(x, y, z);
+        world.setBlockDirty(x, y, z);
 
         stack.count--;
 

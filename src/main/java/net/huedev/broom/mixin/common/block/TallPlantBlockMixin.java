@@ -57,8 +57,8 @@ public abstract class TallPlantBlockMixin extends PlantBlock {
         if (brokenByShears) {
             return Collections.singletonList(new ItemStack(BroomBlocks.getGrassByMeta(meta)));
         } else {
-            int id = this.getDroppedItemId(meta, world.field_214);
-            int count = this.getDroppedItemCount(world.field_214);
+            int id = this.getDroppedItemId(meta, world.random);
+            int count = this.getDroppedItemCount(world.random);
             if (id == -1) return Collections.emptyList();
             return Collections.singletonList(new ItemStack(id, count, 0));
         }

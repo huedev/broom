@@ -4,7 +4,7 @@ import net.huedev.broom.block.BroomBlockProperties;
 import net.huedev.broom.block.BroomBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.FenceBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -38,10 +38,10 @@ public class FenceBlockMixin extends Block {
         boolean connectNegZ;
         int fenceId = Block.FENCE.id;
 
-        connectPosX = world.method_1780(x + 1, y, z) || world.getBlockId(x + 1, y, z) == fenceId || broom_isValidFenceGate(world, x, y, z, x + 1, y, z);
-        connectNegX = world.method_1780(x - 1, y, z) || world.getBlockId(x - 1, y, z) == fenceId || broom_isValidFenceGate(world, x, y, z, x - 1, y, z);
-        connectPosZ = world.method_1780(x, y, z + 1) || world.getBlockId(x, y, z + 1) == fenceId || broom_isValidFenceGate(world, x, y, z, x, y, z + 1);
-        connectNegZ = world.method_1780(x, y, z - 1) || world.getBlockId(x, y, z - 1) == fenceId || broom_isValidFenceGate(world, x, y, z, x, y, z - 1);
+        connectPosX = world.shouldSuffocate(x + 1, y, z) || world.getBlockId(x + 1, y, z) == fenceId || broom_isValidFenceGate(world, x, y, z, x + 1, y, z);
+        connectNegX = world.shouldSuffocate(x - 1, y, z) || world.getBlockId(x - 1, y, z) == fenceId || broom_isValidFenceGate(world, x, y, z, x - 1, y, z);
+        connectPosZ = world.shouldSuffocate(x, y, z + 1) || world.getBlockId(x, y, z + 1) == fenceId || broom_isValidFenceGate(world, x, y, z, x, y, z + 1);
+        connectNegZ = world.shouldSuffocate(x, y, z - 1) || world.getBlockId(x, y, z - 1) == fenceId || broom_isValidFenceGate(world, x, y, z, x, y, z - 1);
 
         return Box.create(
                 connectNegX ? 0.0F : 0.375F,

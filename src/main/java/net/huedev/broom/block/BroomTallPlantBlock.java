@@ -59,7 +59,7 @@ public class BroomTallPlantBlock extends TemplatePlantBlock {
 
     @Override
     public boolean canGrow(World world, int x, int y, int z) {
-        return (world.method_252(x, y, z) >= 8 || world.method_249(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
+        return (world.getBrightness(x, y, z) >= 8 || world.hasSkyLight(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
     }
 
     @Environment(EnvType.CLIENT)
@@ -70,9 +70,9 @@ public class BroomTallPlantBlock extends TemplatePlantBlock {
         x = (int)((long)x + (var6 >> 14 & 31L));
         y = (int)((long)y + (var6 >> 19 & 31L));
         z = (int)((long)z + (var6 >> 24 & 31L));
-        blockView.method_1781().method_1788(x, z, 1, 1);
-        double var8 = blockView.method_1781().field_2235[0];
-        double var10 = blockView.method_1781().field_2236[0];
+        blockView.method_1781().getBiomesInArea(x, z, 1, 1);
+        double var8 = blockView.method_1781().temperatureMap[0];
+        double var10 = blockView.method_1781().downfallMap[0];
         return GrassColors.getColor(var8, var10);
     }
 

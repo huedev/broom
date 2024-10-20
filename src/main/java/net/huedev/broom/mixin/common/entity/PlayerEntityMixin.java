@@ -23,8 +23,8 @@ public abstract class PlayerEntityMixin extends Entity {
         if (!this.world.isRemote) {
             if (!(attackerEntity instanceof SkeletonEntity) && attackerEntity != null) {
                 if (this.random.nextInt(0, 100) < 50) {
-                    if (attackerEntity.fire > 0) {
-                        this.fire = 100;
+                    if (attackerEntity.fireTicks > 0) {
+                        this.fireTicks = 100;
                     }
                 }
             }

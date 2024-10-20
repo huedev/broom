@@ -3,7 +3,7 @@ package net.huedev.broom.mixin.common.block;
 import net.huedev.broom.mixin.common.entity.PlayerEntityAccessor;
 import net.minecraft.block.BedBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3i;
@@ -21,13 +21,13 @@ public abstract class BedBlockMixin extends Block {
         super(id, textureId, material);
     }
 
-    @Inject(method = "onUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;method_495(III)Lnet/minecraft/entity/player/SleepAttemptResult;"))
+    @Inject(method = "onUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;trySleep(III)Lnet/minecraft/entity/player/SleepAttemptResult;"))
     public void broom_setSpawn(World world, int x, int y, int z, PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
         if (!player.world.isRemote) {
-            Vec3i currentRespawnPosition = ((PlayerEntityAccessor) player).getField_516();
+            Vec3i currentRespawnPosition = ((PlayerEntityAccessor) player).getSpawnPos();
             Vec3i newRespawnPosition = new Vec3i(MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z));
             if (!Objects.equals(currentRespawnPosition, newRespawnPosition)) {
-                player.method_490(getTranslationKey() + "." + "respawn_set");
+                player.sendMessage(getTranslationKey() + "." + "respawn_set");
                 ((PlayerEntityAccessor) player).broom_setRespawnPosition(newRespawnPosition);
             }
         }

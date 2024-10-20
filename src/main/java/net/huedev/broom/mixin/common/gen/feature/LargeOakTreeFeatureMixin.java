@@ -16,21 +16,21 @@ public class LargeOakTreeFeatureMixin {
     @Shadow
     Random random;
 
-    @ModifyConstant(method = "method_620", constant = @Constant(intValue = 17))
+    @ModifyConstant(method = "PlaceTrunk", constant = @Constant(intValue = 17))
     private int broom_replaceLogs(int constant) {
         return BroomBlocks.OAK_LOG.id;
     }
 
-    @ModifyConstant(method = "method_622", constant = @Constant(intValue = 17))
+    @ModifyConstant(method = "placeBranches", constant = @Constant(intValue = 17))
     private int broom_replaceLogsMore(int constant) {
         return BroomBlocks.OAK_LOG.id;
     }
 
     @ModifyArg(
-            method = "method_615",
+            method = "placeCluster",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_200(IIII)Z"
+                    target = "Lnet/minecraft/world/World;setBlockWithoutNotifyingNeighbors(IIII)Z"
             ),
             index = 3
     )

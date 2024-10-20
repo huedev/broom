@@ -8,7 +8,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.ChestBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.DoubleInventory;
 import net.minecraft.inventory.Inventory;
@@ -49,7 +49,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
         Direction facing = Direction.fromRotation(player == null ? 0 : player.yaw);
 
         BlockState chest = getDefaultState().with(BroomBlockProperties.FACING, facing);
-        if (player != null && player.method_1373()) {
+        if (player != null && player.isSneaking()) {
             return chest.with(BroomBlockProperties.CHEST_TYPE, ChestType.SINGLE);
         }
 
@@ -117,7 +117,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
 
         ChestType part = state.get(BroomBlockProperties.CHEST_TYPE);
         if (part == ChestType.SINGLE) {
-            player.method_486(inventory);
+            player.openChestScreen(inventory);
             return;
         }
 
@@ -129,7 +129,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
 
         state = world.getBlockState(x, y, z);
         if (!state.isOf(this)) {
-            player.method_486(inventory);
+            player.openChestScreen(inventory);
             return;
         }
 
@@ -140,7 +140,7 @@ public abstract class ChestBlockMixin extends BlockWithEntity implements BeforeB
             case RIGHT -> inventory = new DoubleInventory("Large Chest", sideInventory, inventory);
         }
 
-        player.method_486(inventory);
+        player.openChestScreen(inventory);
     }
 
     @Environment(value = EnvType.CLIENT)

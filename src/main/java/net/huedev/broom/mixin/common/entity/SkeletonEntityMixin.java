@@ -16,10 +16,10 @@ public abstract class SkeletonEntityMixin extends Entity {
     }
 
     @Inject(
-            method = "method_637",
+            method = "attack",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/entity/Entity;method_1378()F",
+                    target = "Lnet/minecraft/entity/Entity;getEyeHeight()F",
                     shift = At.Shift.BEFORE
             )
     )
@@ -27,18 +27,18 @@ public abstract class SkeletonEntityMixin extends Entity {
         var7.y -= 1.5;
     }
 
-    @ModifyConstant(method = "method_637", constant = @Constant(doubleValue = 0.20000000298023224))
+    @ModifyConstant(method = "attack", constant = @Constant(doubleValue = 0.20000000298023224))
     private double broom_changeArrowYDirection(double constant) {
         return 0.2;
     }
 
-    @Redirect(method = "method_637", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;method_210(Lnet/minecraft/entity/Entity;)Z"))
+    @Redirect(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"))
     public boolean broom_createBurningArrow(World world, Entity arrowEntity) {
-        if (this.fire > 0) {
+        if (this.fireTicks > 0) {
             if (this.random.nextInt(0, 100) < 50) {
-                arrowEntity.fire = 400;
+                arrowEntity.fireTicks = 400;
             }
         }
-        return world.method_210(arrowEntity);
+        return world.spawnEntity(arrowEntity);
     }
 }

@@ -47,7 +47,7 @@ public class CacaoTreeFeature extends Feature {
             } else {
                 var8 = world.getBlockId(x, y - 1, z);
                 if ((var8 == Block.GRASS_BLOCK.id || var8 == Block.DIRT.id) && y < 128 - var6 - 1) {
-                    world.method_200(x, y - 1, z, Block.DIRT.id);
+                    world.setBlockWithoutNotifyingNeighbors(x, y - 1, z, Block.DIRT.id);
 
                     for(var9 = y - 3 + var6; var9 <= y + var6; ++var9) {
                         var10 = var9 - (y + var6);
@@ -60,9 +60,9 @@ public class CacaoTreeFeature extends Feature {
                                 int var15 = var14 - z;
                                 if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || random.nextInt(2) != 0 && var10 != 0) && !Block.BLOCKS_OPAQUE[world.getBlockId(var12, var9, var14)]) {
                                     if (random.nextInt(55) == 0) {
-                                        world.method_200(var12, var9, var14, BroomBlocks.CACAO_POD_LEAVES.id);
+                                        world.setBlockWithoutNotifyingNeighbors(var12, var9, var14, BroomBlocks.CACAO_POD_LEAVES.id);
                                     } else {
-                                        world.method_200(var12, var9, var14, BroomBlocks.CACAO_LEAVES.id);
+                                        world.setBlockWithoutNotifyingNeighbors(var12, var9, var14, BroomBlocks.CACAO_LEAVES.id);
                                     }
                                 }
                             }
@@ -72,7 +72,7 @@ public class CacaoTreeFeature extends Feature {
                     for(var9 = 0; var9 < var6; ++var9) {
                         var10 = world.getBlockId(x, y + var9, z);
                         if (var10 == 0 || var10 == BroomBlocks.CACAO_LEAVES.id || var10 == BroomBlocks.CACAO_POD_LEAVES.id) {
-                            world.method_200(x, y + var9, z, BroomBlocks.CACAO_LOG.id);
+                            world.setBlockWithoutNotifyingNeighbors(x, y + var9, z, BroomBlocks.CACAO_LOG.id);
                         }
                     }
 

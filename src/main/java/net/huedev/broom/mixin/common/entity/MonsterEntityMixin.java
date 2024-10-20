@@ -1,6 +1,6 @@
 package net.huedev.broom.mixin.common.entity;
 
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.mob.MonsterEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.LightType;
@@ -18,18 +18,18 @@ public class MonsterEntityMixin extends MobEntity {
         int var1 = MathHelper.floor(this.x);
         int var2 = MathHelper.floor(this.boundingBox.minY);
         int var3 = MathHelper.floor(this.z);
-        int skyLight = this.world.method_164(LightType.SKY, var1, var2, var3);
+        int skyLight = this.world.getBrightness(LightType.SKY, var1, var2, var3);
         int randomInt = this.random.nextInt(32);
         if (skyLight > randomInt) {
             return false;
         } else {
-            int internalLight = this.world.method_255(var1, var2, var3);
-            int blockLight = this.world.method_164(LightType.BLOCK, var1, var2, var3);
-            if (this.world.method_269()) {
-                int var5 = this.world.field_202;
-                this.world.field_202 = 10;
-                internalLight = this.world.method_255(var1, var2, var3);
-                this.world.field_202 = var5;
+            int internalLight = this.world.getLightLevel(var1, var2, var3);
+            int blockLight = this.world.getBrightness(LightType.BLOCK, var1, var2, var3);
+            if (this.world.isThundering()) {
+                int var5 = this.world.ambientDarkness;
+                this.world.ambientDarkness = 10;
+                internalLight = this.world.getLightLevel(var1, var2, var3);
+                this.world.ambientDarkness = var5;
             }
 
             int internalSkyLightMinimum = 4;

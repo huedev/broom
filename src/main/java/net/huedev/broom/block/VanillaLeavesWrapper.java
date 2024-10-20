@@ -58,9 +58,9 @@ public class VanillaLeavesWrapper extends BroomLeavesBlock {
     public int getColorMultiplier(BlockView view, int x, int y, int z) {
         if ((meta & 1) == 1) return FoliageColors.getSpruceColor();
         if ((meta & 2) == 2) return FoliageColors.getBirchColor();
-        view.method_1781().method_1788(x, z, 1, 1);
-        double t = view.method_1781().field_2235[0];
-        double w = view.method_1781().field_2236[0];
+        view.method_1781().getBiomesInArea(x, z, 1, 1);
+        double t = view.method_1781().temperatureMap[0];
+        double w = view.method_1781().downfallMap[0];
         return FoliageColors.getColor(t, w);
     }
 
@@ -70,7 +70,7 @@ public class VanillaLeavesWrapper extends BroomLeavesBlock {
             brokenBySilkTouchTool = false;
             return Collections.singletonList(new ItemStack(BroomBlocks.getLeavesByMeta(meta), 1, 0));
         } else {
-            int count = this.getDroppedItemCount(world.field_214);
+            int count = this.getDroppedItemCount(world.random);
             if (count == 0) return Collections.emptyList();
             return Collections.singletonList(new ItemStack(BroomBlocks.getSaplingByMeta(meta), count, 0));
         }

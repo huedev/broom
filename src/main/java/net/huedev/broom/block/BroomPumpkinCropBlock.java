@@ -51,7 +51,7 @@ public class BroomPumpkinCropBlock extends TemplatePlantBlock {
     public void onTick(World world, int x, int y, int z, Random random) {
         if (!world.isRemote) {
             this.breakIfInvalid(world, x, y, z);
-            if (world.method_255(x, y + 1, z) >= 9) {
+            if (world.getLightLevel(x, y + 1, z) >= 9) {
                 BlockState state = world.getBlockState(x, y, z);
                 int age = state.get(BroomBlockProperties.CROP_AGE);
                 if (age < 7) {
@@ -119,7 +119,7 @@ public class BroomPumpkinCropBlock extends TemplatePlantBlock {
 
     @Override
     public boolean canGrow(World world, int x, int y, int z) {
-        return (world.method_252(x, y, z) >= 8 || world.method_249(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
+        return (world.getBrightness(x, y, z) >= 8 || world.hasSkyLight(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
     }
 
     @Override

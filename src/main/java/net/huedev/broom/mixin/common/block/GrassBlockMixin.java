@@ -7,8 +7,8 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.GrassBlock;
-import net.minecraft.block.Material;
 import net.minecraft.block.StairsBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.BlockView;
@@ -40,9 +40,9 @@ public class GrassBlockMixin extends Block {
         } else if (side == 0) {
             return 2;
         } else {
-            Material aboveMaterial = blockView.method_1779(x, y + 1, z);
+            Material aboveMaterial = blockView.getMaterial(x, y + 1, z);
             BlockState aboveState = ((BlockStateView)blockView).getBlockState(x, y + 1, z);
-            if (aboveMaterial == Material.field_998 || aboveMaterial == Material.field_999) {
+            if (aboveMaterial == Material.SNOW_LAYER || aboveMaterial == Material.SNOW_BLOCK) {
                 if (aboveState.getBlock() instanceof StairsBlock || aboveState.getBlock() instanceof BroomSlabBlock) {
                     BroomBlockProperties.TopBottom topBottom = aboveState.get(BroomBlockProperties.TOP_BOTTOM);
                     return topBottom == BroomBlockProperties.TopBottom.TOP ? 3 : 68;

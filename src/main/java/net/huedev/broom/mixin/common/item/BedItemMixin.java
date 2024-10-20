@@ -16,16 +16,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BedItem.class)
 public class BedItemMixin {
-    @Inject(method = "useOnBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;method_201(IIIII)Z", ordinal = 0))
+    @Inject(method = "useOnBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;setBlock(IIIII)Z", ordinal = 0))
     private void broom_playBlockPlaceSound(ItemStack stack, PlayerEntity user, World world, int x, int y, int z, int side, CallbackInfoReturnable<Boolean> cir, @Local BedBlock var8) {
-        world.playSound((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), var8.soundGroup.getSound(), (var8.soundGroup.method_1976() + 1.0F) / 2.0F, var8.soundGroup.method_1977() * 0.8F);
+        world.playSound((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), var8.soundGroup.getSound(), (var8.soundGroup.getVolume() + 1.0F) / 2.0F, var8.soundGroup.getPitch() * 0.8F);
     }
 
     @ModifyExpressionValue(
             method = "useOnBlock",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_1780(III)Z",
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z",
                     ordinal = 0
             )
     )
@@ -37,7 +37,7 @@ public class BedItemMixin {
             method = "useOnBlock",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_1780(III)Z",
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z",
                     ordinal = 1
             )
     )

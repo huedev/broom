@@ -3,8 +3,8 @@ package net.huedev.broom.mixin.common.block;
 import net.huedev.broom.block.BroomBlocks;
 import net.huedev.broom.util.ToolHelper;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.Material;
-import net.minecraft.class_307;
+import net.minecraft.block.TransparentBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -23,7 +23,7 @@ import java.util.Random;
  * @author paulevsGitch
  */
 @Mixin(LeavesBlock.class)
-public class LeavesBlockMixin extends class_307 {
+public class LeavesBlockMixin extends TransparentBlock {
     @Unique
     private boolean brokenBySilkTouchTool = false;
 
@@ -60,7 +60,7 @@ public class LeavesBlockMixin extends class_307 {
             brokenBySilkTouchTool = false;
             return Collections.singletonList(new ItemStack(BroomBlocks.getLeavesByMeta(meta), 1, 0));
         } else {
-            int count = this.getDroppedItemCount(world.field_214);
+            int count = this.getDroppedItemCount(world.random);
             if (count == 0) return Collections.emptyList();
             return Collections.singletonList(new ItemStack(BroomBlocks.getSaplingByMeta(meta), count, 0));
         }

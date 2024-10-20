@@ -35,7 +35,7 @@ public class ShearsItemMixin extends Item {
             }
             world.setBlockStateWithMetadataWithNotify(x, y, z, state, meta);
             if (!world.isRemote) {
-                world.method_173(null, 1008, x, y, z, 0);
+                world.worldEvent(null, 1008, x, y, z, 0);
                 ItemStack seeds = new ItemStack(BroomItems.PUMPKIN_SEEDS, 4);
                 broom_dropStack(world, x, y, z, seeds);
                 stack.damage(1, player);
@@ -48,11 +48,11 @@ public class ShearsItemMixin extends Item {
     @Unique
     private void broom_dropStack(World world, int x, int y, int z, ItemStack itemStack) {
         float var6 = 0.7F;
-        double var7 = (double)(world.field_214.nextFloat() * var6) + (double)(1.0F - var6) * 0.5;
-        double var9 = (double)(world.field_214.nextFloat() * var6) + (double)(1.0F - var6) * 0.5;
-        double var11 = (double)(world.field_214.nextFloat() * var6) + (double)(1.0F - var6) * 0.5;
+        double var7 = (double)(world.random.nextFloat() * var6) + (double)(1.0F - var6) * 0.5;
+        double var9 = (double)(world.random.nextFloat() * var6) + (double)(1.0F - var6) * 0.5;
+        double var11 = (double)(world.random.nextFloat() * var6) + (double)(1.0F - var6) * 0.5;
         ItemEntity var13 = new ItemEntity(world, (double)x + var7, (double)y + var9, (double)z + var11, itemStack);
         var13.pickupDelay = 10;
-        world.method_210(var13);
+        world.spawnEntity(var13);
     }
 }

@@ -1,10 +1,10 @@
 package net.huedev.broom.mixin.client;
 
 import net.huedev.broom.util.BroomOptions;
-import net.minecraft.block.Material;
-import net.minecraft.class_555;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.option.GameOptions;
+import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.LivingEntity;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
@@ -18,17 +18,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /**
  * @author DanyGames2014
  */
-@Mixin(class_555.class)
-public class class_555Mixin {
+@Mixin(GameRenderer.class)
+public class GameRendererMixin {
     @Shadow
-    private Minecraft field_2349;
+    private Minecraft client;
 
     @Shadow
-    private float field_2350;
+    private float viewDistance;
 
     @Unique
     public float broom_getFovMultiplier(float f, boolean isHand) {
-        LivingEntity entity = this.field_2349.field_2807;
+        LivingEntity entity = this.client.camera;
         float fov = BroomOptions.getFovInDegrees();
 
         if (isHand) {
@@ -40,7 +40,7 @@ public class class_555Mixin {
         }
 
         if (entity.health <= 0) {
-            float deathTimeFov = (float) entity.field_1041 + f;
+            float deathTimeFov = (float) entity.deathTime + f;
             fov /= (1.0F - 500F / (deathTimeFov + 500F)) * 2.0F + 1.0F;
         }
 
@@ -52,35 +52,35 @@ public class class_555Mixin {
         return broom_getFovMultiplier(f, false);
     }
 
-    @Redirect(method = "method_1840", at = @At(value = "INVOKE", target = "Lnet/minecraft/class_555;method_1848(F)F"))
-    public float broom_redirectToCustomFov(class_555 instance, float value) {
+    @Redirect(method = "renderWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/GameRenderer;getFov(F)F"))
+    public float broom_redirectToCustomFov(GameRenderer instance, float value) {
         return broom_getFovMultiplier(value);
     }
 
-    @Inject(method = "method_1845", at = @At(value = "HEAD"))
+    @Inject(method = "renderFirstPersonHand", at = @At(value = "HEAD"))
     public void broom_adjustHandFov(float f, int i, CallbackInfo ci) {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        GLU.gluPerspective(broom_getFovMultiplier(f, true), (float) field_2349.displayWidth / (float) field_2349.displayHeight, 0.05F, field_2350 * 2.0F);
+        GLU.gluPerspective(broom_getFovMultiplier(f, true), (float) client.displayWidth / (float) client.displayHeight, 0.05F, viewDistance * 2.0F);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
     }
 
-    @ModifyConstant(method = "method_1844", constant = @Constant(intValue = 200))
+    @ModifyConstant(method = "onFrameUpdate", constant = @Constant(intValue = 200))
     public int broom_modifyPerformanceTargetFps(int constant){
         return BroomOptions.getFpsLimitValue();
     }
 
-    @ModifyConstant(method = "method_1844", constant = @Constant(intValue = 120))
+    @ModifyConstant(method = "onFrameUpdate", constant = @Constant(intValue = 120))
     public int broom_modifyBalancedTargetFps(int constant){
         return BroomOptions.getFpsLimitValue();
     }
 
-    @ModifyConstant(method = "method_1844", constant = @Constant(intValue = 40))
+    @ModifyConstant(method = "onFrameUpdate", constant = @Constant(intValue = 40))
     public int broom_modifyPowerSaverTargetFps(int constant){
         return BroomOptions.getFpsLimitValue();
     }
 
-    @Redirect(method = "method_1844", at = @At(value = "FIELD", opcode = Opcodes.GETFIELD, target = "Lnet/minecraft/client/option/GameOptions;fpsLimit:I"))
+    @Redirect(method = "onFrameUpdate", at = @At(value = "FIELD", opcode = Opcodes.GETFIELD, target = "Lnet/minecraft/client/option/GameOptions;fpsLimit:I"))
     public int broom_overridePerformanceLevel(GameOptions instance){
         return BroomOptions.getPerformanceLevel();
     }

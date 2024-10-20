@@ -51,7 +51,7 @@ public class DeadBushBlockMixin extends PlantBlock {
 
     @Override
     public boolean canGrow(World world, int x, int y, int z) {
-        return (world.method_252(x, y, z) >= 8 || world.method_249(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
+        return (world.getBrightness(x, y, z) >= 8 || world.hasSkyLight(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
     }
 
     @Override

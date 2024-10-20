@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(Block.class)
 public class BlockMixin {
-    @ModifyExpressionValue(method = "canPlaceAt(Lnet/minecraft/world/World;III)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Material;method_896()Z"))
+    @ModifyExpressionValue(method = "canPlaceAt(Lnet/minecraft/world/World;III)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/material/Material;isReplaceable()Z"))
     private boolean bypassMaterialReplaceableCheck(boolean original, @Local(argsOnly = true) World world, @Local(ordinal = 0, argsOnly = true) int x, @Local(ordinal = 1, argsOnly = true) int y, @Local(ordinal = 2, argsOnly = true) int z) {
         BlockState state = world.getBlockState(x, y, z);
         if (state.isIn(BroomBlockTags.REPLACEABLE)) {

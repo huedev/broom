@@ -18,7 +18,7 @@ import java.util.Arrays;
 @Mixin(VideoOptionsScreen.class)
 public class VideoOptionsScreenMixin {
     @Shadow
-    private static Option[] field_2003;
+    private static Option[] VIDEO_OPTIONS;
 
     @Inject(
             method = "buttonClicked",
@@ -36,9 +36,9 @@ public class VideoOptionsScreenMixin {
     }
 
     static {
-        field_2003 = Arrays.copyOf(field_2003, field_2003.length + 2);
-        VideoOptionsScreenMixin.field_2003[VideoOptionsScreenMixin.field_2003.length - 2] = BroomOptions.cloudsOption;
-        VideoOptionsScreenMixin.field_2003[VideoOptionsScreenMixin.field_2003.length - 1] = BroomOptions.cloudHeightOption;
-        VideoOptionsScreenMixin.field_2003[3] = BroomOptions.fpsLimitOption;
+        VIDEO_OPTIONS = Arrays.copyOf(VIDEO_OPTIONS, VIDEO_OPTIONS.length + 2);
+        VideoOptionsScreenMixin.VIDEO_OPTIONS[VideoOptionsScreenMixin.VIDEO_OPTIONS.length - 2] = BroomOptions.cloudsOption;
+        VideoOptionsScreenMixin.VIDEO_OPTIONS[VideoOptionsScreenMixin.VIDEO_OPTIONS.length - 1] = BroomOptions.cloudHeightOption;
+        VideoOptionsScreenMixin.VIDEO_OPTIONS[3] = BroomOptions.fpsLimitOption;
     }
 }

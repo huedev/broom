@@ -15,7 +15,7 @@ public class CowEntityMixin extends AnimalEntity {
         super(arg);
     }
 
-    @Inject(method = "method_1323", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;setStack(ILnet/minecraft/item/ItemStack;)V"))
+    @Inject(method = "interact", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;setStack(ILnet/minecraft/item/ItemStack;)V"))
     public void broom_soundOnMilk(PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
         player.world.playSound(player, "broom:entity.cow.milk", 1.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
     }

@@ -7,7 +7,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -118,9 +118,9 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
 
     @Environment(value = EnvType.CLIENT)
     public int getColorMultiplier(BlockView view, int x, int y, int z) {
-        view.method_1781().method_1788(x, z, 1, 1);
-        double t = view.method_1781().field_2235[0];
-        double w = view.method_1781().field_2236[0];
+        view.method_1781().getBiomesInArea(x, z, 1, 1);
+        double t = view.method_1781().temperatureMap[0];
+        double w = view.method_1781().downfallMap[0];
         return FoliageColors.getColor(t, w);
     }
 
@@ -163,7 +163,7 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
 
         dropStacks(world, x, y, z, 0);
         world.setBlockStateWithNotify(x, y, z, States.AIR.get());
-        world.method_246(x, y, z);
+        world.setBlockDirty(x, y, z);
     }
 
     @Override
@@ -173,7 +173,7 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
             return Collections.singletonList(new ItemStack(this, 1, 0));
         } else {
             List<ItemStack> dropList = new java.util.ArrayList<>(Collections.emptyList());
-            int saplingCount = this.getDroppedItemCount(world.field_214);
+            int saplingCount = this.getDroppedItemCount(world.random);
             if (saplingCount != 0) {
                 if (this.id == BroomBlocks.APPLE_OAK_LEAVES.id) {
                     dropList.add(new ItemStack(BroomBlocks.OAK_SAPLING, 1, 0));

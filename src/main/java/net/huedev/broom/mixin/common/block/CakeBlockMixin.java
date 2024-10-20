@@ -2,7 +2,7 @@ package net.huedev.broom.mixin.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.CakeBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,7 +27,7 @@ public class CakeBlockMixin extends Block {
         super(id, material);
     }
 
-    @Inject(method = "tryEat", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;method_939(I)V"))
+    @Inject(method = "tryEat", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;heal(I)V"))
     public void broom_playSoundOnEat(World world, int x, int y, int z, PlayerEntity player, CallbackInfo ci) {
         world.playSound(player, "random.eat", 1.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
     }

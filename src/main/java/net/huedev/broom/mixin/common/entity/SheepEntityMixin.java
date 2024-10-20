@@ -18,7 +18,7 @@ public class SheepEntityMixin extends AnimalEntity {
         super(arg);
     }
 
-    @Inject(method = "method_1323", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;damage(ILnet/minecraft/entity/Entity;)V"))
+    @Inject(method = "interact", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;damage(ILnet/minecraft/entity/Entity;)V"))
     public void broom_soundOnShear(PlayerEntity player, CallbackInfoReturnable<Boolean> cir){
         player.world.playSound(player, "broom:entity.sheep.shear", 1.0F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
     }

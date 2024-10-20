@@ -24,8 +24,8 @@ public abstract class ArrowEntityMixin extends Entity {
             )
     )
     public boolean broom_setAttackedEntityOnFire(Entity attackedEntity, Entity damageSource, int amount) {
-        if (this.fire > 0) {
-            attackedEntity.fire = 100;
+        if (this.fireTicks > 0) {
+            attackedEntity.fireTicks = 100;
         }
         return attackedEntity.damage(damageSource, amount);
     }

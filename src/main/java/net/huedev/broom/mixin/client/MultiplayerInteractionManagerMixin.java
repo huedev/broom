@@ -3,10 +3,10 @@ package net.huedev.broom.mixin.client;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.huedev.broom.util.ToolHelper;
-import net.minecraft.MultiplayerInteractionManager;
 import net.minecraft.block.Block;
 import net.minecraft.client.InteractionManager;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.MultiplayerInteractionManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.world.World;
@@ -24,13 +24,13 @@ public class MultiplayerInteractionManagerMixin extends InteractionManager {
         super(minecraft);
     }
 
-    @WrapOperation(method = "method_1707", at = @At(
+    @WrapOperation(method = "attackBlock", at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/block/Block;onBlockBreakStart(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/PlayerEntity;)V"
     ))
     private void broom_disableActivation(Block instance, World world, int x, int y, int z, PlayerEntity player, Operation<Void> original) {}
 
-    @ModifyConstant(method = "method_1721", constant = @Constant(intValue = 5))
+    @ModifyConstant(method = "processBlockBreakingAction", constant = @Constant(intValue = 5))
     private int broom_modifyBlockBreakDelay(int constant) {
         ToolMaterial toolMaterial = ToolHelper.getItemToolMaterial(minecraft.player);
         if (toolMaterial == null) {

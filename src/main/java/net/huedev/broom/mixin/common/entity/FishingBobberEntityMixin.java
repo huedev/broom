@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
  */
 @Mixin(FishingBobberEntity.class)
 public class FishingBobberEntityMixin {
-    @ModifyConstant(method = "method_956", constant = @Constant(doubleValue = 0.08))
+    @ModifyConstant(method = "use", constant = @Constant(doubleValue = 0.08))
     public double broom_reduceFishVerticalVelocity(double constant) {
         return 0.04;
     }

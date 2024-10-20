@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  */
 @Mixin(LivingEntityRenderer.class)
 public class LivingEntityRendererMixin {
-    @Inject(method = "method_821", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "renderNameTag(Lnet/minecraft/entity/LivingEntity;DDD)V", at = @At("HEAD"), cancellable = true)
     public void broom_disableDebugEntityIds(LivingEntity entity, double x, double y, double z, CallbackInfo ci) {
         ci.cancel();
     }

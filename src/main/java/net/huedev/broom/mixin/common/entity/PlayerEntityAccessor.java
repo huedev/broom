@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(PlayerEntity.class)
 public interface PlayerEntityAccessor {
     @Accessor
-    Vec3i getField_516();
+    Vec3i getSpawnPos();
 
-    @Accessor("field_516")
+    @Accessor("spawnPos")
     void broom_setRespawnPosition(Vec3i respawnPosition);
 }

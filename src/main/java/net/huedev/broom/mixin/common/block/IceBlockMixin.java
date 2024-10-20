@@ -3,8 +3,8 @@ package net.huedev.broom.mixin.common.block;
 import net.huedev.broom.util.ToolHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.IceBlock;
-import net.minecraft.block.Material;
-import net.minecraft.class_221;
+import net.minecraft.block.TranslucentBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Random;
 
 @Mixin(IceBlock.class)
-public class IceBlockMixin extends class_221 {
+public class IceBlockMixin extends TranslucentBlock {
     @Unique
     private boolean brokenBySilkTouchTool = false;
 
@@ -32,8 +32,8 @@ public class IceBlockMixin extends class_221 {
         }
 
         if (!brokenBySilkTouchTool) {
-            Material var7 = world.method_1779(x, y - 1, z);
-            if (var7.method_907() || var7.method_893()) {
+            Material var7 = world.getMaterial(x, y - 1, z);
+            if (var7.blocksMovement() || var7.isFluid()) {
                 world.setBlock(x, y, z, Block.FLOWING_WATER.id);
             }
         }

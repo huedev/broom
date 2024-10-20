@@ -4,7 +4,7 @@ import net.huedev.broom.block.BroomBlockProperties;
 import net.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.LeverBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -40,7 +40,7 @@ public abstract class LeverBlockMixin extends Block {
 
     @Inject(method = "canPlaceAt(Lnet/minecraft/world/World;IIII)Z", at = @At("HEAD"), cancellable = true)
     public void broom_canPlaceAt(World world, int x, int y, int z, int side, CallbackInfoReturnable<Boolean> cir) {
-        if (side == 0 && world.method_1780(x, y + 1, z)) {
+        if (side == 0 && world.shouldSuffocate(x, y + 1, z)) {
             cir.setReturnValue(true);
         }
 
@@ -51,7 +51,7 @@ public abstract class LeverBlockMixin extends Block {
 
     @Inject(method = "canPlaceAt(Lnet/minecraft/world/World;III)Z", at = @At("HEAD"), cancellable = true)
     public void broom_canPlaceAt(World world, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
-        if (world.method_1780(x, y + 1, z)) {
+        if (world.shouldSuffocate(x, y + 1, z)) {
             cir.setReturnValue(true);
         }
 
@@ -106,15 +106,15 @@ public abstract class LeverBlockMixin extends Block {
 
             boolean invalid = false;
 
-            if (face == BroomBlockProperties.Face.CEILING && !world.method_1780(x, y + 1, z)) {
+            if (face == BroomBlockProperties.Face.CEILING && !world.shouldSuffocate(x, y + 1, z)) {
                 invalid = true;
             } else if (face == BroomBlockProperties.Face.FLOOR) {
-                if (!world.method_1780(x, y - 1, z) && !WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) {
+                if (!world.shouldSuffocate(x, y - 1, z) && !WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) {
                     invalid = true;
                 }
             } else if (face == BroomBlockProperties.Face.WALL) {
                 Direction facing = state.get(BroomBlockProperties.FACING);
-                if (!world.method_1780(x + facing.getOffsetX(), y, z + facing.getOffsetZ())) {
+                if (!world.shouldSuffocate(x + facing.getOffsetX(), y, z + facing.getOffsetZ())) {
                     invalid = true;
                 }
             }
@@ -167,22 +167,22 @@ public abstract class LeverBlockMixin extends Block {
             if (changed == state) return;
 
             world.setBlockStateWithNotify(x, y, z, changed);
-            world.method_202(x, y, z, x, y, z);
+            world.setBlocksDirty(x, y, z, x, y, z);
             if (powered) {
-                world.method_173(null, 1009, x, y, z, 0);
+                world.worldEvent(null, 1009, x, y, z, 0);
             } else {
-                world.method_173(null, 1010, x, y, z, 0);
+                world.worldEvent(null, 1010, x, y, z, 0);
             }
-            world.method_244(x, y, z, this.id);
+            world.notifyNeighbors(x, y, z, this.id);
 
             BroomBlockProperties.Face face = state.get(BroomBlockProperties.FACE);
             if (face == BroomBlockProperties.Face.CEILING) {
-                world.method_244(x, y + 1, z, this.id);
+                world.notifyNeighbors(x, y + 1, z, this.id);
             } else if (face == BroomBlockProperties.Face.FLOOR) {
-                world.method_244(x, y - 1, z, this.id);
+                world.notifyNeighbors(x, y - 1, z, this.id);
             } else {
                 Direction facing = state.get(BroomBlockProperties.FACING);
-                world.method_244(x + facing.getOffsetX(), y, z + facing.getOffsetZ(), this.id);
+                world.notifyNeighbors(x + facing.getOffsetX(), y, z + facing.getOffsetZ(), this.id);
             }
         }
     }
@@ -196,21 +196,21 @@ public abstract class LeverBlockMixin extends Block {
         boolean powered = state.get(BroomBlockProperties.POWERED);
 
         if (powered) {
-            world.method_244(x, y, z, this.id);
+            world.notifyNeighbors(x, y, z, this.id);
             BroomBlockProperties.Face face = state.get(BroomBlockProperties.FACE);
             if (face == BroomBlockProperties.Face.CEILING) {
-                world.method_244(x, y + 1, z, this.id);
+                world.notifyNeighbors(x, y + 1, z, this.id);
             } else if (face == BroomBlockProperties.Face.FLOOR) {
-                world.method_244(x, y - 1, z, this.id);
+                world.notifyNeighbors(x, y - 1, z, this.id);
             } else {
                 Direction facing = state.get(BroomBlockProperties.FACING);
-                world.method_244(x + facing.getOffsetX(), y, z + facing.getOffsetZ(), this.id);
+                world.notifyNeighbors(x + facing.getOffsetX(), y, z + facing.getOffsetZ(), this.id);
             }
         }
     }
 
-    @Inject(method = "isEmittingRedstonePower", at = @At("HEAD"), cancellable = true)
-    private void broom_isEmittingRedstonePower(BlockView blockView, int x, int y, int z, int meta, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "isEmittingRedstonePowerInDirection", at = @At("HEAD"), cancellable = true)
+    private void broom_isEmittingRedstonePowerInDirection(BlockView blockView, int x, int y, int z, int meta, CallbackInfoReturnable<Boolean> cir) {
         if (!(blockView instanceof BlockStateView world)) {
             cir.setReturnValue(false);
             return;

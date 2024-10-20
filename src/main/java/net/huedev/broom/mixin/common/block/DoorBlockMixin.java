@@ -5,7 +5,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import net.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.DoorBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(DoorBlock.class)
 public abstract class DoorBlockMixin extends Block {
-    @Shadow public abstract void method_837(World world, int x, int y, int z, boolean bl);
+    @Shadow public abstract void setOpen(World world, int x, int y, int z, boolean bl);
 
     public DoorBlockMixin(int id, Material material) {
         super(id, material);
@@ -28,7 +28,7 @@ public abstract class DoorBlockMixin extends Block {
         if (y >= 127) {
             return false;
         } else {
-            return (world.method_1780(x, y - 1, z) || WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) && super.canPlaceAt(world, x, y, z) && super.canPlaceAt(world, x, y + 1, z);
+            return (world.shouldSuffocate(x, y - 1, z) || WorldHelper.isBlockStateFloorSupport(world, x, y - 1, z)) && super.canPlaceAt(world, x, y, z) && super.canPlaceAt(world, x, y + 1, z);
         }
     }
 
@@ -36,7 +36,7 @@ public abstract class DoorBlockMixin extends Block {
             method = "neighborUpdate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_1780(III)Z",
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z",
                     ordinal = 0
             )
     )
@@ -77,7 +77,7 @@ public abstract class DoorBlockMixin extends Block {
                 }
             } else if (id > 0 && Block.BLOCKS[id].canEmitRedstonePower()) {
                 boolean var8 = world.method_265(x, y, z) || world.method_265(x, y + 1, z);
-                this.method_837(world, x, y, z, var8);
+                this.setOpen(world, x, y, z, var8);
             }
         }
     }
@@ -92,7 +92,7 @@ public abstract class DoorBlockMixin extends Block {
             method = "onUse",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_173(Lnet/minecraft/entity/player/PlayerEntity;IIIII)V"
+                    target = "Lnet/minecraft/world/World;worldEvent(Lnet/minecraft/entity/player/PlayerEntity;IIIII)V"
             ),
             cancellable = true
     )
@@ -101,19 +101,19 @@ public abstract class DoorBlockMixin extends Block {
         boolean opened = (meta & 4) != 0;
         if (!world.isRemote) {
             if (opened) {
-                world.method_173(null, 1006, x, y, z, 0);
+                world.worldEvent(null, 1006, x, y, z, 0);
             } else {
-                world.method_173(null, 1007, x, y, z, 0);
+                world.worldEvent(null, 1007, x, y, z, 0);
             }
         }
         cir.setReturnValue(true);
     }
 
     @Inject(
-            method = "method_837",
+            method = "setOpen",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_173(Lnet/minecraft/entity/player/PlayerEntity;IIIII)V"
+                    target = "Lnet/minecraft/world/World;worldEvent(Lnet/minecraft/entity/player/PlayerEntity;IIIII)V"
             ),
             cancellable = true
     )
@@ -122,9 +122,9 @@ public abstract class DoorBlockMixin extends Block {
         boolean opened = (meta & 4) != 0;
         if (!world.isRemote) {
             if (opened) {
-                world.method_173(null, 1006, x, y, z, 0);
+                world.worldEvent(null, 1006, x, y, z, 0);
             } else {
-                world.method_173(null, 1007, x, y, z, 0);
+                world.worldEvent(null, 1007, x, y, z, 0);
             }
         }
         ci.cancel();

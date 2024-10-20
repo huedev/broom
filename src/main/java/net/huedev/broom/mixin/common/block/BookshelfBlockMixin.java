@@ -3,7 +3,7 @@ package net.huedev.broom.mixin.common.block;
 import net.huedev.broom.util.ToolHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BookshelfBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.stat.Stats;

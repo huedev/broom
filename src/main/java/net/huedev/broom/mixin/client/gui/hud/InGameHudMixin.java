@@ -1,10 +1,10 @@
 package net.huedev.broom.mixin.client.gui.hud;
 
-import net.minecraft.class_564;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.util.ScreenScaler;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.hit.HitResultType;
 import net.minecraft.world.LightType;
@@ -84,11 +84,11 @@ public class InGameHudMixin extends DrawContext {
             ),
             locals = LocalCapture.CAPTURE_FAILSOFT
     )
-    private void broom_additionalDebugInfo(float bl, boolean i, int j, int par4, CallbackInfo ci, class_564 scaler, int var6, int var7, TextRenderer var8) {
+    private void broom_additionalDebugInfo(float bl, boolean i, int j, int par4, CallbackInfo ci, ScreenScaler scaler, int var6, int var7, TextRenderer var8) {
         int offset = 52;
 
         double playerX = minecraft.player.x;
-        double playerY = minecraft.player.y - minecraft.player.eyeHeight;
+        double playerY = minecraft.player.y - minecraft.player.standingEyeHeight;
         double playerZ = minecraft.player.z;
         String text = "XYZ: " + String.format("%.4f", playerX) + " " + String.format("%.4f", playerY) + " " + String.format("%.4f", playerZ);
         this.drawTextWithShadow(var8, text, 2, offset += 10, 14737632);
@@ -100,7 +100,7 @@ public class InGameHudMixin extends DrawContext {
         this.drawTextWithShadow(var8, text, 2, offset += 10, 14737632);
 
         int blockX = (int) Math.floor(minecraft.player.x);
-        int blockY = (int) Math.floor(minecraft.player.y - minecraft.player.eyeHeight);
+        int blockY = (int) Math.floor(minecraft.player.y - minecraft.player.standingEyeHeight);
         int blockZ = (int) Math.floor(minecraft.player.z);
         int blockRelativeX = blockX & 15;
         int blockRelativeY = blockY & 15;
@@ -114,10 +114,10 @@ public class InGameHudMixin extends DrawContext {
         text = "Chunk: " + chunkX + " " + chunkY + " " + chunkZ;
         this.drawTextWithShadow(var8, text, 2, offset += 10, 14737632);
 
-        text = "Biome: " + minecraft.world.method_1781().method_1787(blockX, blockZ).name;
+        text = "Biome: " + minecraft.world.method_1781().getBiome(blockX, blockZ).name;
         this.drawTextWithShadow(var8, text, 2, offset += 10, 14737632);
 
-        Chunk chunk = minecraft.world.method_199(blockX, blockZ);
+        Chunk chunk = minecraft.world.getChunkFromPos(blockX, blockZ);
         int skyLight = chunk.getLight(LightType.SKY, blockRelativeX, blockY, blockRelativeZ);
         int blockLight = chunk.getLight(LightType.BLOCK, blockRelativeX, blockY, blockRelativeZ);
         int light = Math.max(skyLight, blockLight);

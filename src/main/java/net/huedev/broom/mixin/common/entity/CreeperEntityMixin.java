@@ -19,8 +19,8 @@ public class CreeperEntityMixin extends MonsterEntity {
         super(arg);
     }
 
-    @Redirect(method = "method_938", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/CreeperEntity;method_1339(II)Lnet/minecraft/entity/ItemEntity;"))
+    @Redirect(method = "onKilledBy", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/CreeperEntity;dropItem(II)Lnet/minecraft/entity/ItemEntity;"))
     public ItemEntity broom_dropAddedRecords(CreeperEntity instance, int id, int count) {
-        return instance.method_1327(new ItemStack(BroomItems.MUSIC_DISCS[random.nextInt(BroomItems.MUSIC_DISCS.length)]), 1);
+        return instance.dropItem(new ItemStack(BroomItems.MUSIC_DISCS[random.nextInt(BroomItems.MUSIC_DISCS.length)]), 1);
     }
 }

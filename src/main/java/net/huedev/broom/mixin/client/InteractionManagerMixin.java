@@ -18,9 +18,9 @@ public class InteractionManagerMixin {
     @Final
     protected Minecraft minecraft;
 
-    @Redirect(method = "method_1713", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;getBlockId(III)I"))
+    @Redirect(method = "interactBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;getBlockId(III)I"))
     public int broom_shiftPlacing(World world, int x, int y, int z) {
-        if (this.minecraft.player.method_1373() && this.minecraft.player.getHand() != null) {
+        if (this.minecraft.player.isSneaking() && this.minecraft.player.getHand() != null) {
             return 0;
         }
         return world.getBlockId(x, y, z);

@@ -15,10 +15,10 @@ import java.util.Arrays;
 @Mixin(OptionsScreen.class)
 public class OptionsScreenMixin extends Screen {
     @Shadow
-    private static Option[] field_2764;
+    private static Option[] RENDER_OPTIONS;
 
     static {
-        field_2764 = Arrays.copyOf(field_2764, field_2764.length + 1);
-        OptionsScreenMixin.field_2764[OptionsScreenMixin.field_2764.length - 1] = BroomOptions.fovOption;
+        RENDER_OPTIONS = Arrays.copyOf(RENDER_OPTIONS, RENDER_OPTIONS.length + 1);
+        OptionsScreenMixin.RENDER_OPTIONS[OptionsScreenMixin.RENDER_OPTIONS.length - 1] = BroomOptions.fovOption;
     }
 }

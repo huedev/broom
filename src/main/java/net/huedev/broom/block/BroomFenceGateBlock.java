@@ -2,7 +2,7 @@ package net.huedev.broom.block;
 
 import net.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -50,7 +50,7 @@ public class BroomFenceGateBlock extends TemplateBlock {
 
         BlockPos pos = context.getBlockPos();
         World world = context.getWorld();
-        boolean opened = world.method_265(pos.getX(), pos.getY(), pos.getZ());
+        boolean opened = world.isEmittingRedstonePower(pos.getX(), pos.getY(), pos.getZ());
         state = state.with(BroomBlockProperties.OPENED, opened);
 
         return state;
@@ -63,15 +63,15 @@ public class BroomFenceGateBlock extends TemplateBlock {
             if (!state.isOf(this)) return;
 
             if (blockID > 0 && Block.BLOCKS[blockID].canEmitRedstonePower()) {
-                boolean opened = world.method_265(x, y, z);
+                boolean opened = world.isEmittingRedstonePower(x, y, z);
                 if (opened != state.get(BroomBlockProperties.OPENED)) {
                     state = state.with(BroomBlockProperties.OPENED, opened);
                     world.setBlockStateWithNotify(x, y, z, state);
-                    world.method_246(x, y, z);
+                    world.setBlockDirty(x, y, z);
                     if (opened) {
-                        world.method_173(null, 1006, x, y, z, 0);
+                        world.worldEvent(null, 1006, x, y, z, 0);
                     } else {
-                        world.method_173(null, 1007, x, y, z, 0);
+                        world.worldEvent(null, 1007, x, y, z, 0);
                     }
                 }
             }
@@ -85,7 +85,7 @@ public class BroomFenceGateBlock extends TemplateBlock {
 
         Direction facing = state.get(BroomBlockProperties.FACING);
 
-        boolean opened = !state.get(BroomBlockProperties.OPENED) || world.method_265(x, y, z);
+        boolean opened = !state.get(BroomBlockProperties.OPENED) || world.isEmittingRedstonePower(x, y, z);
         BlockState changed = state.with(BroomBlockProperties.OPENED, opened);
 
         if (changed == state) return false;
@@ -104,12 +104,12 @@ public class BroomFenceGateBlock extends TemplateBlock {
         }
 
         world.setBlockStateWithNotify(x, y, z, changed);
-        world.method_246(x, y, z);
+        world.setBlockDirty(x, y, z);
         if (!world.isRemote) {
             if (opened) {
-                world.method_173(null, 1006, x, y, z, 0);
+                world.worldEvent(null, 1006, x, y, z, 0);
             } else {
-                world.method_173(null, 1007, x, y, z, 0);
+                world.worldEvent(null, 1007, x, y, z, 0);
             }
         }
         return true;

@@ -2,8 +2,8 @@ package net.huedev.broom.mixin.common.block;
 
 import net.huedev.broom.util.ToolHelper;
 import net.minecraft.block.GlassBlock;
-import net.minecraft.block.Material;
-import net.minecraft.class_221;
+import net.minecraft.block.TranslucentBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Random;
 
 @Mixin(GlassBlock.class)
-public class GlassBlockMixin extends class_221 {
+public class GlassBlockMixin extends TranslucentBlock {
     @Unique
     private boolean brokenBySilkTouchTool = false;
 

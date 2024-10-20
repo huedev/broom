@@ -37,7 +37,7 @@ public class PlayerInventoryMixin {
     }
 
     @Environment(EnvType.CLIENT)
-    @Inject(method = "method_691", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "setHeldItem", at = @At("HEAD"), cancellable = true)
     public void broom_setSelectedItem(int itemId, boolean bl, CallbackInfo ci) {
         int slotWithItemIndex = -1;
         int hotbarSlotIndex;

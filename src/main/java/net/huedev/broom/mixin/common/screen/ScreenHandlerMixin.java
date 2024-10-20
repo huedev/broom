@@ -37,7 +37,7 @@ public abstract class ScreenHandlerMixin {
             } else {
                 int var10;
                 if (shift) {
-                    if ((player.container instanceof CraftingScreenHandler || player.container instanceof PlayerScreenHandler) && slotIndex == 0) {
+                    if ((player.currentScreenHandler instanceof CraftingScreenHandler || player.currentScreenHandler instanceof PlayerScreenHandler) && slotIndex == 0) {
                         // To prevent shift-crafting multiple different outputs,
                         // need to determine what the desired output is before the loop
                         Slot var2 = (Slot)screenHandler.slots.get(slotIndex);
@@ -56,7 +56,7 @@ public abstract class ScreenHandlerMixin {
                             if (var7 != null && var7.itemId == originalOutput) {
                                 // Now that we know that the output is what we originally desired,
                                 // process the stack like normal
-                                var7 = screenHandler.getStackInSlot(slotIndex);
+                                var7 = screenHandler.quickMove(slotIndex);
                                 if (var7 != null && var7.itemId == originalOutput) {
                                     int var8 = var7.count;
                                     var5 = var7.copy();
@@ -73,7 +73,7 @@ public abstract class ScreenHandlerMixin {
                             }
                         } while (var7 != null && var7.itemId == originalOutput);
                     } else {
-                        ItemStack var7 = screenHandler.getStackInSlot(slotIndex);
+                        ItemStack var7 = screenHandler.quickMove(slotIndex);
                         if (var7 != null) {
                             int var8 = var7.count;
                             var5 = var7.copy();
@@ -116,7 +116,7 @@ public abstract class ScreenHandlerMixin {
                                 var12.setStack((ItemStack)null);
                             }
 
-                            var12.onCrafted(var6.getCursorStack());
+                            var12.onTakeItem(var6.getCursorStack());
                         } else if (var12.canInsert(var14)) {
                             if (var13.itemId == var14.itemId && (!var13.hasSubtypes() || var13.getDamage() == var14.getDamage())) {
                                 var10 = button == 0 ? var14.count : 1;
@@ -147,7 +147,7 @@ public abstract class ScreenHandlerMixin {
                                     var12.setStack((ItemStack)null);
                                 }
 
-                                var12.onCrafted(var6.getCursorStack());
+                                var12.onTakeItem(var6.getCursorStack());
                             }
                         }
                     }

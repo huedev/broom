@@ -11,23 +11,23 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(CraftingScreenHandler.class)
 public abstract class CraftingScreenHandlerMixin extends ScreenHandler {
     @Override
-    public ItemStack getStackInSlot(int slotIndex) {
+    public ItemStack quickMove(int slotIndex) {
         ItemStack var2 = null;
         Slot var3 = (Slot)this.slots.get(slotIndex);
         if (var3 != null && var3.hasStack()) {
             ItemStack var4 = var3.getStack();
             var2 = var4.copy();
             if (slotIndex == 0) {
-                this.method_2081(var4, 10, 46, true);
+                this.insertItem(var4, 10, 46, true);
             } else if (slotIndex >= 10 && slotIndex < 37) {
-                this.method_2081(var4, 1, 10, false);
+                this.insertItem(var4, 1, 10, false);
             } else if (slotIndex >= 37 && slotIndex < 46) {
-                this.method_2081(var4, 1, 37, false);
+                this.insertItem(var4, 1, 37, false);
             } else {
                 if (Broom.config.shiftClickOutOfContainersBehavior == ShiftClickFromContainersBehaviorEnum.ALWAYS_LAST_SLOT) {
-                    this.method_2081(var4, 10, 46, true);
+                    this.insertItem(var4, 10, 46, true);
                 } else {
-                    this.method_2081(var4, 10, 46, false);
+                    this.insertItem(var4, 10, 46, false);
                 }
             }
 
@@ -41,7 +41,7 @@ public abstract class CraftingScreenHandlerMixin extends ScreenHandler {
                 return null;
             }
 
-            var3.onCrafted(var4);
+            var3.onTakeItem(var4);
         }
 
         return var2;

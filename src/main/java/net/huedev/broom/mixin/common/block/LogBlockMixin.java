@@ -3,7 +3,7 @@ package net.huedev.broom.mixin.common.block;
 import net.huedev.broom.block.BroomBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.LogBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;

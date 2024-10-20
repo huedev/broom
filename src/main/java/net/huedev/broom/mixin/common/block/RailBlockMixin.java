@@ -23,7 +23,7 @@ public abstract class RailBlockMixin {
             method = "neighborUpdate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_1780(III)Z",
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z",
                     ordinal = 0
             )
     )
@@ -35,7 +35,7 @@ public abstract class RailBlockMixin {
             method = "neighborUpdate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_1780(III)Z",
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z",
                     ordinal = 1
             )
     )
@@ -47,7 +47,7 @@ public abstract class RailBlockMixin {
             method = "neighborUpdate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_1780(III)Z",
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z",
                     ordinal = 2
             )
     )
@@ -59,7 +59,7 @@ public abstract class RailBlockMixin {
             method = "neighborUpdate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_1780(III)Z",
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z",
                     ordinal = 3
             )
     )
@@ -71,7 +71,7 @@ public abstract class RailBlockMixin {
             method = "neighborUpdate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_1780(III)Z",
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z",
                     ordinal = 4
             )
     )

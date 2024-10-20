@@ -105,15 +105,15 @@
     "common.screen.ScreenHandlerMixin"
   ],
   "server": [
-    "server.class_70Mixin"
+    "server.ServerPlayerInteractionManagerMixin"
   ],
   "client": [
-    "client.class_555Mixin",
-    "client.class_586Mixin",
+    "client.GameRendererMixin",
     "client.InteractionManagerMixin",
     "client.MinecraftAccessor",
     "client.MinecraftAppletMixin",
     "client.MinecraftMixin",
+    "client.MouseMixin",
     "client.MultiplayerInteractionManagerMixin",
     "client.SingleplayerInteractionManagerMixin",
     "client.entity.ClientPlayerEntityMixin",

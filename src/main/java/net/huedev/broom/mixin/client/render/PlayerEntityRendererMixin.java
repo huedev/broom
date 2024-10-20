@@ -21,17 +21,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntityRenderer.class)
 public class PlayerEntityRendererMixin extends LivingEntityRenderer {
     @Shadow
-    private BipedEntityModel field_296;
+    private BipedEntityModel armor2;
 
     public PlayerEntityRendererMixin(EntityModel arg, float f) {
         super(arg, f);
     }
 
     @Inject(
-            method = "method_827(Lnet/minecraft/entity/player/PlayerEntity;F)V",
+            method = "renderMore(Lnet/minecraft/entity/player/PlayerEntity;F)V",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/class_556;method_1862(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;)V",
+                    target = "Lnet/minecraft/client/render/item/HeldItemRenderer;renderItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;)V",
                     shift = At.Shift.BEFORE
             )
     )
@@ -47,7 +47,7 @@ public class PlayerEntityRendererMixin extends LivingEntityRenderer {
         ItemStack stack = player.inventory.armor[1];
         if (stack != null) {
             if (stack.getItem() instanceof ArmorItem) {
-                this.field_296.riding = this.model.riding;
+                this.armor2.riding = this.model.riding;
             }
         }
     }

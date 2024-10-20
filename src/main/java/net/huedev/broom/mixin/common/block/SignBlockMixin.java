@@ -1,9 +1,9 @@
 package net.huedev.broom.mixin.common.block;
 
 import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.Material;
 import net.minecraft.block.SignBlock;
 import net.minecraft.block.entity.SignBlockEntity;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.entity.player.PlayerHelper;
@@ -28,7 +28,7 @@ public abstract class SignBlockMixin extends BlockWithEntity {
             if (player == null) {
                 signBlockEntity.setEditable(true);
             }
-            user.method_489(signBlockEntity);
+            user.openEditSignScreen(signBlockEntity);
         }
         return true;
     }

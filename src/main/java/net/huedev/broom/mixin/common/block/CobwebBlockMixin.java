@@ -4,7 +4,7 @@ import net.huedev.broom.mixin.common.entity.EntityAccessor;
 import net.huedev.broom.util.ToolHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.CobwebBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

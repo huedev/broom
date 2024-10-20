@@ -16,14 +16,14 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(FurnaceScreenHandler.class)
 public abstract class FurnaceScreenHandlerMixin extends ScreenHandler {
     @Override
-    public ItemStack getStackInSlot(int slotIndex) {
+    public ItemStack quickMove(int slotIndex) {
         ItemStack var2 = null;
         Slot var3 = (Slot)this.slots.get(slotIndex);
         if (var3 != null && var3.hasStack()) {
             ItemStack var4 = var3.getStack();
             var2 = var4.copy();
             if (slotIndex == 2) {
-                this.method_2081(var4, 3, 39, true);
+                this.insertItem(var4, 3, 39, true);
             } else if (slotIndex >= 3 && slotIndex < 30) {
                 boolean hasFuelTag = false;
                 for (TagKey<Item> key : FuelRegistryAccessor.broom_getFuelTags().keySet()) {
@@ -33,11 +33,11 @@ public abstract class FurnaceScreenHandlerMixin extends ScreenHandler {
                     }
                 }
                 if (FuelRegistryAccessor.broom_getFuelItems().containsKey(var4.getItem()) || hasFuelTag) {
-                    this.method_2081(var4, 1, 2, false);
+                    this.insertItem(var4, 1, 2, false);
                 } else if (((SmeltingRecipeManagerAccessor) SmeltingRecipeManager.getInstance()).getRecipes().containsKey(var4.itemId)) {
-                    this.method_2081(var4, 0, 1, false);
+                    this.insertItem(var4, 0, 1, false);
                 } else {
-                    this.method_2081(var4, 30, 39, false);
+                    this.insertItem(var4, 30, 39, false);
                 }
             } else if (slotIndex >= 30 && slotIndex < 39) {
                 boolean hasFuelTag = false;
@@ -48,17 +48,17 @@ public abstract class FurnaceScreenHandlerMixin extends ScreenHandler {
                     }
                 }
                 if (FuelRegistryAccessor.broom_getFuelItems().containsKey(var4.getItem()) || hasFuelTag) {
-                    this.method_2081(var4, 1, 2, false);
+                    this.insertItem(var4, 1, 2, false);
                 } else if (((SmeltingRecipeManagerAccessor) SmeltingRecipeManager.getInstance()).getRecipes().containsKey(var4.itemId)) {
-                    this.method_2081(var4, 0, 1, false);
+                    this.insertItem(var4, 0, 1, false);
                 } else {
-                    this.method_2081(var4, 3, 30, false);
+                    this.insertItem(var4, 3, 30, false);
                 }
             } else {
                 if (Broom.config.shiftClickOutOfContainersBehavior == ShiftClickFromContainersBehaviorEnum.ALWAYS_LAST_SLOT) {
-                    this.method_2081(var4, 3, 39, true);
+                    this.insertItem(var4, 3, 39, true);
                 } else {
-                    this.method_2081(var4, 3, 39, false);
+                    this.insertItem(var4, 3, 39, false);
                 }
             }
 
@@ -72,7 +72,7 @@ public abstract class FurnaceScreenHandlerMixin extends ScreenHandler {
                 return null;
             }
 
-            var3.onCrafted(var4);
+            var3.onTakeItem(var4);
         }
 
         return var2;

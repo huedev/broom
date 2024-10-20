@@ -4,8 +4,8 @@ import net.huedev.broom.block.BroomBlockProperties;
 import net.huedev.broom.block.BroomBlockProperties.TopBottom;
 import net.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.Material;
 import net.minecraft.block.StairsBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -143,7 +143,7 @@ public class StairsBlockMixin extends Block {
      */
     @Inject(method = "dropStacks", at = @At("HEAD"), cancellable = true)
     public void broom_dropStacks(World world, int x, int y, int z, int meta, float f, CallbackInfo ci) {
-        int droppedItemCount = this.getDroppedItemCount(world.field_214);
+        int droppedItemCount = this.getDroppedItemCount(world.random);
 
         for (int i = 0; i < droppedItemCount; ++i) {
             this.dropStack(world, x, y, z, new ItemStack(id, 1, this.getDroppedItemMeta(meta)));

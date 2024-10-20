@@ -46,13 +46,13 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
     public void onTick(World world, int x, int y, int z, Random random) {
         if (!world.isRemote) {
             this.breakIfInvalid(world, x, y, z);
-            if (world.method_255(x, y + 1, z) >= 9 && random.nextInt(30) == 0) {
+            if (world.getLightLevel(x, y + 1, z) >= 9 && random.nextInt(30) == 0) {
                 BlockState state = world.getBlockState(x, y, z);
                 int stage = state.get(BroomBlockProperties.SAPLING_STAGE);
                 if (stage == 0) {
                     world.setBlockStateWithNotify(x, y, z, state.with(BroomBlockProperties.SAPLING_STAGE, 1));
                 } else {
-                    this.growTree(world, x, y, z, world.field_214);
+                    this.growTree(world, x, y, z, world.random);
                 }
             }
         }
@@ -68,13 +68,13 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
 
     @Override
     public boolean canGrow(World world, int x, int y, int z) {
-        return (world.method_252(x, y, z) >= 8 || world.method_249(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
+        return (world.getBrightness(x, y, z) >= 8 || world.hasSkyLight(x, y, z)) && this.canPlantOn(world.getBlockState(x, y - 1, z));
     }
 
     @Override
     public boolean onBonemealUse(World world, int x, int y, int z, BlockState state) {
         if (!world.isRemote) {
-            this.growTree(world, x, y, z, world.field_214);
+            this.growTree(world, x, y, z, world.random);
         }
         return true;
     }
@@ -85,7 +85,7 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
             BlockState newState = Block.DEAD_BUSH.getDefaultState();
             world.setBlockStateWithNotify(x, y, z, newState);
         } else {
-            world.method_200(x, y, z, 0);
+            world.setBlockWithoutNotifyingNeighbors(x, y, z, 0);
             Feature feature;
             if (this.id == BroomBlocks.SPRUCE_SAPLING.id) {
                 feature = new SpruceTreeFeature();
@@ -104,7 +104,7 @@ public class BroomSaplingBlock extends TemplatePlantBlock {
             }
 
             if (!feature.generate(world, random, x, y, z)) {
-                world.method_154(x, y, z, this.id, this.id);
+                world.setBlockWithoutNotifyingNeighbors(x, y, z, this.id, this.id);
             }
         }
     }

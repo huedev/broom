@@ -22,7 +22,7 @@ public class WorldHelper {
         float pitch = player.prevPitch + (player.pitch - player.prevPitch);
 
         double x = player.prevX + (player.x - player.prevX);
-        double y = player.prevY + (player.y - player.prevY) + 1.62 - (double) player.eyeHeight;
+        double y = player.prevY + (player.y - player.prevY) + 1.62 - (double) player.standingEyeHeight;
         double z = player.prevZ + (player.z - player.prevZ);
         Vec3d pos = Vec3d.createCached(x, y, z);
 
@@ -38,11 +38,11 @@ public class WorldHelper {
                 cosYaw * cosPitch * dist
         );
 
-        return world.method_161(pos, dir, false);
+        return world.raycast(pos, dir, false);
     }
 
     public static void setBlockSilent(World world, int x, int y, int z, BlockState state) {
-        FlattenedChunk chunk = (FlattenedChunk) world.method_214(x >> 4, z >> 4);
+        FlattenedChunk chunk = (FlattenedChunk) world.getChunk(x >> 4, z >> 4);
         int index = world.getSectionIndex(y);
         ChunkSection section = chunk.sections[index];
         if (section == null) {
