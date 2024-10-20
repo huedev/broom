@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "me.huedev.broom.mixin",
+  "package": "net.huedev.broom.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "common.BonemealAPIMixin",

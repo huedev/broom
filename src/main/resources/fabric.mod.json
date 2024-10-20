@@ -9,7 +9,7 @@
     "huedev"
   ],
   "contact": {
-    "homepage": "https://huedev.me/",
+    "homepage": "https://huedev.net/",
     "sources": "https://github.com/huedev/broom"
   },
 
@@ -19,24 +19,24 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "me.huedev.broom.listener.BlockListener",
-      "me.huedev.broom.listener.ItemListener",
-      "me.huedev.broom.listener.RecipeListener"
+      "net.huedev.broom.listener.BlockListener",
+      "net.huedev.broom.listener.ItemListener",
+      "net.huedev.broom.listener.RecipeListener"
     ],
     "stationapi:event_bus_client": [
-      "me.huedev.broom.listener.ColorListener",
-      "me.huedev.broom.listener.HowManyItemsListener",
-      "me.huedev.broom.listener.KeyBindingListener",
-      "me.huedev.broom.listener.KeyPressedListener",
-      "me.huedev.broom.listener.TextureListener"
+      "net.huedev.broom.listener.ColorListener",
+      "net.huedev.broom.listener.HowManyItemsListener",
+      "net.huedev.broom.listener.KeyBindingListener",
+      "net.huedev.broom.listener.KeyPressedListener",
+      "net.huedev.broom.listener.TextureListener"
     ],
     "stationapi:event_bus_server": [
     ],
     "gcapi": [
-      "me.huedev.broom.Broom"
+      "net.huedev.broom.Broom"
     ],
     "gcapi:factory_provider": [
-      "me.huedev.broom.util.ShiftClickFromContainersBehaviorEnumFactory"
+      "net.huedev.broom.util.ShiftClickFromContainersBehaviorEnumFactory"
     ]
   },
   "mixins": [

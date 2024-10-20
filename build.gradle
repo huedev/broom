@@ -1,6 +1,6 @@
 plugins {
-	id 'fabric-loom' version '1.6.2'
-	id 'babric-loom-extension' version '1.6.9'
+	id 'fabric-loom' version '1.7.3'
+	id 'babric-loom-extension' version '1.7.4'
 	id 'maven-publish'
 }
 
@@ -12,8 +12,7 @@ version = project.mod_version
 group = project.maven_group
 
 loom {
-	customMinecraftManifest.set("https://babric.github.io/manifest-polyfill/${minecraft_version}.json")
-	intermediaryUrl.set("https://maven.glass-launcher.net/babric/babric/intermediary/%1\$s/intermediary-%1\$s-v2.jar")
+	// disableM1Fixes.set(true) // In case you don't want gambac preloaded for whatever reason.
 }
 
 repositories {
@@ -78,7 +77,7 @@ dependencies {
 	modImplementation "net.modificationstation:StationAPI:${project.stapi_version}"
 
 	// Optional, but convenient mods for mod creators and users alike.
-	modImplementation("com.github.calmilamsy:ModMenu:${project.modmenu_version}") {
+	modImplementation("net.glasslauncher.mods:ModMenu:${project.modmenu_version}") {
 		transitive false
 	}
 	modImplementation("net.glasslauncher.mods:GlassConfigAPI:${project.gcapi_version}") {
@@ -88,6 +87,9 @@ dependencies {
 		transitive false
 	}
 	modImplementation("com.github.DanyGames2014:spawneggs:${project.spawneggs_version}") {
+		transitive false
+	}
+	modRuntimeOnly ("com.github.matthewperiut:stapi-fast-intro:17a7ed0") {
 		transitive false
 	}
 }
