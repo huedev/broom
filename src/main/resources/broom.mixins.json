@@ -122,6 +122,7 @@
     "client.entity.SharedPlayerEntityMixin",
     "client.gui.hud.InGameHudMixin",
     "client.gui.screen.AchievementsScreenMixin",
+    "client.gui.screen.DeathScreenMixin",
     "client.gui.screen.GameMenuScreenMixin",
     "client.gui.screen.HandledScreenMixin",
     "client.gui.screen.OptionsScreenMixin",
