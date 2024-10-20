@@ -12,7 +12,7 @@ public class PumpkinPatchFeatureMixin {
             method = "generate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;method_154(IIIII)Z"
+                    target = "Lnet/minecraft/world/World;setBlockWithoutNotifyingNeighbors(IIIII)Z"
             ),
             index = 3
     )
