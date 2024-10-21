@@ -103,7 +103,8 @@
     "common.screen.CraftingScreenHandlerMixin",
     "common.screen.DispenserScreenHandlerMixin",
     "common.screen.FurnaceScreenHandlerMixin",
-    "common.screen.ScreenHandlerMixin"
+    "common.screen.ScreenHandlerMixin",
+    "common.world.WorldMixin"
   ],
   "server": [
     "server.ServerPlayerInteractionManagerMixin"

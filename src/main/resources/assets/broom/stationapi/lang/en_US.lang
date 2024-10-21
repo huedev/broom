@@ -65,6 +65,7 @@ tile.@.fence_gate.name=Fence Gate
 tile.@.iron_trapdoor.name=Iron Trapdoor
 tile.@.coal_block.name=Block of Coal
 tile.@.charcoal_block.name=Block of Charcoal
+tile.@.redstone_block.name=Block of Redstone
 
 item.@.music_disc.name=Music Disc
 item.@.pumpkin_seeds.name=Pumpkin Seeds

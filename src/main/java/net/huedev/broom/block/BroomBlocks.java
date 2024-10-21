@@ -67,6 +67,7 @@ public class BroomBlocks {
     public static Block IRON_TRAPDOOR;
     public static Block COAL_BLOCK;
     public static Block CHARCOAL_BLOCK;
+    public static Block REDSTONE_BLOCK;
 
     public static void init() {
         OAK_LOG = new BroomLogBlock(Broom.id("oak_log"));
@@ -178,6 +179,7 @@ public class BroomBlocks {
                 .setTranslationKey(Broom.id("charcoal_block"))
                 .setHardness(5.0F)
                 .setSoundGroup(Block.STONE_SOUND_GROUP);
+        REDSTONE_BLOCK = new BroomRedstoneBlock(Broom.id("redstone_block"), Material.METAL);
 
         connectSlabs(POLISHED_STONE_SLAB, POLISHED_STONE_DOUBLE_SLAB);
         connectSlabs(SANDSTONE_SLAB, SANDSTONE_DOUBLE_SLAB);
