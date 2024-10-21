@@ -85,7 +85,7 @@ public class BroomFenceGateBlock extends TemplateBlock {
 
         Direction facing = state.get(BroomBlockProperties.FACING);
 
-        boolean opened = !state.get(BroomBlockProperties.OPENED) || world.isEmittingRedstonePower(x, y, z);
+        boolean opened = !state.get(BroomBlockProperties.OPENED);
         BlockState changed = state.with(BroomBlockProperties.OPENED, opened);
 
         if (changed == state) return false;

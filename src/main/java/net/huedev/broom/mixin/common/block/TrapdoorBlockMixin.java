@@ -112,7 +112,7 @@ public class TrapdoorBlockMixin extends Block {
         if (state.isIn(BroomBlockTags.REQUIRES_POWER)) return;
         if (!state.isOf(this)) return;
 
-        boolean opened = !state.get(BroomBlockProperties.OPENED) || world.isEmittingRedstonePower(x, y, z);
+        boolean opened = !state.get(BroomBlockProperties.OPENED);
         BlockState changed = state.with(BroomBlockProperties.OPENED, opened);
 
         if (changed == state) return;

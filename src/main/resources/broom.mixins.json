@@ -35,6 +35,7 @@
     "common.block.PumpkinBlockMixin",
     "common.block.RailBlockMixin",
     "common.block.RedstoneOreBlockMixin",
+    "common.block.RedstoneTorchBlockMixin",
     "common.block.RedstoneWireBlockMixin",
     "common.block.RepeaterBlockMixin",
     "common.block.SaplingBlockMixin",
