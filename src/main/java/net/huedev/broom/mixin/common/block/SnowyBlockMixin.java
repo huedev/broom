@@ -1,5 +1,6 @@
 package net.huedev.broom.mixin.common.block;
 
+import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import net.huedev.broom.util.ToolHelper;
 import net.huedev.broom.util.WorldHelper;
 import net.minecraft.block.Block;
@@ -97,6 +98,23 @@ public class SnowyBlockMixin extends Block {
 
         player.increaseStat(Stats.MINE_BLOCK[this.id], 1);
         this.dropStacks(world, x, y, z, meta);
+    }
+
+    @WrapWithCondition(method = "onTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;setBlock(IIII)Z"))
+    private boolean broom_meltLayer(World world, int x, int y, int z, int blockId) {
+        int meta = world.getBlockMeta(x, y, z);
+        if (meta < 1)
+        {
+            return true;
+        }
+        else
+        {
+            BlockState state = world.getBlockState(x, y, z);
+            meta -= 1;
+            world.setBlockStateWithMetadataWithNotify(x, y, z, state, meta);
+            world.setBlockDirty(x, y, z);
+            return false;
+        }
     }
 
     @Override
