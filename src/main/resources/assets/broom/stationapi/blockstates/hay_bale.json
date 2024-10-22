@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "broom:block/hay_bale",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "broom:block/hay_bale"
+    },
+    "axis=z": {
+      "model": "broom:block/hay_bale",
+      "x": 90
+    }
+  }
+}
