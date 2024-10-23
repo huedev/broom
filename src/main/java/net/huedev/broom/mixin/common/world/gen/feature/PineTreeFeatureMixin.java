@@ -1,17 +1,17 @@
-package net.huedev.broom.mixin.common.gen.feature;
+package net.huedev.broom.mixin.common.world.gen.feature;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.huedev.broom.block.BroomBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.world.gen.feature.SpruceTreeFeature;
+import net.minecraft.world.gen.feature.PineTreeFeature;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 /**
  * @author paulevsGitch
  */
-@Mixin(SpruceTreeFeature.class)
-public class SpruceTreeFeatureMixin {
+@Mixin(PineTreeFeature.class)
+public class PineTreeFeatureMixin {
     @ModifyExpressionValue(
             method = "generate",
             at = @At(

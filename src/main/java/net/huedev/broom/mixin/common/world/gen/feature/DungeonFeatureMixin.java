@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.gen.feature;
+package net.huedev.broom.mixin.common.world.gen.feature;
 
 import net.huedev.broom.block.BroomBlocks;
 import net.huedev.broom.item.BroomItems;

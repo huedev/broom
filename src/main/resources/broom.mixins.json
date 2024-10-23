@@ -73,14 +73,6 @@
     "common.entity.SheepEntityMixin",
     "common.entity.SkeletonEntityMixin",
     "common.entity.SlimeEntityMixin",
-    "common.gen.feature.BirchTreeFeatureMixin",
-    "common.gen.feature.DungeonFeatureMixin",
-    "common.gen.feature.GrassPatchFeatureMixin",
-    "common.gen.feature.LargeOakTreeFeatureMixin",
-    "common.gen.feature.OakTreeFeatureMixin",
-    "common.gen.feature.PineTreeFeatureMixin",
-    "common.gen.feature.PumpkinPatchFeatureMixin",
-    "common.gen.feature.SpruceTreeFeatureMixin",
     "common.item.ArmorItemMixin",
     "common.item.AxeItemMixin",
     "common.item.BedItemMixin",
@@ -106,7 +98,16 @@
     "common.screen.DispenserScreenHandlerMixin",
     "common.screen.FurnaceScreenHandlerMixin",
     "common.screen.ScreenHandlerMixin",
-    "common.world.WorldMixin"
+    "common.world.WorldMixin",
+    "common.world.gen.chunk.OverworldChunkGeneratorMixin",
+    "common.world.gen.feature.BirchTreeFeatureMixin",
+    "common.world.gen.feature.DungeonFeatureMixin",
+    "common.world.gen.feature.GrassPatchFeatureMixin",
+    "common.world.gen.feature.LargeOakTreeFeatureMixin",
+    "common.world.gen.feature.OakTreeFeatureMixin",
+    "common.world.gen.feature.PineTreeFeatureMixin",
+    "common.world.gen.feature.PumpkinPatchFeatureMixin",
+    "common.world.gen.feature.SpruceTreeFeatureMixin"
   ],
   "server": [
     "server.ServerPlayerInteractionManagerMixin"

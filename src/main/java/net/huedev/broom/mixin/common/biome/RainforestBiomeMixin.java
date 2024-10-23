@@ -15,8 +15,6 @@ import java.util.Random;
 public class RainforestBiomeMixin extends Biome {
     @Inject(method = "getRandomTreeFeature", at = @At("HEAD"), cancellable = true)
     public void broom_addCacaoTrees(Random random, CallbackInfoReturnable<Feature> cir) {
-        if (random.nextInt(2) == 0) {
-            cir.setReturnValue(new CacaoTreeFeature());
-        }
+        cir.setReturnValue(new CacaoTreeFeature());
     }
 }

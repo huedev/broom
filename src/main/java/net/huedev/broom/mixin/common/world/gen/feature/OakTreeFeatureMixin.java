@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.gen.feature;
+package net.huedev.broom.mixin.common.world.gen.feature;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
