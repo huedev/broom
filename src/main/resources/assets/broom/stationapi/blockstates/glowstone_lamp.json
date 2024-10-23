@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "broom:block/glowstone_lamp"
+    },
+    "lit=true": {
+      "model": "broom:block/glowstone_lamp_lit"
+    }
+  }
+}

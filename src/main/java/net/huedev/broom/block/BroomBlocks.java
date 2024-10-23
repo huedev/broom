@@ -65,6 +65,7 @@ public class BroomBlocks {
     public static Block WOODEN_BUTTON;
     public static Block FENCE_GATE;
     public static Block IRON_TRAPDOOR;
+    public static Block GLOWSTONE_LAMP;
     public static Block COAL_BLOCK;
     public static Block CHARCOAL_BLOCK;
     public static Block REDSTONE_BLOCK;
@@ -171,6 +172,8 @@ public class BroomBlocks {
                 .setSoundGroup(Block.METAL_SOUND_GROUP)
                 .disableTrackingStatistics()
                 .ignoreMetaUpdates();
+
+        GLOWSTONE_LAMP = new BroomGlowstoneLampBlock(Broom.id("glowstone_lamp"));
 
         COAL_BLOCK = new TemplateBlock(Broom.id("coal_block"), Material.STONE)
                 .setTranslationKey(Broom.id("coal_block"))

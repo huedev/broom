@@ -24,7 +24,7 @@ public class BroomFenceGateBlock extends TemplateBlock {
     }
 
     public BroomFenceGateBlock(Identifier id, Material material) {
-        super(id, Material.WOOD);
+        super(id, material);
         setTranslationKey(id);
         setHardness(FENCE.getHardness());
         setSoundGroup(WOOD_SOUND_GROUP);

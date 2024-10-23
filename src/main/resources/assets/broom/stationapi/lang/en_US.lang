@@ -63,6 +63,7 @@ tile.@.snow_brick_stairs.name=Snow Brick Stairs
 tile.@.wooden_button.name=Wooden Button
 tile.@.fence_gate.name=Fence Gate
 tile.@.iron_trapdoor.name=Iron Trapdoor
+tile.@.glowstone_lamp.name=Glowstone Lamp
 tile.@.coal_block.name=Block of Coal
 tile.@.charcoal_block.name=Block of Charcoal
 tile.@.redstone_block.name=Block of Redstone
