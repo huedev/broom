@@ -89,7 +89,7 @@ public class BlockListener {
         event.addBurnable(BroomBlocks.CACAO_BARK.id, 5, 5);
 
         event.addBurnable(BroomBlocks.OAK_LEAVES.id, 30, 60);
-        event.addBurnable(BroomBlocks.APPLE_OAK_LEAVES.id, 30, 60);
+        event.addBurnable(BroomBlocks.OAK_APPLE_LEAVES.id, 30, 60);
         event.addBurnable(BroomBlocks.SPRUCE_LEAVES.id, 30, 60);
         event.addBurnable(BroomBlocks.BIRCH_LEAVES.id, 30, 60);
 

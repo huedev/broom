@@ -32,7 +32,7 @@ public class OakTreeFeatureMixin {
     )
     private int broom_replaceLeaves(int originalId, @Local(argsOnly = true) Random random) {
         if (random.nextInt(400) == 0) {
-            return BroomBlocks.APPLE_OAK_LEAVES.id;
+            return BroomBlocks.OAK_APPLE_LEAVES.id;
         }
         return BroomBlocks.OAK_LEAVES.id;
     }

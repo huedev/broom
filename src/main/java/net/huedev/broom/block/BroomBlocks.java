@@ -19,7 +19,7 @@ public class BroomBlocks {
     public static Block BIRCH_BARK;
     public static Block CACAO_BARK;
     public static Block OAK_LEAVES;
-    public static Block APPLE_OAK_LEAVES;
+    public static Block OAK_APPLE_LEAVES;
     public static Block SPRUCE_LEAVES;
     public static Block BIRCH_LEAVES;
     public static Block CACAO_LEAVES;
@@ -30,9 +30,9 @@ public class BroomBlocks {
     public static Block CACAO_SAPLING;
     public static Block GRASS;
     public static Block FERN;
-    public static Block WET_SPONGE;
     public static Block PUMPKIN;
     public static Block PUMPKIN_CROPS;
+    public static Block WET_SPONGE;
     public static Block STONE_SLAB;
     public static Block STONE_DOUBLE_SLAB;
     public static Block STONE_STAIRS;
@@ -83,7 +83,7 @@ public class BroomBlocks {
         CACAO_BARK = new BroomLogBlock(Broom.id("cacao_bark"));
 
         OAK_LEAVES = new VanillaLeavesWrapper(Broom.id("oak_leaves"), 0);
-        APPLE_OAK_LEAVES = new BroomLeavesBlock(Broom.id("apple_oak_leaves"));
+        OAK_APPLE_LEAVES = new BroomLeavesBlock(Broom.id("oak_apple_leaves"));
         SPRUCE_LEAVES = new VanillaLeavesWrapper(Broom.id("spruce_leaves"), 1);
         BIRCH_LEAVES = new VanillaLeavesWrapper(Broom.id("birch_leaves"), 2);
         CACAO_LEAVES = new BroomLeavesBlock(Broom.id("cacao_leaves"));
@@ -97,10 +97,10 @@ public class BroomBlocks {
         GRASS = new BroomTallPlantBlock(Broom.id("grass"), Block.GRASS.getTexture(0, 1));
         FERN = new BroomTallPlantBlock(Broom.id("fern"), Block.GRASS.getTexture(0, 2));
 
-        WET_SPONGE = new BroomWetSpongeBlock(Broom.id("wet_sponge"), Material.SPONGE);
-
         PUMPKIN = new BroomPumpkinBlock(Broom.id("pumpkin"), Material.PUMPKIN);
         PUMPKIN_CROPS = new BroomPumpkinCropBlock(Broom.id("pumpkin_crop"), Block.WHEAT.textureId);
+
+        WET_SPONGE = new BroomWetSpongeBlock(Broom.id("wet_sponge"), Material.SPONGE);
 
         STONE_SLAB = new BroomSlabBlock(Broom.id("stone_slab"), Block.STONE);
         STONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("stone_double_slab"), Block.STONE);

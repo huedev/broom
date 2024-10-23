@@ -70,7 +70,7 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
 
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
-        if (this.id == BroomBlocks.APPLE_OAK_LEAVES.id) {
+        if (this.id == BroomBlocks.OAK_APPLE_LEAVES.id) {
             BlockState state = world.getBlockState(x, y, z);
             boolean isNatural = state.get(BroomBlockProperties.NATURAL);
             boolean isActive = state.get(BroomBlockProperties.ACTIVE);
@@ -175,14 +175,14 @@ public class BroomLeavesBlock extends TemplateTranslucentBlock {
             List<ItemStack> dropList = new java.util.ArrayList<>(Collections.emptyList());
             int saplingCount = this.getDroppedItemCount(world.random);
             if (saplingCount != 0) {
-                if (this.id == BroomBlocks.APPLE_OAK_LEAVES.id) {
+                if (this.id == BroomBlocks.OAK_APPLE_LEAVES.id) {
                     dropList.add(new ItemStack(BroomBlocks.OAK_SAPLING, 1, 0));
                 }
                 if (this.id == BroomBlocks.CACAO_LEAVES.id) {
                     dropList.add(new ItemStack(BroomBlocks.CACAO_SAPLING, 1, 0));
                 }
             }
-            if (this.id == BroomBlocks.APPLE_OAK_LEAVES.id) {
+            if (this.id == BroomBlocks.OAK_APPLE_LEAVES.id) {
                 dropList.add(new ItemStack(Item.APPLE, 1));
             }
             if (this.id == BroomBlocks.CACAO_POD_LEAVES.id) {

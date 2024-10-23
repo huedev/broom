@@ -36,7 +36,7 @@ public class LargeOakTreeFeatureMixin {
     )
     private int broom_replaceLeaves(int blockId) {
         if (random.nextInt(400) == 0) {
-            return BroomBlocks.APPLE_OAK_LEAVES.id;
+            return BroomBlocks.OAK_APPLE_LEAVES.id;
         }
         return BroomBlocks.OAK_LEAVES.id;
     }
