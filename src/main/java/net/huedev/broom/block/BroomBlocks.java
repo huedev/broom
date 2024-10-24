@@ -1,7 +1,7 @@
 package net.huedev.broom.block;
 
 import net.huedev.broom.Broom;
-import net.huedev.broom.gen.feature.BroomGrassPatchFeature;
+import net.huedev.broom.world.gen.feature.BroomGrassPatchFeature;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.bonemeal.BonemealAPI;

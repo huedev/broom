@@ -1,6 +1,6 @@
 package net.huedev.broom.mixin.common.biome;
 
-import net.huedev.broom.gen.feature.CacaoTreeFeature;
+import net.huedev.broom.world.gen.feature.CacaoTreeFeature;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.RainforestBiome;
 import net.minecraft.world.gen.feature.Feature;

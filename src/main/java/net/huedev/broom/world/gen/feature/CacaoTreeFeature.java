@@ -1,4 +1,4 @@
-package net.huedev.broom.gen.feature;
+package net.huedev.broom.world.gen.feature;
 
 import net.huedev.broom.block.BroomBlocks;
 import net.minecraft.block.Block;

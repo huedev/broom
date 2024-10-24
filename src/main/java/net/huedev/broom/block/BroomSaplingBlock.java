@@ -1,6 +1,6 @@
 package net.huedev.broom.block;
 
-import net.huedev.broom.gen.feature.CacaoTreeFeature;
+import net.huedev.broom.world.gen.feature.CacaoTreeFeature;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
