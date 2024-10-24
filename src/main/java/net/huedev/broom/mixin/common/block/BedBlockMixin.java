@@ -1,6 +1,6 @@
 package net.huedev.broom.mixin.common.block;
 
-import net.huedev.broom.mixin.common.entity.PlayerEntityAccessor;
+import net.huedev.broom.mixin.common.entity.player.PlayerEntityAccessor;
 import net.minecraft.block.BedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

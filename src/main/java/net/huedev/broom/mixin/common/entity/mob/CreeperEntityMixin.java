@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.mob;
 
 import net.huedev.broom.item.BroomItems;
 import net.minecraft.entity.ItemEntity;

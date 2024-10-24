@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.passive;
 
 import net.minecraft.entity.passive.ChickenEntity;
 import org.spongepowered.asm.mixin.Mixin;

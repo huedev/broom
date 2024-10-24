@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.mob;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.SlimeEntity;

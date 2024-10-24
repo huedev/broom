@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.mob;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.entity.Entity;

@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.projectile.thrown;
 
 import net.minecraft.entity.projectile.thrown.EggEntity;
 import org.spongepowered.asm.mixin.Mixin;

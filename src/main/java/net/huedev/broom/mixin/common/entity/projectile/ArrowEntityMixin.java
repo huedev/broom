@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.projectile;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.ArrowEntity;

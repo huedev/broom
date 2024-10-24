@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.decoration.painting;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;

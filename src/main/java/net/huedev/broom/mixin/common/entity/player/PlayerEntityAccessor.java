@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.player;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3i;

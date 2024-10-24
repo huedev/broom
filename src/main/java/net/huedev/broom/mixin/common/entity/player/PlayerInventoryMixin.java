@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.common.entity;
+package net.huedev.broom.mixin.common.entity.player;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
