@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.server;
+package net.huedev.broom.mixin.server.network;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerInteractionManager;

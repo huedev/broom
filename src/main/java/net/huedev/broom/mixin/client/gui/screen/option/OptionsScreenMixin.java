@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.client.gui.screen;
+package net.huedev.broom.mixin.client.gui.screen.option;
 
 import net.huedev.broom.util.BroomOptions;
 import net.minecraft.client.gui.screen.Screen;

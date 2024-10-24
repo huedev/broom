@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.client;
+package net.huedev.broom.mixin.client.render;
 
 import net.huedev.broom.util.BroomOptions;
 import net.minecraft.block.material.Material;

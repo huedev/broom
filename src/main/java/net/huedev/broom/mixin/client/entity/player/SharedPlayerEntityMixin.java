@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.client.entity;
+package net.huedev.broom.mixin.client.entity.player;
 
 import net.minecraft.entity.player.ClientPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;

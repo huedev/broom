@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.client.render;
+package net.huedev.broom.mixin.client.render.block;
 
 import net.huedev.broom.block.BroomBlockProperties;
 import net.huedev.broom.block.BroomBlocks;

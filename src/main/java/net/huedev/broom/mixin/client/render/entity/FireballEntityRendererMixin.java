@@ -1,4 +1,4 @@
-package net.huedev.broom.mixin.client.render;
+package net.huedev.broom.mixin.client.render.entity;
 
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.entity.EntityRenderer;
