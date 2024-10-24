@@ -33,7 +33,7 @@ public class IceBlockMixin extends TranslucentBlock {
 
         if (!brokenBySilkTouchTool) {
             Material var7 = world.getMaterial(x, y - 1, z);
-            if (var7.blocksMovement() || var7.isFluid()) {
+            if (!world.dimension.isNether && (var7.blocksMovement() || var7.isFluid())) {
                 world.setBlock(x, y, z, Block.FLOWING_WATER.id);
             }
         }
