@@ -34,18 +34,6 @@ public class MonsterEntityMixin extends MobEntity {
 
             int internalSkyLightMinimum = 4;
             return internalLight <= internalSkyLightMinimum && blockLight == 0 && super.canSpawn();
-            /*
-            if (internalLight <= internalSkyLightMinimum && blockLight == 0) {
-                if (super.canSpawn()) {
-                    System.out.println("Spawned " + this.getClass().getName() + " at (" + var1 + ", " + var2 + ", " + var3 + ") with (" + skyLight + " sky, " + blockLight + " block, " + internalLight + " internal)");
-                    return true;
-                }
-                System.out.println("Failed to spawn " + this.getClass().getName() + " at (" + var1 + ", " + var2 + ", " + var3 + ") with (" + skyLight + " sky, " + blockLight + " block, " + internalLight + " internal)");
-                return false;
-            }
-            System.out.println("!!! Failed to spawn " + this.getClass().getName() + " at (" + var1 + ", " + var2 + ", " + var3 + ") with (" + skyLight + " sky, " + blockLight + " block, " + internalLight + " internal)");
-            return false;
-            */
         }
     }
 }
