@@ -22,6 +22,7 @@ public class AMIPlugin implements ModPluginProvider {
 
     @Override
     public void onAMIHelpersAvailable(AMIHelpers amiHelpers) {
+        /*
         ItemBlacklist itemBlacklist = amiHelpers.getItemBlacklist();
         itemBlacklist.addItemToBlacklist(new ItemStack(Block.SAPLING));
         itemBlacklist.addItemToBlacklist(new ItemStack(Block.FLOWING_WATER));
@@ -66,6 +67,7 @@ public class AMIPlugin implements ModPluginProvider {
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.SNOW_BRICK_DOUBLE_SLAB));
 
         itemBlacklist.addItemToBlacklist(new ItemStack(SpawnEggs.devSword));
+        */
     }
 
     @Override
