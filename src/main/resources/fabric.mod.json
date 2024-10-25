@@ -36,6 +36,9 @@
       "net.huedev.broom.Broom"
     ],
     "gcapi:factory_provider": [
+    ],
+    "alwaysmoreitems:plugin": [
+      "net.huedev.broom.init.AMIPlugin"
     ]
   },
   "mixins": [
