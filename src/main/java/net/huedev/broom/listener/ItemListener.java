@@ -2,6 +2,7 @@ package net.huedev.broom.listener;
 
 import net.huedev.broom.item.BroomItems;
 import net.huedev.broom.mixin.common.item.ItemAccessor;
+import net.huedev.broom.mixin.common.item.ArmorItemAccessor;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
@@ -87,6 +88,31 @@ public class ItemListener {
         event.registry.getEntry(Item.RECORD_CAT).value().setTranslationKey("music_disc");
 
         ((ItemAccessor)Item.SUGAR).broom_setHandheld(false);
+
+        ((ArmorItemAccessor)Item.LEATHER_HELMET).broom_setMaxProtection(1);
+        ((ArmorItemAccessor)Item.LEATHER_CHESTPLATE).broom_setMaxProtection(3);
+        ((ArmorItemAccessor)Item.LEATHER_LEGGINGS).broom_setMaxProtection(2);
+        ((ArmorItemAccessor)Item.LEATHER_BOOTS).broom_setMaxProtection(1);
+
+        ((ArmorItemAccessor)Item.CHAIN_HELMET).broom_setMaxProtection(2);
+        ((ArmorItemAccessor)Item.CHAIN_CHESTPLATE).broom_setMaxProtection(5);
+        ((ArmorItemAccessor)Item.CHAIN_LEGGINGS).broom_setMaxProtection(4);
+        ((ArmorItemAccessor)Item.CHAIN_BOOTS).broom_setMaxProtection(1);
+
+        ((ArmorItemAccessor)Item.IRON_HELMET).broom_setMaxProtection(2);
+        ((ArmorItemAccessor)Item.IRON_CHESTPLATE).broom_setMaxProtection(6);
+        ((ArmorItemAccessor)Item.IRON_LEGGINGS).broom_setMaxProtection(5);
+        ((ArmorItemAccessor)Item.IRON_BOOTS).broom_setMaxProtection(2);
+
+        ((ArmorItemAccessor)Item.DIAMOND_HELMET).broom_setMaxProtection(3);
+        ((ArmorItemAccessor)Item.DIAMOND_CHESTPLATE).broom_setMaxProtection(8);
+        ((ArmorItemAccessor)Item.DIAMOND_LEGGINGS).broom_setMaxProtection(6);
+        ((ArmorItemAccessor)Item.DIAMOND_BOOTS).broom_setMaxProtection(3);
+
+        ((ArmorItemAccessor)Item.GOLDEN_HELMET).broom_setMaxProtection(2);
+        ((ArmorItemAccessor)Item.GOLDEN_CHESTPLATE).broom_setMaxProtection(5);
+        ((ArmorItemAccessor)Item.GOLDEN_LEGGINGS).broom_setMaxProtection(3);
+        ((ArmorItemAccessor)Item.GOLDEN_BOOTS).broom_setMaxProtection(1);
 
         BroomItems.init();
     }

@@ -1,11 +1,15 @@
 package net.huedev.broom.mixin.common.entity.player;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,6 +29,9 @@ public class PlayerInventoryMixin {
 
     @Shadow
     public int selectedSlot;
+
+    @Shadow
+    public ItemStack[] armor;
 
     @Unique
     public int broom_getEmptyHotbarSlot() {
@@ -79,5 +86,17 @@ public class PlayerInventoryMixin {
                 }
             }
         }
+    }
+
+    @Overwrite
+    public int getTotalArmorDurability() {
+        int totalArmorProtection = 0;
+        for (ItemStack stack : this.armor) {
+            if (stack != null && stack.getItem() instanceof ArmorItem) {
+                int armorProtection = ((ArmorItem) stack.getItem()).maxProtection;
+                totalArmorProtection += armorProtection;
+            }
+        }
+        return totalArmorProtection;
     }
 }
