@@ -69,6 +69,7 @@ public class AMIPlugin implements ModPluginProvider {
         itemBlacklist.addItemToBlacklist(new ItemStack(Block.REPEATER));
         itemBlacklist.addItemToBlacklist(new ItemStack(Block.POWERED_REPEATER));
         itemBlacklist.addItemToBlacklist(new ItemStack(Block.LOCKED_CHEST));
+        itemBlacklist.addItemToBlacklist(new ItemStack(Block.NETHER_PORTAL));
 
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.PUMPKIN_CROPS));
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.STONE_DOUBLE_SLAB));
