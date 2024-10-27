@@ -22,6 +22,9 @@ public class RecipeListener {
                 // Remove vanilla slab crafting recipes
                 CraftingHelper.removeRecipe(Block.SLAB.asItem());
 
+                // Remove vanilla wool crafting recipes
+                CraftingHelper.removeRecipe(Block.WOOL.asItem());
+
                 // Stairs crafting recipes give 6 Stairs
                 CraftingHelper.removeRecipe(Block.WOODEN_STAIRS.asItem(), true);
                 CraftingHelper.removeRecipe(Block.COBBLESTONE_STAIRS.asItem(), true);
@@ -94,8 +97,8 @@ public class RecipeListener {
 
                 // 5 second fuel duration items (0.5 items)
                 FuelRegistry.addFuelTag(BroomItemTags.SAPLINGS, 100);
+                FuelRegistry.addFuelTag(BroomItemTags.WOOL, 100);
                 FuelRegistry.addFuelItem(Item.BOWL, 100);
-                FuelRegistry.addFuelItem(Block.WOOL.asItem(), 100);
                 FuelRegistry.addFuelItem(Block.DEAD_BUSH.asItem(), 100);
                 FuelRegistry.addFuelItem(BroomBlocks.WOODEN_BUTTON.asItem(), 100);
             }

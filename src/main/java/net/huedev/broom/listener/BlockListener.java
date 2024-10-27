@@ -1,5 +1,6 @@
 package net.huedev.broom.listener;
 
+import net.huedev.broom.block.BroomBlockTags;
 import net.huedev.broom.block.BroomBlocks;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
@@ -95,6 +96,24 @@ public class BlockListener {
 
         event.addBurnable(BroomBlocks.WOODEN_SLAB.id, 5, 20);
         event.addBurnable(BroomBlocks.WOODEN_DOUBLE_SLAB.id, 5, 20);
+
+        event.addBurnable(BroomBlocks.WHITE_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.ORANGE_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.MAGENTA_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.LIGHT_BLUE_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.YELLOW_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.LIME_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.PINK_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.GRAY_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.LIGHT_GRAY_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.CYAN_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.PURPLE_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.BLUE_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.BROWN_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.GREEN_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.RED_WOOL.id, 30, 60);
+        event.addBurnable(BroomBlocks.BLACK_WOOL.id, 30, 60);
+
         event.addBurnable(BroomBlocks.FENCE_GATE.id, 5, 20);
 
         event.addBurnable(BroomBlocks.COAL_BLOCK.id, 5, 5);

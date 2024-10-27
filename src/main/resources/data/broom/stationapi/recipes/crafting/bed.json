@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "YYY"
+  ],
+  "key": {
+    "X": {
+      "tag": "broom:wool"
+    },
+    "Y": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "result": {
+    "item": "minecraft:red_bed",
+    "count": 1
+  }
+}

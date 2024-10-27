@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "Y": {
+      "tag": "broom:wool"
+    }
+  },
+  "result": {
+    "item": "minecraft:painting",
+    "count": 1
+  }
+}

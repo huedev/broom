@@ -62,6 +62,22 @@ public class BroomBlocks {
     public static Block SNOW_BRICK_SLAB;
     public static Block SNOW_BRICK_DOUBLE_SLAB;
     public static Block SNOW_BRICK_STAIRS;
+    public static Block WHITE_WOOL;
+    public static Block ORANGE_WOOL;
+    public static Block MAGENTA_WOOL;
+    public static Block LIGHT_BLUE_WOOL;
+    public static Block YELLOW_WOOL;
+    public static Block LIME_WOOL;
+    public static Block PINK_WOOL;
+    public static Block GRAY_WOOL;
+    public static Block LIGHT_GRAY_WOOL;
+    public static Block CYAN_WOOL;
+    public static Block PURPLE_WOOL;
+    public static Block BLUE_WOOL;
+    public static Block BROWN_WOOL;
+    public static Block GREEN_WOOL;
+    public static Block RED_WOOL;
+    public static Block BLACK_WOOL;
     public static Block WOODEN_BUTTON;
     public static Block FENCE_GATE;
     public static Block IRON_TRAPDOOR;
@@ -161,6 +177,71 @@ public class BroomBlocks {
         SNOW_BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("snow_brick_double_slab"), BroomBlocks.SNOW_BRICKS);
         SNOW_BRICK_STAIRS = new TemplateStairsBlock(Broom.id("snow_brick_stairs"), BroomBlocks.SNOW_BRICKS)
                 .setTranslationKey(Broom.id("snow_brick_stairs"));
+
+        WHITE_WOOL = new TemplateBlock(Broom.id("white_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("white_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        ORANGE_WOOL = new TemplateBlock(Broom.id("orange_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("orange_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        MAGENTA_WOOL = new TemplateBlock(Broom.id("magenta_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("magenta_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        LIGHT_BLUE_WOOL = new TemplateBlock(Broom.id("light_blue_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("light_blue_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        YELLOW_WOOL = new TemplateBlock(Broom.id("yellow_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("yellow_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        LIME_WOOL = new TemplateBlock(Broom.id("lime_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("lime_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        PINK_WOOL = new TemplateBlock(Broom.id("pink_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("pink_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        GRAY_WOOL = new TemplateBlock(Broom.id("gray_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("gray_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        LIGHT_GRAY_WOOL = new TemplateBlock(Broom.id("light_gray_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("light_gray_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        CYAN_WOOL = new TemplateBlock(Broom.id("cyan_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("cyan_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        PURPLE_WOOL = new TemplateBlock(Broom.id("purple_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("purple_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        BLUE_WOOL = new TemplateBlock(Broom.id("blue_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("blue_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        BROWN_WOOL = new TemplateBlock(Broom.id("brown_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("brown_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        GREEN_WOOL = new TemplateBlock(Broom.id("green_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("green_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        RED_WOOL = new TemplateBlock(Broom.id("red_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("red_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
+        BLACK_WOOL = new TemplateBlock(Broom.id("black_wool"), Material.WOOL)
+                .setTranslationKey(Broom.id("black_wool"))
+                .setHardness(Block.WOOL.getHardness())
+                .setSoundGroup(Block.WOOL_SOUND_GROUP);
 
         WOODEN_BUTTON = new BroomButtonBlock(Broom.id("wooden_button"), Block.PLANKS, 30);
 
@@ -270,6 +351,28 @@ public class BroomBlocks {
             case 2 -> WOODEN_DOUBLE_SLAB;
             case 3 -> COBBLESTONE_DOUBLE_SLAB;
             default -> POLISHED_STONE_DOUBLE_SLAB;
+        };
+    }
+
+    public static Block getWoolFromColor(int color) {
+        return switch (color) {
+            case 0 -> WHITE_WOOL;
+            case 1 -> ORANGE_WOOL;
+            case 2 -> MAGENTA_WOOL;
+            case 3 -> LIGHT_BLUE_WOOL;
+            case 4 -> YELLOW_WOOL;
+            case 5 -> LIME_WOOL;
+            case 6 -> PINK_WOOL;
+            case 7 -> GRAY_WOOL;
+            case 8 -> LIGHT_GRAY_WOOL;
+            case 9 -> CYAN_WOOL;
+            case 10 -> PURPLE_WOOL;
+            case 11 -> BLUE_WOOL;
+            case 12 -> BROWN_WOOL;
+            case 13 -> GREEN_WOOL;
+            case 14 -> RED_WOOL;
+            case 15 -> BLACK_WOOL;
+            default -> throw new IllegalStateException("Unexpected value: " + color);
         };
     }
 }

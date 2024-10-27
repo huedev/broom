@@ -1,6 +1,7 @@
 {
   "values": [
     "minecraft:grass",
-    "minecraft:dead_bush"
+    "minecraft:dead_bush",
+    "#broom:wool"
   ]
 }

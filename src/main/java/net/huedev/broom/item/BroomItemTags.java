@@ -10,6 +10,7 @@ public class BroomItemTags {
     public static final TagKey<Item> LEAVES = getDefault("leaves");
     public static final TagKey<Item> LOGS = getDefault("logs");
     public static final TagKey<Item> SAPLINGS = getDefault("saplings");
+    public static final TagKey<Item> WOOL = get("wool");
 
     private static TagKey<Item> get(String name) {
         return TagKey.of(ItemRegistry.KEY, Broom.id(name));
