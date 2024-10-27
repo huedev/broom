@@ -77,6 +77,7 @@ public class AMIPlugin implements ModPluginProvider {
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.SANDSTONE_DOUBLE_SLAB));
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.WOODEN_DOUBLE_SLAB));
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.COBBLESTONE_DOUBLE_SLAB));
+        itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.MOSSY_COBBLESTONE_DOUBLE_SLAB));
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.BRICK_DOUBLE_SLAB));
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.POLISHED_STONE_BRICK_DOUBLE_SLAB));
         itemBlacklist.addItemToBlacklist(new ItemStack(BroomBlocks.SANDSTONE_BRICK_DOUBLE_SLAB));

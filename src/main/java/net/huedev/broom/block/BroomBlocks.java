@@ -45,6 +45,9 @@ public class BroomBlocks {
     public static Block WOODEN_DOUBLE_SLAB;
     public static Block COBBLESTONE_SLAB;
     public static Block COBBLESTONE_DOUBLE_SLAB;
+    public static Block MOSSY_COBBLESTONE_SLAB;
+    public static Block MOSSY_COBBLESTONE_DOUBLE_SLAB;
+    public static Block MOSSY_COBBLESTONE_STAIRS;
     public static Block BRICK_SLAB;
     public static Block BRICK_DOUBLE_SLAB;
     public static Block BRICK_STAIRS;
@@ -138,6 +141,11 @@ public class BroomBlocks {
 
         COBBLESTONE_SLAB = new BroomSlabBlock(Broom.id("cobblestone_slab"), Block.COBBLESTONE);
         COBBLESTONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("cobblestone_double_slab"), Block.COBBLESTONE);
+
+        MOSSY_COBBLESTONE_SLAB = new BroomSlabBlock(Broom.id("mossy_cobblestone_slab"), Block.MOSSY_COBBLESTONE);
+        MOSSY_COBBLESTONE_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("mossy_cobblestone_double_slab"), Block.MOSSY_COBBLESTONE);
+        MOSSY_COBBLESTONE_STAIRS = new TemplateStairsBlock(Broom.id("mossy_cobblestone_stairs"), Block.MOSSY_COBBLESTONE)
+                .setTranslationKey(Broom.id("mossy_cobblestone_stairs"));
 
         BRICK_SLAB = new BroomSlabBlock(Broom.id("brick_slab"), Block.BRICKS);
         BRICK_DOUBLE_SLAB = new BroomDoubleSlabBlock(Broom.id("brick_double_slab"), Block.BRICKS);
@@ -272,6 +280,7 @@ public class BroomBlocks {
         connectSlabs(SANDSTONE_SLAB, SANDSTONE_DOUBLE_SLAB);
         connectSlabs(WOODEN_SLAB, WOODEN_DOUBLE_SLAB);
         connectSlabs(COBBLESTONE_SLAB, COBBLESTONE_DOUBLE_SLAB);
+        connectSlabs(MOSSY_COBBLESTONE_SLAB, MOSSY_COBBLESTONE_DOUBLE_SLAB);
         connectSlabs(BRICK_SLAB, BRICK_DOUBLE_SLAB);
         connectSlabs(STONE_SLAB, STONE_DOUBLE_SLAB);
         connectSlabs(POLISHED_STONE_BRICK_SLAB, POLISHED_STONE_BRICK_DOUBLE_SLAB);

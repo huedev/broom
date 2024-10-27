@@ -82,6 +82,31 @@ public class DyeItemMixin extends Item {
 
                 cir.setReturnValue(true);
             }
+
+            if (blockId == Block.MOSSY_COBBLESTONE.id) {
+                if (!world.isRemote) {
+                    boolean wasSpreadSuccessful = false;
+                    int spreadDistance = 2;
+                    for (int i = -spreadDistance; i <= spreadDistance; i++) {
+                        for (int j = -spreadDistance; j <= spreadDistance; j++) {
+                            if (Math.abs(i) == spreadDistance && Math.abs(j) == spreadDistance) {
+                                // Skip corners for a more natural shape
+                                continue;
+                            }
+                            if (world.getBlockId(x + i, y, z + j) == Block.COBBLESTONE.id && world.isAir(x + i, y + 1, z + j)) {
+                                world.setBlock(x + i, y, z + j, Block.MOSSY_COBBLESTONE.id);
+                                wasSpreadSuccessful = true;
+                            }
+                        }
+                    }
+
+                    if (wasSpreadSuccessful) {
+                        --stack.count;
+                    }
+                }
+
+                cir.setReturnValue(true);
+            }
         }
     }
 }
