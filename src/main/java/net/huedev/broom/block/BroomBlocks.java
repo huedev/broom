@@ -28,7 +28,7 @@ public class BroomBlocks {
     public static Block SPRUCE_SAPLING;
     public static Block BIRCH_SAPLING;
     public static Block CACAO_SAPLING;
-    public static Block GRASS;
+    public static Block TALL_GRASS;
     public static Block FERN;
     public static Block PUMPKIN;
     public static Block PUMPKIN_CROPS;
@@ -116,7 +116,7 @@ public class BroomBlocks {
         BIRCH_SAPLING = new BroomSaplingBlock(Broom.id("birch_sapling"), Block.SAPLING.getTexture(0, 2));
         CACAO_SAPLING = new BroomSaplingBlock(Broom.id("cacao_sapling"), Block.SAPLING.getTexture(0, 0));
 
-        GRASS = new BroomTallPlantBlock(Broom.id("grass"), Block.GRASS.getTexture(0, 1));
+        TALL_GRASS = new BroomTallPlantBlock(Broom.id("tall_grass"), Block.GRASS.getTexture(0, 1));
         FERN = new BroomTallPlantBlock(Broom.id("fern"), Block.GRASS.getTexture(0, 2));
 
         PUMPKIN = new BroomPumpkinBlock(Broom.id("pumpkin"), Material.PUMPKIN);
@@ -344,7 +344,7 @@ public class BroomBlocks {
         if (meta == 2) {
             return FERN;
         } else {
-            return GRASS;
+            return TALL_GRASS;
         }
     }
 

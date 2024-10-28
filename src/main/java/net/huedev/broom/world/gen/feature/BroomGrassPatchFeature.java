@@ -8,7 +8,7 @@ import net.modificationstation.stationapi.api.block.BlockState;
 import java.util.Random;
 
 public class BroomGrassPatchFeature extends Feature {
-    private static final BlockState STATE = BroomBlocks.GRASS.getDefaultState();
+    private static final BlockState STATE = BroomBlocks.TALL_GRASS.getDefaultState();
 
     @Override
     public boolean generate(World world, Random random, int x, int y, int z) {

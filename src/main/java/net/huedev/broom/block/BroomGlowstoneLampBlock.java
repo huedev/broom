@@ -12,7 +12,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 
 public class BroomGlowstoneLampBlock extends TemplateBlock {
     public BroomGlowstoneLampBlock(Identifier id) {
-        super(id, Material.GLASS);
+        super(id, BroomBlockMaterials.BUILDABLE_GLASS);
         setTranslationKey(id);
         setHardness(0.3F);
         setSoundGroup(GLASS_SOUND_GROUP);

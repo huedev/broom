@@ -41,7 +41,7 @@ public class ColorListener {
                 (item, damage) -> GrassColors.getColor(1.0F, 1.0F),
                 Block.GRASS_BLOCK,
                 Block.GRASS,
-                BroomBlocks.GRASS,
+                BroomBlocks.TALL_GRASS,
                 BroomBlocks.FERN
         );
         event.itemColors.register(
