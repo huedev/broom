@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
+    "X  ",
     "XX ",
-    "XX "
+    "XXX"
   ],
   "key": {
     "X": {
-      "item": "minecraft:sandstone"
+      "item": "broom:stone_bricks"
     }
   },
   "result": {
-    "item": "broom:sandstone_bricks",
-    "count": 4
+    "item": "broom:stone_brick_stairs",
+    "count": 6
   }
 }

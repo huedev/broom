@@ -50,7 +50,7 @@ public class ToolHelper {
         return isUsingItem(player) && player.inventory.getSelectedItem().getItem() instanceof ShearsItem;
     }
 
-    public static boolean isUsingWoodTool(PlayerEntity player) {
+    public static boolean isUsingWoodenTool(PlayerEntity player) {
         ItemStack stack = player.inventory.getSelectedItem();
         if (stack == null) {
             return false;
